@@ -31,5 +31,8 @@ https://docs.google.com/spreadsheets/d/1jqFwv39Wirbbg8z-cwUoJzyf0LHULWiUCNKVfV54
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-
+## 使用素材
+-  O-DAN https://o-dan.net/ja/
+-  loosedrawing https://loosedrawing.com/
+-  ソコスト https://soco-st.com/
+-  manypixels  https://www.manypixels.co/gallery
