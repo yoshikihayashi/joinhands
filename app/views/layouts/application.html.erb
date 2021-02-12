@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Joinhands</title>
+    <title>JOIN HANDS</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,45 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="top_body">
+    <footer class="top_footer">
+
+      <% if company_signed_in? %>
+        <li>
+          <%= link_to '投稿フォーム', new_project_path %>
+        </li>
+        <li>
+          <%= link_to 'マイページ', company_path(current_company.id) %>
+        </li>
+        <li>
+          <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "企業側新規登録", new_company_registration_path %>
+        </li>
+        <li>
+          <%= link_to "企業側ログイン", new_company_session_path %>
+        </li>
+      <% end %>
+      <% if influencer_signed_in? %>
+        <li>
+          <%= link_to "インフルエンサー側ログアウト", destroy_influencer_session_path, method: :delete %>
+        </li>
+        <li>
+          <%= link_to 'マイページ', influencer_path(current_influencer.id) %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "インフルエンサー側新規登録", new_influencer_registration_path %>
+        </li>
+        <li>
+          <%= link_to "インフルエンサー側ログイン", new_influencer_session_path %>
+        </li>
+      <% end %>
+    </footer>
+
     <%= yield %>
+
   </body>
 </html>

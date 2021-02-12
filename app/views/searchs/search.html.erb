@@ -1,0 +1,17 @@
+<% if @model == 'influencer' %>
+  <h3>【influencersモデルの検索結果】検索ワード：<%= @content %></h3>
+  <% influencers.each do |influencer| %>
+  <%= link_to influencer_path(influencer) do %>
+    <%= influencer.name %><br>
+  <% end %>
+<% end %>
+
+<% else @model == 'projects' %>
+  <h3>【projectsモデルの検索結果】検索ワード：<%= @content %></h3>
+    <% projects.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.details %></td>
+      </tr>
+    <% end %>
+<% end %>

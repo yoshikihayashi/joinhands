@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JOIN HANDS</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="modaal.min.css">
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="modaal.min.js"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <%= render 'searchs/form' %>
+      <% if company_signed_in? %>
+        <li>
+          <%= link_to 'インフルエンサー一覧', companies_path %>
+        </li>
+        <li>
+          <%= link_to '案件一覧', projects_path %>
+        </li>
+        <li>
+          <%= link_to '投稿フォーム', new_project_path %>
+        </li>
+        <li>
+          <%= link_to 'マイページ', company_path(current_company.id) %>
+        </li>
+        <li>
+          <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "企業側新規登録", new_company_registration_path %>
+        </li>
+        <li>
+          <%= link_to "企業側ログイン", new_company_session_path %>
+        </li>
+      <% end %>
+    </header>
+    for company page
+    <%= yield %>
+
+  </body>
+</html>

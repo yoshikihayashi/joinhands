@@ -1,0 +1,13 @@
+<% if influencer_signed_in? %>
+      <%if project.favorite?(current_influencer)%>
+          <%= link_to favorites_project_path(project), method: :delete ,remote: true do %>
+              <span style="color:red;">❤︎</span>
+          <%end%>
+      <%else%>
+
+          <%= link_to favorites_project_path(project), method: :post,remote: true do %>
+              <span>♡</span>
+          <%end%>
+      <%end%>
+  <%= project.favorited_influencers.count %>
+<% end %>
