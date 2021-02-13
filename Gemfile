@@ -67,3 +67,4 @@ gem "refile-mini_magick"
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-ui-rails'
+gem "rails-i18n"

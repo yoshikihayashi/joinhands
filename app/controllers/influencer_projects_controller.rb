@@ -1,10 +1,23 @@
 class InfluencerProjectsController < ApplicationController
-  layout 'company'
+  # layout 'company'
 
   def new
     @influencer_project = InfluencerProject.new
-   @influencer = Influencer.find(params[:influencer_id])
+    @influencer = Influencer.find(params[:influencer_id])
+  end
 
+  def show
+    @influencer_project = InfluencerProject.find(params[:id])
+    if current_influencer && current_influencer.id == @influencer_project.influencer_id
+      @influencer_project.checked = true
+      @influencer_project.save
+    end
+  end
+  
+  def update
+    @influencer_project = InfluencerProject.find(params[:id])
+    @influencer_project.update(status: params[:status])
+    redirect_to influencers_pa
   end
 
   def create

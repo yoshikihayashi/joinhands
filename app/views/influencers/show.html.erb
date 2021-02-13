@@ -9,7 +9,7 @@
           <%= link_to "戻る", influencers_path %>
         <% end %>
       <% elsif company_signed_in? %>
-        <%= link_to "申請",  influencer_projects_new_path(influencer_id: @influencer) %>
+        <%= link_to "申請",  new_influencer_project_path(influencer_id: @influencer) %>
         <%= link_to "戻る", companies_path %>
       <% end %>
     </div>

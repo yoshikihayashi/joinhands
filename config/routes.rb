@@ -22,8 +22,10 @@ Rails.application.routes.draw do
       delete 'favorites' => 'favorites#destroy'
     end
   end
-  get 'influencer_projects/new' => 'influencer_projects#new'
-  post 'influencer_projects/' => 'influencer_projects#create'
+  # get 'influencer_projects/new' => 'influencer_projects#new'
+  # post 'influencer_projects/' => 'influencer_projects#create'
+  # get 'influencer_projects/show' => 'influencer_projects#show'
+  resources :influencer_projects, only: [:new,:create,:show]
 
   resources :companies, only: [:show, :edit, :update, :destroy , :index]
   resources :influencers, only: [:create,:edit, :index, :show, :destroy, :update]

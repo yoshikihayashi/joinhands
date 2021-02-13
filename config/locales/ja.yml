@@ -1,0 +1,9 @@
+ja:
+  enums:
+    influencer_project:
+      status:
+        request: '申請中'
+        rejection: '却下'
+        approval: '承認'
+        completion: '完了'
+

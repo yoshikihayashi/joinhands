@@ -1,0 +1,5 @@
+class AddCheckedToInfluencerProject < ActiveRecord::Migration[5.2]
+  def change
+    add_column :influencer_projects, :checked, :boolean
+  end
+end
