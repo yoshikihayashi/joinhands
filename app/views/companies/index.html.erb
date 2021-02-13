@@ -1,12 +1,13 @@
-<h1>インフルエンサーの一覧</h1>
-
-<% @influencers.each do |influencer| %>
-  <div>
-    <%= attachment_image_tag(influencer, :image, :fill, 300, 300, format: 'jpeg', fallback: "sample-author1.jpg") %>
-      <%= link_to influencer_path(influencer.id) do %>
-        <p>名前：<%= influencer.nickname %></p>
-      <% end %>
-    <p>自己紹介文：<%= influencer.details %></p>
-    <p>登録日：<%= influencer.created_at.strftime('%Y/%m/%d') %></p>
+<h2 class="subject">インフルエンサー一覧</h2>
+  <div class="row">
+    <% @influencers.each do |influencer| %>
+      <div class="card">
+        <%= attachment_image_tag(influencer, :image, :fill, 300, 300, format: 'jpeg', fallback: "sample-author1.jpg") %>
+          <%= link_to influencer_path(influencer.id) do %>
+            <p>名前：<%= influencer.nickname %></p>
+          <% end %>
+        <p>自己紹介文：<%= influencer.details %></p>
+        <p>登録日：<%= influencer.created_at.strftime('%Y/%m/%d') %></p>
+      </div>
+    <% end %>
   </div>
-<% end %>

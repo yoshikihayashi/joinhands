@@ -1,7 +1,6 @@
 <h1>申請ページ</h1>
 <%= form_with url:  influencer_projects_path, local:true do |f| %>
-  <h4>説明文</h4>
-  <%= f.text_area :message %>
+  <%= f.text_area :message ,:placeholder=>"メッセージ" %>
   <%= f.collection_select(:project_id, current_company.projects, :id, :title) %>
   <%= f.hidden_field :influencer_id , value: @influencer.id%>
   <%= f.submit '投稿' %>

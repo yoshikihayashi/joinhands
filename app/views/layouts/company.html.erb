@@ -12,32 +12,36 @@
   </head>
 
   <body>
-    <header>
-      <%= render 'searchs/form' %>
-      <% if company_signed_in? %>
+    <header class="header-info">
+      <ul>
         <li>
-          <%= link_to 'インフルエンサー一覧', companies_path %>
+          <%= render 'searchs/form' %>
         </li>
-        <li>
-          <%= link_to '案件一覧', projects_path %>
-        </li>
-        <li>
-          <%= link_to '投稿フォーム', new_project_path %>
-        </li>
-        <li>
-          <%= link_to 'マイページ', company_path(current_company.id) %>
-        </li>
-        <li>
-          <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "企業側新規登録", new_company_registration_path %>
-        </li>
-        <li>
-          <%= link_to "企業側ログイン", new_company_session_path %>
-        </li>
-      <% end %>
+        <% if company_signed_in? %>
+          <li>
+            <%= link_to 'インフルエンサー一覧', companies_path %>
+          </li>
+          <li>
+            <%= link_to '案件一覧', projects_path %>
+          </li>
+          <li>
+            <%= link_to '投稿フォーム', new_project_path %>
+          </li>
+          <li>
+            <%= link_to 'マイページ', company_path(current_company.id) %>
+          </li>
+          <li>
+            <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "企業側新規登録", new_company_registration_path %>
+          </li>
+          <li>
+            <%= link_to "企業側ログイン", new_company_session_path %>
+          </li>
+        <% end %>
+      </ul>
     </header>
     for company page
     <%= yield %>

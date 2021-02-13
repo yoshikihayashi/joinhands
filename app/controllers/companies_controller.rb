@@ -8,7 +8,6 @@ class CompaniesController < ApplicationController
 
 
   def show
-    byebug
     @company = Company.find(params[:id])
     @projects = Project.where(company_id: current_company.id)
   end

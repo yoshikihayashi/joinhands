@@ -1,0 +1,15 @@
+<% if influencer_signed_in? %>
+  <li>
+    <%= link_to "インフルエンサー側ログアウト", destroy_influencer_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
+  </li>
+  <li>
+    <%= link_to 'マイページ', influencer_path(current_influencer.id) %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to "インフルエンサー側新規登録", new_influencer_registration_path %>
+  </li>
+  <li>
+    <%= link_to "インフルエンサー側ログイン", new_influencer_session_path %>
+  </li>
+<% end %>

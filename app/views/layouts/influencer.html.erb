@@ -10,12 +10,12 @@
   </head>
 
   <body>
-    <header>
+    <header class="header-info">
 
       <% if influencer_signed_in? %>
-
+      <ul>
         <li>
-          <%= link_to "インフルエンサー側ログアウト", destroy_influencer_session_path, method: :delete %>
+          <%= link_to "インフルエンサー側ログアウト", destroy_influencer_session_path, method: :delete , data: {confirm: "ログアウトしますか？"}%>
         </li>
         <li>
           <%= link_to 'マイページ', influencer_path(current_influencer.id) %>
@@ -27,7 +27,9 @@
         <li>
           <%= link_to "インフルエンサー側ログイン", new_influencer_session_path %>
         </li>
+      </ul>
       <% end %>
+      for influencer page
     </header>
 
     <%= yield %>

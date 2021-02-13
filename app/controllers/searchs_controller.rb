@@ -3,26 +3,17 @@ class SearchsController < ApplicationController
   def search
     @model = params["model"]
     @content = params["content"]
-    @method = params["method"]
-    @records = search_for(@model, @content, @method)
+    @records = search_for(@model, @content)
   end
 
   private
 
 
-  def search_for(model, content, method)
+  def search_for(model, content)
     if model == 'influencer'
-      if method == 'perfect'
-        Influencer.where(name: content)
-      else
-        Influencer.where('name LIKE ?', '%'+content+'%')
-      end
+      Influencer.where('nickname LIKE ?', '%'+content+'%')
     elsif model == 'project'
-      if method == 'perfect'
-        Project.where(title: content)
-      else
-        Project.where('title LIKE ?', '%'+content+'%')
-      end
+      Project.where('title LIKE ?', '%'+content+'%')
     end
   end
 

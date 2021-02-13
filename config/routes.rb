@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: 'homes#top'
+  get 'homes/company_info' => 'company_info'
+  get 'homes/influencer_info' => 'influencer_info'
 
   devise_for :influencers, controllers: {
     sessions:      'influencers/sessions',
@@ -25,6 +27,6 @@ Rails.application.routes.draw do
 
   resources :companies, only: [:show, :edit, :update, :destroy , :index]
   resources :influencers, only: [:create,:edit, :index, :show, :destroy, :update]
-  get 'companies/search', to: 'searchs#search'
+  get 'searchs/search', to: 'searchs#search'
 
 end

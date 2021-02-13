@@ -1,22 +1,24 @@
-<h1>MyPage</h1>
-<%= attachment_image_tag(@influencer, :image, :fill, 300, 300, format: 'jpeg', fallback: "sample-author1.jpg") %>
-<p>活動名 :<%= @influencer.nickname%></p>
-<p>自己紹介文 :<%= @influencer.details %></p>
-<p>登録日：<%= @influencer.created_at.strftime('%Y/%m/%d') %></p>
-
-  <% if influencer_signed_in? %>
-    <% if @influencer.id == current_influencer.id %>
-      <p><%= link_to "プロフィール編集", edit_influencer_path(@influencer) %></p>
-      <%= link_to "戻る", influencers_path %>
-    <% end %>
-  <% elsif company_signed_in? %>
-    <%= link_to "申請",  influencer_projects_new_path(influencer_id: @influencer) %>
-    <%= link_to "戻る", companies_path %>
-  <% end %>
-
-
-
-  <a href="#modal" class="modal">qqqqqqqqqqq</a>
-  <div id="modal" style="display:none;">
-	  <p>これはサンプルです。</p>
+<h2 class="subject">MyPage</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5">
+      <%= attachment_image_tag(@influencer, :image, :fill, 300, 300, format: 'jpeg', fallback: "sample-author1.jpg") %>
+      <% if influencer_signed_in? %>
+        <% if @influencer.id == current_influencer.id %>
+          <p><%= link_to "プロフィール編集", edit_influencer_path(@influencer) %></p>
+          <%= link_to "戻る", influencers_path %>
+        <% end %>
+      <% elsif company_signed_in? %>
+        <%= link_to "申請",  influencer_projects_new_path(influencer_id: @influencer) %>
+        <%= link_to "戻る", companies_path %>
+      <% end %>
+    </div>
+    <div class="col-lg-7">
+    <p>活動名 :<%= @influencer.nickname%></p>
+    <p>自己紹介文 :<%= @influencer.details %></p>
+    <p>登録日：<%= @influencer.created_at.strftime('%Y/%m/%d') %></p>
+    </div>
   </div>
+</div>
+
+

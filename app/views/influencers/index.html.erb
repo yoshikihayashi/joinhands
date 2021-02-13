@@ -1,19 +1,23 @@
-<h1>インフルエンサー側案件一覧</h1>
-<% @projects.each do |project| %>
-  <div>
-    <%= attachment_image_tag(project, :image, :fill, 300, 300, format: 'jpeg', fallback: "sample-author1.jpg") %>
-    <%= link_to project_path(project.id) do %>
-      <p>タイトル：<%= project.title %></p>
-    <% end %>
-    <p>報酬 : <%= project.price %></p>
-    <p>説明文：<%= project.details %></p>
-    <% project.tags.each do |tag| %>
-       <p><%= tag.name %></p>
-    <% end %>
-    <p>会社名：<%= project.company.company_name %></p>
-    <p>掲載日：<%= project.created_at.strftime('%Y/%m/%d') %></p>
-  </div>
-  <div id="favorites_buttons_<%= project.id %>">
-  <%= render partial: 'favorites/favorite', locals: { project: project} %>
-  </div>
-<% end %>
+<h2 class="subject">インフルエンサー側案件一覧</h2>
+<div class="row">
+  <% @projects.each do |project| %>
+    <div class="card">
+      <%= attachment_image_tag(project, :image, :fill, 300, 300, format: 'jpeg', fallback: "sample-author1.jpg") %>
+      <%= link_to project_path(project.id) do %>
+        <p>タイトル：<%= project.title %></p>
+      <% end %>
+      <p>報酬 : <%= project.price %></p>
+      <p>説明文：<%= project.details %></p>
+      <% project.tags.each do |tag| %>
+        <div class="tags">
+         <%= tag.name %>
+        </div>
+      <% end %>
+      <p>会社名：<%= project.company.company_name %></p>
+      <p>掲載日：<%= project.created_at.strftime('%Y/%m/%d') %></p>
+      <div id="favorites_buttons_<%= project.id %>">
+        <%= render partial: 'favorites/favorite', locals: { project: project} %>
+      </div>
+    </div>
+  <% end %>
+</div>

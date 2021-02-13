@@ -1,16 +1,22 @@
-<% @projects.each do |project| %>
-  <div>
-    <%= attachment_image_tag(project, :image, :fill, 300, 300, format: 'jpeg', fallback: "no-image.jpg") %>
-    <%= link_to project_path(project.id) do %>
-    <p>タイトル：<%= project.title %></p>
-    <% end %>
-    <p>報酬 : <%= project.price %></p>
-    <p>説明文：<%= project.details %></p>
-    <p>会社名：<%= project.company.company_name %></p>
-    <p>掲載日：<%= project.created_at.strftime('%Y/%m/%d') %></p>
-    <% project.tags.each do |tag| %>
-     <%= tag.name %>
+<h2 class="subject">すべての案件一覧</h2>
+  <div class="row">
+    <% @projects.each do |project| %>
+      <div class="card">
+        <%= attachment_image_tag(project, :image, :fill, 250, 250, format: 'jpeg', fallback: "no-image.jpg") %>
+        <%= link_to project_path(project.id) do %>
+        <p>タイトル：<%= project.title %></p>
+        <% end %>
+        <p>報酬 : <%= project.price %></p>
+        <p>説明文：<%= project.details %></p>
+        <p>会社名：<%= project.company.company_name %></p>
+        <p>掲載日：<%= project.created_at.strftime('%Y/%m/%d') %></p>
+        <% project.tags.each do |tag| %>
+          <div class="tags">
+           <%= tag.name %>
+          </div>
+        <% end %>
+      <p>お気に入り: <%= project.favorited_influencers.count %></p>
+      </div>
     <% end %>
   </div>
-  <p>いいね数 : <%= project.favorited_influencers.count %></p>
-<% end %>
+

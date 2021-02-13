@@ -1,22 +1,30 @@
 
-<h1>MyPage</h1>
-<p>会社名 :<%= @company.company_name %></p>
-<p>会社概要 :<%= @company.business_detail %></p>
-<p>従業員数 :<%= @company.employee_number %></p>
-<p>代表者名 :<%= @company.representative_name  %></p>
-<p>登録日：<%= @company.created_at.strftime('%Y/%m/%d') %></p>
+<h2 class="subject">MyPage</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5">
+      <p>会社名 :<%= @company.company_name %></p>
+      <p>会社概要 :<%= @company.business_detail %></p>
+      <p>従業員数 :<%= @company.employee_number %></p>
+      <p>代表者名 :<%= @company.representative_name  %></p>
+      <p>登録日：<%= @company.created_at.strftime('%Y/%m/%d') %></p>
+      <% if @company.id == current_company.id %>
+        <p><%= link_to "プロフィール編集", edit_company_path(@company) %></p>
+      <% end %>
+      <%= link_to "戻る", companies_path %>
+    </div>
 
-<% if @company.id == current_company.id %>
-    <p><%= link_to "プロフィール編集", edit_company_path(@company) %></p>
-  <% end %>
-<%= link_to "戻る", companies_path %>
-<% @projects.each do |project| %>
-<div>
-  <%= link_to project_path(project.id) do %>
-    <p>タイトル：<%= project.title %></p>
-  <% end %>
-  <p>説明文：<%= project.details %></p>
+    <div class="col-lg-7">
+      <% @projects.each do |project| %>
+      <div>
+        <%= link_to project_path(project.id) do %>
+          <p>タイトル：<%= project.title %></p>
+        <% end %>
+        <p>説明文：<%= project.details %></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-<% end %>
 
 

@@ -1,0 +1,19 @@
+
+<% if company_signed_in? %>
+  <li>
+    <%= link_to '投稿フォーム', new_project_path %>
+  </li>
+  <li>
+    <%= link_to 'マイページ', company_path(current_company.id) %>
+  </li>
+  <li>
+    <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to "企業側新規登録", new_company_registration_path %>
+  </li>
+  <li>
+    <%= link_to "企業側ログイン", new_company_session_path %>
+  </li>
+<% end %>
