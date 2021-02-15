@@ -26,7 +26,7 @@ const button = document.querySelector('.btn')
 const form   = document.querySelector('.form')
 
 button.addEventListener('click', function() {
-   form.classList.add('form--no') 
+   form.classList.add('form--no')
 });
 $(function(){
     $('.js-modal-open').on('click',function(){

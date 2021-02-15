@@ -1,16 +1,24 @@
-<% if @model == 'influencer' %>
-  <h3>検索ワード：<%= @content %></h3>
-  <% @records.each do |influencer| %>
-    <%= attachment_image_tag(influencer, :image, :fill, 300, 300, format: 'jpeg', fallback: "sample-author1.jpg") %>
-    <%= influencer.nickname %><br>
-  <% end %>
-<% else @model == 'projects' %>
-  <h3>検索ワード：<%= @content %></h3>
-    <% @records.each do |project| %>
-    <%= attachment_image_tag project, :image, format: 'jpeg', size: "200x200" %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.details %></td>
-      </tr>
+
+
+  <% if @model == 'influencer' %>
+    <h2 class="subject">検索ワード：インフルエンサー : <%= @content %></h2>
+    <% @records.each do |influencer| %>
+      <div class="card">
+        <%= attachment_image_tag influencer, :image, format: 'jpeg',size: "250x250" %>
+        <%#= link_to project_path(@project.id) do %>
+          <%= influencer.nickname %><br>
+        <%# end %>
+      </div>
     <% end %>
-<% end %>
+  <% else @model == 'projects' %>
+    <h2 class="subject">検索ワード：案件 : <%= @content %></h2>
+      <% @records.each do |project| %>
+      <div class="card">
+      <%= attachment_image_tag project, :image, format: 'jpeg', size: "250x250" %>
+        <tr>
+          <td><%= project.title %></td>
+          <td><%= project.details %></td>
+        </tr>
+      </div>
+      <% end %>
+  <% end %>

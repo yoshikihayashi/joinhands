@@ -20,6 +20,9 @@
         <li>
           <%= link_to 'マイページ', influencer_path(current_influencer.id) %>
         </li>
+        <li>
+          <%= link_to '仮ボタン', influencer_project_path(current_influencer.id) %>
+        </li>
       <% else %>
         <li>
           <%= link_to "インフルエンサー側新規登録", new_influencer_registration_path %>

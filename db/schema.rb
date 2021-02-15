@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_075535) do
+ActiveRecord::Schema.define(version: 2021_02_14_053955) do
 
   create_table "companies", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -64,6 +64,23 @@ ActiveRecord::Schema.define(version: 2021_02_13_075535) do
     t.string "password"
     t.index ["email"], name: "index_influencers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_influencers_on_reset_password_token", unique: true
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "project_id"
+    t.integer "influencer_id"
+    t.integer "company_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_notifications_on_company_id"
+    t.index ["influencer_id"], name: "index_notifications_on_influencer_id"
+    t.index ["project_id"], name: "index_notifications_on_project_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "projects", force: :cascade do |t|

@@ -5,4 +5,6 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects, dependent: :destroy
+  
+  
 end

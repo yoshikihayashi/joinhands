@@ -1,49 +1,41 @@
-<h2>Sign up</h2>
+<div class="user">
+  <header class="user__header">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+    <h1 class="user__title">新規登録</h1>
+  </header>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "influencers/shared/error_messages", resource: resource %>
+    <form class="form">
+      <div class="form__group">
+        <%= f.text_field :name, :placeholder=>"お名前",autofocus: true, autocomplete: "name" %>
+      </div>
+      <div class="form__group">
+        <%= f.text_field :name_kana, :placeholder=>"お名前かな",autofocus: true, autocomplete: "name_kana" %>
+      </div>
+      <div class="form__group">
+        <%= f.text_field :nickname, :placeholder=>"会社名",autofocus: true, autocomplete: "nickname" %>
+      </div>
+      <div class="form__group">
+        <%= f.text_field :phone_number,:placeholder=>"電話番号", autofocus: true, autocomplete: "phone_number" %>
+      </div>
+      <div class="form__group">
+        <%= f.text_field :address, :placeholder=>"住所",autofocus: true, autocomplete: "address" %>
+      </div>
+      <div class="form__group">
+        <%= f.email_field :email,:placeholder=>"Email", autofocus: true, autocomplete: "email" %>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "influencers/shared/error_messages", resource: resource %>
+      <div class="form__group">
+        <%= f.password_field :password,:placeholder=>"パスワード6文字数", autocomplete: "new-password" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :name , "名前" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-  <div class="field">
-    <%= f.label :name_kana, "名前(かな)" %><br />
-    <%= f.text_field :name_kana, autofocus: true, autocomplete: "name_kana" %>
-  </div>
-  <div class="field">
-    <%= f.label :nickname, "活動名" %><br />
-    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number, "電話番号" %><br />
-    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
-  </div>
-  <div class="field">
-    <%= f.label :address, "住所" %><br />
-    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-  </div>
-  <div class="field">
-    <%= f.label :email ,"メールアドレス"%><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field">
+        <%= f.password_field :password_confirmation,:placeholder=>"パスワード確認用", autocomplete: "new-password" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password ,"パスワード"%>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %>文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation,"パスワード確認用" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "influencers/shared/links" %>
+      <button class="btn" type="button">
+        <%= f.submit '登録する',class:"btn btn-primary" %>
+      </button>
+    </form>
+  <% end %>
+</div>

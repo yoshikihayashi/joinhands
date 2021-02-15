@@ -7,6 +7,8 @@ class Project < ApplicationRecord
   has_many :influencer_projects
   has_many :favorites, dependent: :destroy
   has_many :favorited_influencers, through: :favorites, source: :influencer
+  
+  has_many :notifications, dependent: :destroy
 
   has_many  :tag_relationships, dependent: :destroy
   has_many  :tags, through: :tag_relationships

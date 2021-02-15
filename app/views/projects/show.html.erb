@@ -1,15 +1,25 @@
-<div class="project-post">
-  <%= attachment_image_tag @project, :image, format: 'jpeg', size: "400x400" %>
-  <p>報酬 : <%= @project.price %></p>
-  <p>タイトル：<%= @project.title %></p>
-  <p>説明文：<%= @project.details %></p>
-  <p>会社名：<%= @project.company.company_name %></p>
-  <% @project.tags.each do |tag| %>
-     <%= tag.name %>
-  <% end %>
-  <p>掲載日：<%= @project.created_at.strftime('%Y/%m/%d') %></p>
-  <% if @project.company == current_company %>
-    <%= link_to "削除", project_path(@project), method: :delete %>
-  <% end %>
-  <%= link_to "戻る", projects_path %>
-</div>
+<h2 class="subject"><%= @project.title %></h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <%= link_to "戻る", projects_path %>
+        <% if @project.company == current_company %>
+          <%= link_to "削除", project_path(@project), method: :delete %>
+        <% end %>
+        <%= attachment_image_tag @project, :image, format: 'jpeg', size: "300x300" %>
+      </div>
+      <div class="col-lg-5">
+        <p>報酬 : <%= @project.price %></p>
+        <p>タイトル：<%= @project.title %></p>
+        <p>説明文：<%= @project.details %></p>
+        <p>お気に入り: <%= @project.favorited_influencers.count %></p>
+        <% @project.tags.each do |tag| %>
+          <div class="tags">
+            <%= tag.name %>
+          </div>
+        <% end %>
+        <p>会社名：<%= @project.company.company_name %></p>
+        <p>掲載日：<%= @project.created_at.strftime('%Y/%m/%d') %></p>
+      </div>
+    </div>
+  </div>

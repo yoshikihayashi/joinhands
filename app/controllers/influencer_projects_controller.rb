@@ -13,11 +13,11 @@ class InfluencerProjectsController < ApplicationController
       @influencer_project.save
     end
   end
-  
+
   def update
     @influencer_project = InfluencerProject.find(params[:id])
-    @influencer_project.update(status: params[:status])
-    redirect_to influencers_pa
+    @influencer_project.update(status: params[:influencer_project][:status].to_i)
+    redirect_to influencers_path
   end
 
   def create

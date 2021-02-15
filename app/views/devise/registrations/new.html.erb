@@ -3,38 +3,38 @@
     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
     <h1 class="user__title">新規登録</h1>
   </header>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <form class="form">
-      <div class="form__group">
-        <%= f.text_field :company_name , :placeholder=>"会社名", autofocus: true , :class => 'form__input' %>
-      </div>
-      <div class="form__group">
-        <%= f.text_field :representative_name , :placeholder=>"代表者名", autofocus: true , :class => 'form__input' %>
-      </div>
-      <div class="form__group">
-        <%= f.text_field :business_detail , :placeholder=>"事業内容", autofocus: true , :class => 'form__input' %>
-      </div>
-      <div class="form__group">
-        <%= f.text_field :employee_number , :placeholder=>"従業員数", autofocus: true , :class => 'form__input' %>
-      </div>
-      <div class="form__group">
-        <%= f.text_field :phone_number , :placeholder=>"電話番号", autofocus: true , :class => 'form__input' %>
-      </div>
-      <div class="form__group">
-        <%= f.text_field :email , :placeholder=>"Email", autofocus: true , :class => 'form__input' %>
-      </div>
-      <div class="form__group">
-        <%= f.text_field :password , :placeholder=>"Password", autofocus: true , :class => 'form__input' %>
-      </div>
-      <div class="form__group">
-        <%= f.text_field :password_confirmation , :placeholder=>"Password", autofocus: true , :class => 'form__input' %>
-      </div>
-      <button class="btn" type="button">
-        <%= f.submit "登録する" %>
-      </button>
-<% end %>
-<%= render "devise/shared/links" %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <form class="form">
+        <div class="form__group">
+          <%= f.text_field :company_name , :placeholder=>"会社名", autofocus: true , :class => 'form__input' %>
+        </div>
+        <div class="form__group">
+          <%= f.text_field :representative_name , :placeholder=>"代表者名", autofocus: true , :class => 'form__input' %>
+        </div>
+        <div class="form__group">
+          <%= f.text_field :business_detail , :placeholder=>"事業内容", autofocus: true , :class => 'form__input' %>
+        </div>
+        <div class="form__group">
+          <%= f.text_field :employee_number , :placeholder=>"従業員数", autofocus: true , :class => 'form__input' %>
+        </div>
+        <div class="form__group">
+          <%= f.text_field :phone_number , :placeholder=>"電話番号", autofocus: true , :class => 'form__input' %>
+        </div>
+        <div class="form__group">
+          <%= f.text_field :email , :placeholder=>"Email", autofocus: true , :class => 'form__input' %>
+        </div>
+        <div class="form__group">
+          <%= f.text_field :password , :placeholder=>"Password", autofocus: true , :class => 'form__input' %>
+        </div>
+        <div class="form__group">
+          <%= f.text_field :password_confirmation , :placeholder=>"Password", autofocus: true , :class => 'form__input' %>
+        </div>
+        <button class="btn" type="button">
+          <%= f.submit '登録する',class:"btn btn-primary" %>
+        </button>
+    </form>
+  <% end %>
 </div>
 
 

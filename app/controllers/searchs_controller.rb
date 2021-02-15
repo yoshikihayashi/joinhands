@@ -1,4 +1,5 @@
 class SearchsController < ApplicationController
+  layout 'company'
 
   def search
     @model = params["model"]

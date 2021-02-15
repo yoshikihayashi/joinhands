@@ -1,15 +1,53 @@
-<% if influencer_signed_in? %>
-  <li>
-    <%= link_to "インフルエンサー側ログアウト", destroy_influencer_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
-  </li>
-  <li>
-    <%= link_to 'マイページ', influencer_path(current_influencer.id) %>
-  </li>
-<% else %>
-  <li>
-    <%= link_to "インフルエンサー側新規登録", new_influencer_registration_path %>
-  </li>
-  <li>
-    <%= link_to "インフルエンサー側ログイン", new_influencer_session_path %>
-  </li>
-<% end %>
+<header class="header-info">
+  <% if influencer_signed_in? %>
+  <ul>
+    <li>
+      <%= link_to "インフルエンサー側ログアウト", destroy_influencer_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
+    </li>
+    <li>
+      <%= link_to 'マイページ', influencer_path(current_influencer.id) %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to "インフルエンサー側新規登録", new_influencer_registration_path %>
+    </li>
+    <li>
+      <%= link_to "インフルエンサー側ログイン", new_influencer_session_path %>
+    </li>
+  </ul>
+  <% end %>
+</header>
+  
+<div class="cp_bgpattern20">
+  <div class="container">
+    <div class="box">
+      <div class="img">
+        <%= image_tag 'Social_media_adv_PNG', class:'info_img' ,:size => '200x200'%>
+      </div>
+      <div class="text-box">
+        <h2 class="marker">見出しが入ります</h2>
+        <p>テキストが入ります。</p>
+      </div>
+    </div>
+     
+    <div class="box">
+      <div class="img">
+        <p><%= image_tag 'Instagram_PNG', class:'info_img' ,:size => '200x200'%></p>
+      </div>
+      <div class="text-box">
+        <h2 class="marker">見出しが入ります</h2>
+        <p>テキストが入ります。</p>
+      </div>
+    </div>
+      
+    <div class="box">
+      <div class="img">
+        <%= image_tag 'Business_PNG', class:'info_img' ,:size => '200x200'%>
+      </div>
+      <div class="text-box">
+        <h2 class="marker">見出しが入ります</h2>
+        <p>テキストが入ります。</p>
+      </div>
+    </div>
+  </div>
+</div>
