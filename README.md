@@ -36,4 +36,4 @@ https://docs.google.com/spreadsheets/d/1jqFwv39Wirbbg8z-cwUoJzyf0LHULWiUCNKVfV54
 -  loosedrawing https://loosedrawing.com/
 -  ソコスト https://soco-st.com/
 -  manypixels  https://www.manypixels.co/gallery
--  freepik  https://jp.freepik.com/
+-  isometric  https://isometric.online/
