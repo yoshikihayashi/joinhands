@@ -22,12 +22,13 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-const button = document.querySelector('.btn')
-const form   = document.querySelector('.form')
+var button = document.querySelector('.btn')
+var form   = document.querySelector('.form')
 
 button.addEventListener('click', function() {
    form.classList.add('form--no')
 });
+
 $(function(){
     $('.js-modal-open').on('click',function(){
         $('.js-modal').fadeIn();

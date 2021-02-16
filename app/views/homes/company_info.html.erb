@@ -1,19 +1,43 @@
+<header class="header-info">
+  <% if company_signed_in? %>
+    <ul>
+      <li>
+        <%= link_to '投稿フォーム', new_project_path %>
+      </li>
+      <li>
+        <%= link_to 'マイページ', company_path(current_company.id) %>
+      </li>
+      <li>
+        <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
+      </li>
+  <% else %>
+      <li>
+        <%= link_to "企業側新規登録", new_company_registration_path %>
+      </li>
+      <li>
+        <%= link_to "企業側ログイン", new_company_session_path %>
+      </li>
+    </ul>
+  <% end %>
+</header>
+<div class="cp_bgpattern20">
+  <div class="info-title">
+    <p class="marker-info">インフルエンサーと企業様を簡単にマッチング！</p>
+  </div>
+  <div class="info-company">
+    <p>商品やサービスをもっと広めたい！</p>
+    <p>なにかお仕事になることないかな?</p>
+  </div>
+  <div style="text-align: center">
+    <%= image_tag 'g0855.png', class:'info_img' ,:size => '200x200'%>
+    <%= image_tag '7685.png', class:'info_img' ,:size => '80x80',:style =>"margin-top: 80px"%>
+    <%= image_tag 'g0782.png', class:'info_img' ,:size => '220x220'%>
+  </div>
+  <div class="info2-company">
+    <p>インフルエンサーマーケティングを<br>圧倒的簡単に！</p>
+    <p>低コストでインフルエンサーに</br>PRしていただくことができます！</p>
+    <p>影響力のあるインフルエンサーのSNS発信は</br>ファンにとって信頼度の高い広告となります！</p>
+  </div>
 
-<% if company_signed_in? %>
-  <li>
-    <%= link_to '投稿フォーム', new_project_path %>
-  </li>
-  <li>
-    <%= link_to 'マイページ', company_path(current_company.id) %>
-  </li>
-  <li>
-    <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
-  </li>
-<% else %>
-  <li>
-    <%= link_to "企業側新規登録", new_company_registration_path %>
-  </li>
-  <li>
-    <%= link_to "企業側ログイン", new_company_session_path %>
-  </li>
-<% end %>
+
+</div>

@@ -1,41 +1,43 @@
-<div class="user">
-  <header class="user__header">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
-    <h1 class="user__title">新規登録</h1>
-  </header>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "influencers/shared/error_messages", resource: resource %>
-    <form class="form">
-      <div class="form__group">
-        <%= f.text_field :name, :placeholder=>"お名前",autofocus: true, autocomplete: "name" %>
-      </div>
-      <div class="form__group">
-        <%= f.text_field :name_kana, :placeholder=>"お名前かな",autofocus: true, autocomplete: "name_kana" %>
-      </div>
-      <div class="form__group">
-        <%= f.text_field :nickname, :placeholder=>"会社名",autofocus: true, autocomplete: "nickname" %>
-      </div>
-      <div class="form__group">
-        <%= f.text_field :phone_number,:placeholder=>"電話番号", autofocus: true, autocomplete: "phone_number" %>
-      </div>
-      <div class="form__group">
-        <%= f.text_field :address, :placeholder=>"住所",autofocus: true, autocomplete: "address" %>
-      </div>
-      <div class="form__group">
-        <%= f.email_field :email,:placeholder=>"Email", autofocus: true, autocomplete: "email" %>
-      </div>
+<div class="body_group">
+  <div class="user">
+    <header class="user__header">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+      <h1 class="user__title">新規登録</h1>
+    </header>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "influencers/shared/error_messages", resource: resource %>
+      <form class="form">
+        <div class="form__group">
+          <%= f.text_field :name, :placeholder=>"お名前",autofocus: true, :class => 'form__input'  %>
+        </div>
+        <div class="form__group">
+          <%= f.text_field :name_kana, :placeholder=>"お名前かな",autofocus: true, :class => 'form__input'  %>
+        </div>
+        <div class="form__group">
+          <%= f.text_field :nickname, :placeholder=>"活動名",autofocus: true, :class => 'form__input'  %>
+        </div>
+        <div class="form__group">
+          <%= f.text_field :phone_number,:placeholder=>"電話番号", autofocus: true, :class => 'form__input'  %>
+        </div>
+        <div class="form__group">
+          <%= f.text_field :address, :placeholder=>"住所",autofocus: true, :class => 'form__input'  %>
+        </div>
+        <div class="form__group">
+          <%= f.email_field :email,:placeholder=>"Email", autofocus: true, :class => 'form__input'  %>
+        </div>
 
-      <div class="form__group">
-        <%= f.password_field :password,:placeholder=>"パスワード6文字数", autocomplete: "new-password" %>
-      </div>
+        <div class="form__group">
+          <%= f.password_field :password,:placeholder=>"Password", :class => 'form__input'  %>
+        </div>
 
-      <div class="field">
-        <%= f.password_field :password_confirmation,:placeholder=>"パスワード確認用", autocomplete: "new-password" %>
-      </div>
+        <div class="field">
+          <%= f.password_field :password_confirmation,:placeholder=>"Password", :class => 'form__input'  %>
+        </div>
 
-      <button class="btn" type="button">
-        <%= f.submit '登録する',class:"btn btn-primary" %>
-      </button>
-    </form>
-  <% end %>
+        <button class="btn" type="button">
+          <%= f.submit '登録する',class:"btn btn-primary" %>
+        </button>
+      </form>
+    <% end %>
+  </div>
 </div>

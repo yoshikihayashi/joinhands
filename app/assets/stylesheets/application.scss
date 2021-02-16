@@ -34,9 +34,37 @@ li:hover{
   // transform: scale(1.05);
 }
 // インフォメーション
+.info-company{
+  p{
+    background: #FFF0F5;
+    display: inline-block;
+    padding: 30px;
+    margin-inline-start: 268px;
+  }
+}
+.info2-company{
+  p{
+    background: #FFF0F5;
+    display: inline-block;
+    padding: 30px;
+    margin-inline-start: 124px;
+    text-align: center;
+  }
+}
 .cp_bgpattern20 {
 	background-color: #FEECD2;
+	height: 750px;
 }
+.info-title{
+  text-align: center;
+  padding: 80px;
+  font-size: 1.6rem;
+}
+.marker-info{
+  background:linear-gradient(transparent 75%, #ff7f7f 75%);
+  font-weight:bold;
+}
+
 .box {
   display: flex;
   padding:20px;
@@ -55,7 +83,7 @@ li:hover{
   width:calc(100% - 320px);
   background: white;
   padding: 50px;
-  margin: 0 auto;
+  text-align: center;
 }
 .img {
   width:300px;
@@ -84,19 +112,19 @@ li:hover{
   cursor: pointer;
   filter: grayscale(100%);
   transition-duration: 0.5s;
+  margin-top: 50px;
 }
 .top_img:hover{
   filter: grayscale(0);
   transition-duration: 0.5s;
 }
-.top_body{
-  // background-color: rgba(0, 0, 0, 0.5);
-}
+
 .top_footer{
-  background: #333333;
-  color: #ffffff;
-  height: 150px;
-  margin-top: 50px;
+  margin-top: 30px;
+  text-align: center;
+  .btn-danger{
+    font-size: 30px;
+  }
 
 }
 // 商品一覧ページ
@@ -201,15 +229,15 @@ $color-primary: #ABA194;
     box-sizing: border-box;
 }
 
-// body {
-//     font-family: $font-family;
-//     font-size: $font-size;
-//     background-size: 200% 100% !important;
-//     animation: move 10s ease infinite;
-//     transform: translate3d(0, 0, 0);
-//     background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
-//     height: 100vh
-// }
+.body_group {
+    font-family: $font-family;
+    font-size: $font-size;
+    background-size: 200% 100% !important;
+    animation: move 10s ease infinite;
+    transform: translate3d(0, 0, 0);
+    background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
+    height: 100vh
+}
 
 .user {
     width: 90%;
@@ -226,7 +254,6 @@ $color-primary: #ABA194;
 
 .user__title {
     font-size: $font-size;
-    margin-bottom: -10px;
     font-weight: 500;
     color: white;
 }
