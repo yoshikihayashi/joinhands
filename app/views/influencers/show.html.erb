@@ -2,8 +2,8 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-5">
-      <% if influencer_signed_in? %>
       <%= attachment_image_tag(@influencer, :image, :fill, 300, 300, format: 'jpeg', fallback: "sample-author1.jpg") %>
+      <% if influencer_signed_in? %>
         <% if @influencer.id == current_influencer.id %>
           <p><%= link_to "プロフィール編集", edit_influencer_path(@influencer) %></p>
           <%= link_to "戻る", influencers_path %>
