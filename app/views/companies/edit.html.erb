@@ -1,10 +1,32 @@
-<h2>プロフィール編集</h2>
-<%= form_with model:@company, local:true do |f| %>
-  <label for="inputName">会社名</label>
-  <%= f.text_field :company_name, autofocus: true, id:"inputName", placeholder:"会社名"%>
-  <label for="inputName">事業内容</label>
-  <%= f.text_field :business_detail, autofocus: true, id:"inputName", placeholder:"事業内容"%>
-  <label for="inputName">従業員数</label>
-  <%= f.text_field :employee_number, autofocus: true, id:"inputName", placeholder:"従業員数"%>
-  <%= f.submit "変更を保存" %>
-<% end %>
+<h2 class="subject">プロフィール編集</h2>
+  <div class="new-project">
+    <%= form_with model:@company, local:true do |f| %>
+    <table>
+      <tr>
+        <td><label for="inputName">会社名</label></td>
+        <td><%= f.text_field :company_name, autofocus: true, id:"inputName", placeholder:"会社名"%></td>
+      </tr>
+      <tr>
+        <td><label for="inputName">代表者名</label></td>
+        <td><%= f.text_field :representative_name, autofocus: true, id:"inputName", placeholder:"代表者名"%></td>
+      </tr>
+      <tr>
+        <td><label for="inputName">事業内容</label></td>
+        <td><%= f.text_field :business_detail, autofocus: true, id:"inputName", placeholder:"事業内容"%></td>
+      </tr>
+      <tr>
+        <td><label for="inputName">従業員数</label></td>
+        <td><%= f.text_field :employee_number, autofocus: true, id:"inputName", placeholder:"従業員数"%></td>
+      </tr>
+      <tr>
+        <td><label for="inputName">Email</label></td>
+        <td><%= f.text_field :email, autofocus: true, id:"inputName", placeholder:"Email"%></td>
+      </tr>
+      <tr>
+        <td><label for="inputName">電話番号</label></td>
+        <td><%= f.text_field :phone_number, autofocus: true, id:"inputName", placeholder:"電話番号"%></td>
+      </tr>
+    </table>
+      <div class="table-btn"><%= f.submit "変更を保存",class:"btn btn-primary" %></div>
+    <% end %>
+  </div>

@@ -7,10 +7,11 @@ class Influencer < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
   has_many :favorited_projects, through: :favorites, source: :project
+
   has_many :influencer_projects
-  
-  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
-  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitorinfluencer_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visitedinflencer_id', dependent: :destroy
 
   def already_favorited?(project)
     self.favorites.exists?(project_id: project.id)

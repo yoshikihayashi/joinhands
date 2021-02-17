@@ -1,9 +1,32 @@
-<h2>プロフィール編集</h2>
-<%= form_with model:@influencer, local:true do |f| %>
-  <label for="inputName">活動名</label>
-  <%= f.text_field :nickname, autofocus: true, id:"inputName", placeholder:"活動名"%>
-  <%= f.text_field :details, autofocus: true, id:"inputName", placeholder:"自己紹介文"%>
-  <%= f.attachment_field :image %>
-  <%= f.submit "変更を保存" %>
-<% end %>
-<%= link_to "戻る", influencers_path %>
+<h2 class="subject">プロフィール編集</h2>
+<div class="new-project">
+  <%= form_with model:@influencer, local:true do |f| %>
+  <table>
+    <tr>
+      <td><%= f.attachment_field :image %></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :nickname, autofocus: true, id:"inputName", placeholder:"活動名"%></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :details, autofocus: true, id:"inputName", placeholder:"自己紹介文"%></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"氏名"%></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :name_kana, autofocus: true, id:"inputName", placeholder:"氏名かな"%></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :address, autofocus: true, id:"inputName", placeholder:"住所"%></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :email, autofocus: true, id:"inputName", placeholder:"Email"%></td>
+    </tr>
+    <tr>
+      <td><%= f.text_field :phone_number, autofocus: true, id:"inputName", placeholder:"電話番号"%></td>
+    </tr>
+  </table>
+    <div class="table-btn"><%= f.submit "変更を保存",class:"btn btn-primary" %></div>
+  <% end %>
+</div>

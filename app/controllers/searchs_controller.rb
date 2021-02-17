@@ -7,9 +7,8 @@ class SearchsController < ApplicationController
     @records = search_for(@model, @content)
   end
 
+
   private
-
-
   def search_for(model, content)
     if model == 'influencer'
       Influencer.where('nickname LIKE ?', '%'+content+'%')
@@ -17,7 +16,4 @@ class SearchsController < ApplicationController
       Project.where('title LIKE ?', '%'+content+'%')
     end
   end
-
-
-
 end

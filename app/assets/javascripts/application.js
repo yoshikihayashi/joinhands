@@ -22,20 +22,20 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-var button = document.querySelector('.btn')
-var form   = document.querySelector('.form')
+// var button = document.querySelector('.btn')
+// var form   = document.querySelector('.form')
 
-button.addEventListener('click', function() {
-   form.classList.add('form--no')
-});
+// button.addEventListener('click', function() {
+//   form.classList.add('form--no')
+// });
 
-$(function(){
-    $('.js-modal-open').on('click',function(){
-        $('.js-modal').fadeIn();
-        return false;
-    });
-    $('.js-modal-close').on('click',function(){
-        $('.js-modal').fadeOut();
-        return false;
-    });
-});
+// $(function(){
+//     $('.js-modal-open').on('click',function(){
+//         $('.js-modal').fadeIn();
+//         return false;
+//     });
+//     $('.js-modal-close').on('click',function(){
+//         $('.js-modal').fadeOut();
+//         return false;
+//     });
+// });

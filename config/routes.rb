@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   # get 'influencer_projects/show' => 'influencer_projects#show'
   resources :influencer_projects, only: [:new,:create,:show,:update]
 
+  resources :notifications, only: :index
+
   resources :companies, only: [:show, :edit, :update, :destroy , :index]
   resources :influencers, only: [:create,:edit, :index, :show, :destroy, :update]
   get 'searchs/search', to: 'searchs#search'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_14_053955) do
+ActiveRecord::Schema.define(version: 2021_02_17_035113) do
 
   create_table "companies", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_02_14_053955) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "checked"
+    t.boolean "company_checked"
   end
 
   create_table "influencers", force: :cascade do |t|
@@ -67,20 +68,22 @@ ActiveRecord::Schema.define(version: 2021_02_14_053955) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "visitor_id", null: false
-    t.integer "visited_id", null: false
     t.integer "project_id"
-    t.integer "influencer_id"
-    t.integer "company_id"
     t.string "action", default: "", null: false
-    t.boolean "checked", default: false, null: false
+    t.boolean "read", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_notifications_on_company_id"
-    t.index ["influencer_id"], name: "index_notifications_on_influencer_id"
+    t.integer "visitedinflencer_id"
+    t.integer "visitorinfluencer_id"
+    t.integer "visitedcompany_id"
+    t.integer "visitorcompany_id"
+    t.integer "influencer_project_id"
+    t.index ["influencer_project_id"], name: "index_notifications_on_influencer_project_id"
     t.index ["project_id"], name: "index_notifications_on_project_id"
-    t.index ["visited_id"], name: "index_notifications_on_visited_id"
-    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
+    t.index ["visitedcompany_id"], name: "index_notifications_on_visitedcompany_id"
+    t.index ["visitedinflencer_id"], name: "index_notifications_on_visitedinflencer_id"
+    t.index ["visitorcompany_id"], name: "index_notifications_on_visitorcompany_id"
+    t.index ["visitorinfluencer_id"], name: "index_notifications_on_visitorinfluencer_id"
   end
 
   create_table "projects", force: :cascade do |t|

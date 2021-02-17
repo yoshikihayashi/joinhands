@@ -1,7 +1,19 @@
-<h1>申請ページ</h1>
-<%= form_with url:  influencer_projects_path, local:true do |f| %>
-  <%= f.text_area :message ,:placeholder=>"メッセージ" %>
-  <%= f.collection_select(:project_id, current_company.projects, :id, :title) %>
-  <%= f.hidden_field :influencer_id , value: @influencer.id%>
-  <%= f.submit '投稿' %>
-<% end %>
+
+
+<h2 class="subject">申請ページ</h2>
+<div class="new-project">
+  <%= form_with url:  influencer_projects_path, local:true do |f| %>
+  <table>
+    <tr>
+      <td><%= f.text_area :message ,:placeholder=>"メッセージ" %></td>
+    </tr>
+    <tr>
+      <td><%= f.collection_select(:project_id, current_company.projects, :id, :title) %></td>
+    </tr>
+    <tr>
+      <td><%= f.hidden_field :influencer_id , value: @influencer.id%></td>
+    </tr>
+  </table>
+    <div class="table-btn"><%= f.submit '送信',class:"btn btn-primary" %></div>
+  <% end %>
+</div>

@@ -9,16 +9,16 @@
       <p>代表者名 :<%= @company.representative_name  %></p>
       <p>登録日：<%= @company.created_at.strftime('%Y/%m/%d') %></p>
       <% if @company.id == current_company.id %>
-        <p><%= link_to "プロフィール編集", edit_company_path(@company) %></p>
+        <p><%= link_to "プロフィール編集", edit_company_path(@company),class: 'btn-group' %></p>
       <% end %>
-      <%= link_to "戻る", companies_path %>
+      <%= link_to "戻る", companies_path,class: 'btn-group' %>
     </div>
 
     <div class="col-lg-7">
       <% @projects.each do |project| %>
       <div>
-        <%= link_to project_path(project.id) do %>
-          <p>タイトル：<%= project.title %></p>
+        <%= link_to project_path(project.id) ,class: 'btn-project' do %>
+          <p><%= project.title %></p>
         <% end %>
         <p>説明文：<%= project.details %></p>
       </div>

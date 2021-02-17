@@ -7,4 +7,7 @@ class Company < ApplicationRecord
   has_many :projects, dependent: :destroy
   
   
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitorcompany_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visitedcompany_id', dependent: :destroy
+  
 end

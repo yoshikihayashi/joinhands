@@ -11,6 +11,9 @@ class InfluencerProjectsController < ApplicationController
     if current_influencer && current_influencer.id == @influencer_project.influencer_id
       @influencer_project.checked = true
       @influencer_project.save
+    elsif current_company && current_company.id == @influencer_project.company_id
+      @influencer_project.company_checked = true
+      @influencer_project.save
     end
   end
 

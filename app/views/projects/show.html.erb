@@ -1,14 +1,18 @@
 <h2 class="subject"><%= @project.title %></h2>
   <div class="container">
     <div class="row">
-      <div class="col-lg-7">
-        <%= link_to "戻る", projects_path %>
-        <% if @project.company == current_company %>
-          <%= link_to "削除", project_path(@project), method: :delete %>
-        <% end %>
+      <div class="col-lg-4">
         <%= attachment_image_tag @project, :image, format: 'jpeg', size: "300x300" %>
+        <% if company_signed_in? %>
+          <%= link_to "戻る", projects_path,class: 'btn-group' %>
+          <% if @project.company == current_company %>
+            <%= link_to "削除", project_path(@project), method: :delete,class: 'btn-group' %>
+          <% end %>
+        <% elsif influencer_signed_in? %>
+          <%= link_to "戻る", influencers_path,class: 'btn-group' %>
+        <% end %>
       </div>
-      <div class="col-lg-5">
+      <div class="col-lg-8">
         <p>報酬 : <%= @project.price %></p>
         <p>タイトル：<%= @project.title %></p>
         <p>説明文：<%= @project.details %></p>
@@ -20,6 +24,9 @@
         <% end %>
         <p>会社名：<%= @project.company.company_name %></p>
         <p>掲載日：<%= @project.created_at.strftime('%Y/%m/%d') %></p>
+        <div id="favorites_buttons_<%= @project.id %>">
+          <%= render partial: 'favorites/favorite', locals: { project: @project} %>
+        </div>
       </div>
     </div>
   </div>

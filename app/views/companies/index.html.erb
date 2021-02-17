@@ -2,9 +2,9 @@
   <div class="row">
     <% @influencers.each do |influencer| %>
       <div class="card">
-        <%= attachment_image_tag(influencer, :image, :fill, 300, 300, format: 'jpeg', fallback: "sample-author1.jpg") %>
-          <%= link_to influencer_path(influencer.id) do %>
-            <p>名前：<%= influencer.nickname %></p>
+        <%= attachment_image_tag(influencer, :image, :fill, 250, 250, format: 'jpeg', fallback: "sample-author1.jpg") %>
+          <%= link_to influencer_path(influencer.id),class: 'btn-project' do %>
+            <p><%= influencer.nickname %></p>
           <% end %>
         <p>自己紹介文：<%= influencer.details %></p>
         <p>登録日：<%= influencer.created_at.strftime('%Y/%m/%d') %></p>
