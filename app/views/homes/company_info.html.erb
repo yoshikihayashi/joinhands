@@ -2,27 +2,39 @@
   <% if company_signed_in? %>
     <ul>
       <li>
-        <%= link_to '投稿フォーム', new_project_path %>
+        <%= link_to "JOIN HANDS", root_path, class: "header-logo" %>
       </li>
       <li>
-        <%= link_to 'マイページ', company_path(current_company.id) %>
+        <%= render 'searchs/form' %>
       </li>
       <li>
-        <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
+        <%= link_to 'インフルエンサー一覧', companies_path,class: "header-btn" %>
+      </li>
+      <li>
+        <%= link_to '案件一覧', projects_path ,class: "header-btn" %>
+      </li>
+      <li>
+        <%= link_to '投稿フォーム', new_project_path ,class: "header-btn" %>
+      </li>
+      <li>
+        <%= link_to 'マイページ', company_path(current_company.id) ,class: "header-btn" %>
+      </li>
+      <li>
+        <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} ,class: "header-btn" %>
       </li>
   <% else %>
       <li>
-        <%= link_to "企業側新規登録", new_company_registration_path %>
+        <%= link_to "企業側新規登録", new_company_registration_path ,class: "header-btn" %>
       </li>
       <li>
-        <%= link_to "企業側ログイン", new_company_session_path %>
+        <%= link_to "企業側ログイン", new_company_session_path ,class: "header-btn" %>
       </li>
     </ul>
   <% end %>
 </header>
 <div class="cp_bgpattern20">
   <div class="info-title">
-    <p class="marker-info">インフルエンサーと企業を簡単にマッチング！</p>
+    <p class="marker-info">効率よくインフルエンサーに仕事の依頼をしませんか？</p>
   </div>
   <div class="info-company">
     <p>商品やサービスをもっと広めたい！</br>企業</p>
