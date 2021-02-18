@@ -1,10 +1,9 @@
 
-<form class="form2">
+
   <% if company_signed_in? %>
-      <%= form_tag(searchs_search_path, method: :get) do %>
+      <%= form_with url: searchs_search_path, method: :get, data: {remote: false} do %>
         <%= text_field_tag 'content' %>
         <%= select_tag 'model', options_for_select({ "インフルエンサー" => "influencer", "案件" => "project" }) %>
         <%= submit_tag '検索' %>
       <% end %>
   <% end %>
-</form>

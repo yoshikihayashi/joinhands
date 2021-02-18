@@ -21,18 +21,18 @@
 .header-info{
   list-style: none;
   text-align: right;
-  color: black;
   height: 70px;
 }
 li{
   display: inline-block;
 	padding: 0.5em;
-// 	transition: .3s;
-// 	transform: scale(1);
-	color: #F4511E;
+	transition: .3s;
+	transform: scale(1);
+	margin: 10px 5px;
 }
 li:hover{
-  // transform: scale(1.05);
+  transform: scale(1.05);
+  background: lightgray;
 }
 // インフォメーション
 .info-company{

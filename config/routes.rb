@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   resources :companies, only: [:show, :edit, :update, :destroy , :index]
   resources :influencers, only: [:create,:edit, :index, :show, :destroy, :update]
+  
   get 'searchs/search', to: 'searchs#search'
 
 end

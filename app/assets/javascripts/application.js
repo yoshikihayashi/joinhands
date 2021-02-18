@@ -13,8 +13,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-//= require jquery
-//= require jquery_ujs
+// require jquery
+// require jquery_ujs
 //= require jquery-ui
 //= require tag-it
 //= require turbolinks
@@ -29,13 +29,13 @@
 //   form.classList.add('form--no')
 // });
 
-// $(function(){
-//     $('.js-modal-open').on('click',function(){
-//         $('.js-modal').fadeIn();
-//         return false;
-//     });
-//     $('.js-modal-close').on('click',function(){
-//         $('.js-modal').fadeOut();
-//         return false;
-//     });
-// });
+$(function(){
+    $('.js-modal-open').on('click',function(){
+        $('.js-modal').fadeIn();
+        return false;
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal').fadeOut();
+        return false;
+    });
+});
