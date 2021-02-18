@@ -15,30 +15,33 @@
     <header class="header-info">
       <ul>
         <li>
+          <%= link_to "JOIN HANDS", root_path, class: "header-logo" %>
+        </li>
+        <li>
           <%= render 'searchs/form' %>
         </li>
         <% if company_signed_in? %>
           <li>
-            <%= link_to 'インフルエンサー一覧', companies_path %>
+            <%= link_to 'インフルエンサー一覧', companies_path,class: "header-btn" %>
           </li>
           <li>
-            <%= link_to '案件一覧', projects_path %>
+            <%= link_to '案件一覧', projects_path ,class: "header-btn" %>
           </li>
           <li>
-            <%= link_to '投稿フォーム', new_project_path %>
+            <%= link_to '投稿フォーム', new_project_path ,class: "header-btn" %>
           </li>
           <li>
-            <%= link_to 'マイページ', company_path(current_company.id) %>
+            <%= link_to 'マイページ', company_path(current_company.id) ,class: "header-btn" %>
           </li>
           <li>
-            <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
+            <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} ,class: "header-btn" %>
           </li>
         <% else %>
           <li>
-            <%= link_to "企業側新規登録", new_company_registration_path %>
+            <%= link_to "企業側新規登録", new_company_registration_path ,class: "header-btn" %>
           </li>
           <li>
-            <%= link_to "企業側ログイン", new_company_session_path %>
+            <%= link_to "企業側ログイン", new_company_session_path ,class: "header-btn" %>
           </li>
         <% end %>
       </ul>

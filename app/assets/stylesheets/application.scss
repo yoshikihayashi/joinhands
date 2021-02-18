@@ -18,6 +18,14 @@
 @import "bootstrap";
 
 // ヘッダー
+.header-logo{
+  color: black;
+  font-family: 'Verdana';
+  font-size: 32px;
+}
+.header-btn{
+  color: black;
+}
 .header-info{
   list-style: none;
   text-align: right;
@@ -28,11 +36,12 @@ li{
 	padding: 0.5em;
 	transition: .3s;
 	transform: scale(1);
-	margin: 10px 5px;
+	margin: 0 5px;
 }
 li:hover{
   transform: scale(1.05);
   background: lightgray;
+  border-radius : 10%;
 }
 // インフォメーション
 .info-company{
