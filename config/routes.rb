@@ -16,6 +16,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :projects, only: [:new, :create, :index, :show, :destroy] do
+    member do
+      patch "influencers/:influencer_id"=> 'influencer_projects#completion',as: :completion
+    end
+
     resources :influencer_projects, only: [:destroy]
      member do
       post 'favorites' => 'favorites#create'
@@ -25,13 +29,13 @@ Rails.application.routes.draw do
   # get 'influencer_projects/new' => 'influencer_projects#new'
   # post 'influencer_projects/' => 'influencer_projects#create'
   # get 'influencer_projects/show' => 'influencer_projects#show'
-  resources :influencer_projects, only: [:new,:create,:show,:update]
+  resources :influencer_projects, only: [:new,:create,:show,:update,:index]
 
-  resources :notifications, only: :index
+  resources :notifications, only: [:index]
 
   resources :companies, only: [:show, :edit, :update, :destroy , :index]
   resources :influencers, only: [:create,:edit, :index, :show, :destroy, :update]
-  
+
   get 'searchs/search', to: 'searchs#search'
 
 end

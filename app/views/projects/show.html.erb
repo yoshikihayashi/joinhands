@@ -27,6 +27,26 @@
         <div id="favorites_buttons_<%= @project.id %>">
           <%= render partial: 'favorites/favorite', locals: { project: @project} %>
         </div>
+        <div class="col-lg-7">
+          <p>申請中</p>
+          <% @influencers.each do |influencer| %>
+          <div>
+            <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
+              <p>【 <%= influencer.name %> 】</p>
+
+            <% end %>
+            <%= link_to "この依頼完了させる" , completion_project_path(@project,influencer) ,method: :patch %>
+          </div>
+          <% end %>
+          <p>完了済み</p>
+          <% @rejection_influencers.each do |influencer| %>
+          <div>
+            <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
+              <p>【 <%= influencer.name %> 】</p>
+            <% end %>
+          </div>
+          <% end %>
+    </div>
       </div>
     </div>
   </div>

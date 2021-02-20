@@ -5,9 +5,10 @@ class Project < ApplicationRecord
   validates :price,:title, length: { in: 1..75 }
   validates :details, length: { in: 1..140 }
   has_many :influencer_projects
+   has_many :influencers ,through: :influencer_projects, source: :influencer
   has_many :favorites, dependent: :destroy
   has_many :favorited_influencers, through: :favorites, source: :influencer
-  
+
   # has_many :notifications, dependent: :destroy
 
   has_many  :tag_relationships, dependent: :destroy

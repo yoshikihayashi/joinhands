@@ -1,0 +1,12 @@
+<h2 class="subject">通知一覧</h2>
+<div class="row">
+  <% @influencer_projects.each do |influencer_project| %>
+    <div class="card">
+      <%= link_to influencer_project_path(influencer_project.id),class: 'btn-project' do %>
+        <p><%= influencer_project.message %></p>
+      <% end %>
+        <p><%= influencer_project.status %></p>
+        <p><%= influencer_project.project.company.company_name %></p>
+    </div>
+  <% end %>
+</div>

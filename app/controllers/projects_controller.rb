@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    tag_list = project_params[:tag_ids]
+    tag_list = project_params[:tag_ids].split(",")
     project_params_hash = project_params.to_h
      project_params_hash.delete(:tag_ids)
     @project = current_company.projects.build(project_params_hash)
@@ -27,6 +27,13 @@ class ProjectsController < ApplicationController
 
   def show
      @project = Project.find(params[:id])
+     @influencers = Influencer.joins(:influencer_projects).merge(InfluencerProject.where(status: 2, project_id: @project))
+     @rejection_influencers = Influencer.joins(:influencer_projects).merge(InfluencerProject.where(status: 3, project_id: @project))
+    if company_signed_in?
+      render :layout => 'company'
+    else
+    render :layout => 'influencer'
+    end
   end
 
   def destroy

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_035113) do
+ActiveRecord::Schema.define(version: 2021_02_20_071712) do
 
   create_table "companies", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 2021_02_17_035113) do
     t.integer "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "influencer_id"
     t.index ["project_id", "tag_id"], name: "index_tag_relationships_on_project_id_and_tag_id", unique: true
     t.index ["project_id"], name: "index_tag_relationships_on_project_id"
     t.index ["tag_id"], name: "index_tag_relationships_on_tag_id"
