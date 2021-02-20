@@ -20,7 +20,7 @@
 // ヘッダー
 .header-logo{
   color: black;
-  font-family: 'Verdana';
+  font-family: 'Didot';
   font-size: 32px;
 }
 .header-btn{
@@ -272,6 +272,9 @@ table td{
 	left: 0;
 	content: '#';
 }
+.ui-helper-hidden-accessible {
+  display: none;
+}
 // マイページ
 .container{
   margin-top: 30px;
@@ -289,13 +292,13 @@ $color-primary: #ABA194;
 }
 
 .body_group {
-    font-family: $font-family;
-    font-size: $font-size;
-    background-size: 200% 100% !important;
+    // font-family: $font-family;
+    // font-size: $font-size;
+    // background-size: 200% 100% !important;
     animation: move 10s ease infinite;
     transform: translate3d(0, 0, 0);
     background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
-    height: 100vh
+    height: 100vh;
 }
 
 .user {

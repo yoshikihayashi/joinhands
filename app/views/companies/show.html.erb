@@ -3,11 +3,11 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-5">
-      <p>会社名 :<%= @company.company_name %></p>
-      <p>会社概要 :<%= @company.business_detail %></p>
-      <p>従業員数 :<%= @company.employee_number %></p>
-      <p>代表者名 :<%= @company.representative_name  %></p>
-      <p>登録日：<%= @company.created_at.strftime('%Y/%m/%d') %></p>
+      <p>【 会社名 】<%= @company.company_name %></p>
+      <p>【 会社概要 】<%= @company.business_detail %></p>
+      <p>【 従業員数 】<%= @company.employee_number %></p>
+      <p>【 代表者名 】<%= @company.representative_name  %></p>
+      <p>【 登録日 】<%= @company.created_at.strftime('%Y/%m/%d') %></p>
       <% if @company.id == current_company.id %>
         <p><%= link_to "プロフィール編集", edit_company_path(@company),class: 'btn-group' %></p>
       <% end %>
@@ -18,9 +18,9 @@
       <% @projects.each do |project| %>
       <div>
         <%= link_to project_path(project.id) ,class: 'btn-project' do %>
-          <p><%= project.title %></p>
+          <p>【 <%= project.title %> 】</p>
         <% end %>
-        <p>説明文：<%= project.details %></p>
+        <p>【 概要 】<%= project.details %></p>
       </div>
       <% end %>
     </div>

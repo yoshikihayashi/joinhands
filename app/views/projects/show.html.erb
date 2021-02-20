@@ -13,17 +13,17 @@
         <% end %>
       </div>
       <div class="col-lg-8">
-        <p>報酬 : <%= @project.price %></p>
-        <p>タイトル：<%= @project.title %></p>
-        <p>説明文：<%= @project.details %></p>
-        <p>お気に入り: <%= @project.favorited_influencers.count %></p>
+        <p>【 報酬 】<%= @project.price %></p>
+        <p>【 タイトル 】<%= @project.title %></p>
+        <p>【 概要 】<%= @project.details %></p>
+        <p>【 お気に入り数 】<%= @project.favorited_influencers.count %></p>
+        <p>【 会社名 】<%= @project.company.company_name %></p>
+        <p>【 掲載名 】<%= @project.created_at.strftime('%Y/%m/%d') %></p>
         <% @project.tags.each do |tag| %>
           <div class="tags">
             <%= tag.name %>
           </div>
         <% end %>
-        <p>会社名：<%= @project.company.company_name %></p>
-        <p>掲載日：<%= @project.created_at.strftime('%Y/%m/%d') %></p>
         <div id="favorites_buttons_<%= @project.id %>">
           <%= render partial: 'favorites/favorite', locals: { project: @project} %>
         </div>

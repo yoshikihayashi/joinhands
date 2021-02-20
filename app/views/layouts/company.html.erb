@@ -13,14 +13,14 @@
 
   <body>
     <header class="header-info">
-      <ul>
-        <li>
-          <%= link_to "JOIN HANDS", root_path, class: "header-logo" %>
-        </li>
-        <li>
-          <%= render 'searchs/form' %>
-        </li>
         <% if company_signed_in? %>
+        <ul>
+          <li>
+            <%= link_to "JOIN HANDS", root_path, class: "header-logo" %>
+          </li>
+          <li>
+            <%= render 'searchs/form' %>
+          </li>
           <li>
             <%= link_to 'インフルエンサー一覧', companies_path,class: "header-btn" %>
           </li>
@@ -34,17 +34,17 @@
             <%= link_to 'マイページ', company_path(current_company.id) ,class: "header-btn" %>
           </li>
           <li>
-            <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} ,class: "header-btn" %>
+            <%= link_to "ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} ,class: "header-btn" %>
           </li>
         <% else %>
           <li>
-            <%= link_to "企業側新規登録", new_company_registration_path ,class: "header-btn" %>
+            <%= link_to "新規登録 for company", new_company_registration_path ,class: "header-btn" %>
           </li>
           <li>
-            <%= link_to "企業側ログイン", new_company_session_path ,class: "header-btn" %>
+            <%= link_to "ログイン for company", new_company_session_path ,class: "header-btn" %>
           </li>
+        </ul>
         <% end %>
-      </ul>
     </header>
     <!--for company page-->
     <%= yield %>

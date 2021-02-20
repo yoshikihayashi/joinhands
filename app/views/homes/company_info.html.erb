@@ -20,14 +20,14 @@
         <%= link_to 'マイページ', company_path(current_company.id) ,class: "header-btn" %>
       </li>
       <li>
-        <%= link_to "企業側ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} ,class: "header-btn" %>
+        <%= link_to "ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} ,class: "header-btn" %>
       </li>
   <% else %>
       <li>
-        <%= link_to "企業側新規登録", new_company_registration_path ,class: "header-btn" %>
+        <%= link_to "新規登録 for company", new_company_registration_path ,class: "header-btn" %>
       </li>
       <li>
-        <%= link_to "企業側ログイン", new_company_session_path ,class: "header-btn" %>
+        <%= link_to "ログイン for company", new_company_session_path ,class: "header-btn" %>
       </li>
     </ul>
   <% end %>

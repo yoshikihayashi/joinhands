@@ -1,12 +1,12 @@
 
 
-  <% if @model == 'influencer' %>
+  <% if @model == 'tag' %>
     <h2 class="subject">検索ワード：インフルエンサー : <%= @content %></h2>
-    <% @records.each do |influencer| %>
+    <% @records.each do |tag| %>
       <div class="card">
-        <%= attachment_image_tag influencer, :image, format: 'jpeg',size: "250x250" %>
+        <%#= attachment_image_tag influencer, :image, format: 'jpeg',size: "250x250" %>
         <%#= link_to project_path(@project.id) do %>
-          <%= influencer.nickname %><br>
+          <%= tag.name %><br>
         <%# end %>
       </div>
     <% end %>

@@ -6,8 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    # byebug
-    tag_list = project_params[:tag_ids].split(',')
+    tag_list = project_params[:tag_ids]
     project_params_hash = project_params.to_h
      project_params_hash.delete(:tag_ids)
     @project = current_company.projects.build(project_params_hash)

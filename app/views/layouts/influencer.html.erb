@@ -11,24 +11,24 @@
 
   <body>
     <header class="header-info">
-
+      <!--<link rel=”icon” href=“assets/images/favicon.ico”>-->
       <% if influencer_signed_in? %>
       <ul>
-        <li>
-          <%= link_to "インフルエンサー側ログアウト", destroy_influencer_session_path, method: :delete , data: {confirm: "ログアウトしますか？"} ,class: "header-btn"%>
-        </li>
         <li>
           <%= link_to 'マイページ', influencer_path(current_influencer.id) ,class: "header-btn" %>
         </li>
         <li>
           <%= link_to '仮ボタン', influencer_project_path(current_influencer.id) ,class: "header-btn" %>
         </li>
+        <li>
+          <%= link_to "ログアウト", destroy_influencer_session_path, method: :delete , data: {confirm: "ログアウトしますか？"} ,class: "header-btn"%>
+        </li>
       <% else %>
         <li>
-          <%= link_to "インフルエンサー側新規登録", new_influencer_registration_path ,class: "header-btn" %>
+          <%= link_to "新規登録 for influencer", new_influencer_registration_path ,class: "header-btn" %>
         </li>
         <li>
-          <%= link_to "インフルエンサー側ログイン", new_influencer_session_path ,class: "header-btn" %>
+          <%= link_to "ログイン for influencer", new_influencer_session_path ,class: "header-btn" %>
         </li>
       </ul>
       <% end %>

@@ -10,8 +10,8 @@ class SearchsController < ApplicationController
 
   private
   def search_for(model, content)
-    if model == 'influencer'
-      Influencer.where('nickname LIKE ?', '%'+content+'%')
+    if model == 'tag'
+      Tag.where('name LIKE ?', '%'+content+'%')
     elsif model == 'project'
       Project.where('title LIKE ?', '%'+content+'%')
     end

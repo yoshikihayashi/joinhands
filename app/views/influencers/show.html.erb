@@ -14,9 +14,14 @@
       <% end %>
     </div>
     <div class="col-lg-8">
-    <p>活動名 :<%= @influencer.nickname%></p>
-    <p>自己紹介文 :<%= @influencer.details %></p>
-    <p>登録日：<%= @influencer.created_at.strftime('%Y/%m/%d') %></p>
+    <p>【 名前 】<%= @influencer.nickname%></p>
+    <p>【 プロフィール 】<%= @influencer.details %></p>
+    <p>【 登録日】<%= @influencer.created_at.strftime('%Y/%m/%d') %></p>
+    <%# @projects.tags.each do |tag| %>
+      <!--<div class="tags">-->
+         <%#= tag.name %>
+      <!--</div>-->
+    <%# end %>
     </div>
   </div>
 </div>
