@@ -11,7 +11,6 @@
       <% if @company.id == current_company.id %>
         <p><%= link_to "プロフィール編集", edit_company_path(@company),class: 'btn-group' %></p>
       <% end %>
-      <%= link_to "戻る", companies_path,class: 'btn-group' %>
     </div>
 
     <div class="col-lg-7">
@@ -24,7 +23,6 @@
       </div>
       <% end %>
     </div>
-    
   </div>
 </div>
 

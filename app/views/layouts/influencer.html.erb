@@ -12,9 +12,14 @@
 
   <body>
     <header class="header-info">
-      <!--<link rel=”icon” href=“assets/images/favicon.ico”>-->
       <% if influencer_signed_in? %>
       <ul>
+        <li>
+          <%= link_to "JOIN HANDS", root_path, class: "header-logo" %>
+        </li>
+        <li>
+          <%= link_to '案件一覧', influencers_path ,class: "header-btn" %>
+        </li>
         <li>
           <%= link_to 'マイページ', influencer_path(current_influencer.id) ,class: "header-btn" %>
         </li>
@@ -33,7 +38,6 @@
         </li>
       </ul>
       <% end %>
-      <!--for influencer page-->
     </header>
 
     <%= yield %>

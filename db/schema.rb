@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_20_071712) do
+ActiveRecord::Schema.define(version: 2021_02_20_140317) do
 
   create_table "companies", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_071712) do
     t.datetime "updated_at", null: false
     t.boolean "checked"
     t.boolean "company_checked"
+    t.text "influencer_message"
   end
 
   create_table "influencers", force: :cascade do |t|

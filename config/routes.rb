@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     member do
       patch "influencers/:influencer_id"=> 'influencer_projects#completion',as: :completion
     end
-
     resources :influencer_projects, only: [:destroy]
      member do
       post 'favorites' => 'favorites#create'

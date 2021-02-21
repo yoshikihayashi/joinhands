@@ -28,7 +28,9 @@ class ProjectsController < ApplicationController
   def show
      @project = Project.find(params[:id])
      @influencers = Influencer.joins(:influencer_projects).merge(InfluencerProject.where(status: 2, project_id: @project))
-     @rejection_influencers = Influencer.joins(:influencer_projects).merge(InfluencerProject.where(status: 3, project_id: @project))
+     @influencer_projects = InfluencerProject.where(project_id: params[:id])
+     @completion_influencers = Influencer.joins(:influencer_projects).merge(InfluencerProject.where(status: 3, project_id: @project))
+    # @completion_influencers = Influencer.joins(:influencer_projects).merge(InfluencerProject.where(status: 4, project_id: @project))
     if company_signed_in?
       render :layout => 'company'
     else

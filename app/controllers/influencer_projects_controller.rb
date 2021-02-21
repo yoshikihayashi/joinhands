@@ -1,8 +1,13 @@
 class InfluencerProjectsController < ApplicationController
-  # layout 'company'
+  layout 'company'
 
   def index
-     @influencer_projects = InfluencerProject.all
+    @influencer_projects = InfluencerProject.where(influencer_id: current_influencer.id)
+    if company_signed_in?
+      render :layout => 'company'
+    else
+      render :layout => 'influencer'
+    end
   end
 
   def new
@@ -11,6 +16,7 @@ class InfluencerProjectsController < ApplicationController
   end
 
   def show
+    # @project = Project.find(params[:id])
     @influencer_project = InfluencerProject.find(params[:id])
     if current_influencer && current_influencer.id == @influencer_project.influencer_id
       @influencer_project.checked = true
@@ -19,11 +25,16 @@ class InfluencerProjectsController < ApplicationController
       @influencer_project.company_checked = true
       @influencer_project.save
     end
+    if company_signed_in?
+      render :layout => 'company'
+    else
+      render :layout => 'influencer'
+    end
   end
 
   def update
     @influencer_project = InfluencerProject.find(params[:id])
-    @influencer_project.update(status: params[:influencer_project][:status].to_i)
+    @influencer_project.update(status: params[:influencer_project][:status].to_i, influencer_message: params[:influencer_project][:influencer_message])
     redirect_to influencers_path
   end
 
@@ -47,7 +58,7 @@ class InfluencerProjectsController < ApplicationController
   private
 
   def influencer_project_params
-    params.permit(:message, :influencer_id, :project_id)
+    params.permit(:message, :influencer_id, :project_id,:influencer_message)
   end
 
 

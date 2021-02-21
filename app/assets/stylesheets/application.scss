@@ -22,6 +22,7 @@
   color: black;
   font-family: 'Didot';
   font-size: 32px;
+  margin-right: auto;
 }
 .header-btn{
   color: black;
@@ -36,7 +37,7 @@ li{
 	padding: 0.5em;
 	transition: .3s;
 	transform: scale(1);
-	margin: 0 5px;
+	margin: 12px 5px;
 }
 li:hover{
   transform: scale(1.05);
@@ -115,7 +116,7 @@ li:hover{
 }
 .top_page{
   width: 1100px;
-  height: 800px;
+  height: 822px;
   margin: 0 auto;
   position: relative;
 }
@@ -256,6 +257,8 @@ table td{
 	line-height: 1;
 	text-decoration: none;
 	background-color: lightgray;
+	width: fit-content;
+	font-size: 13px;
 }
 .tags:before{
   position: absolute;
@@ -455,6 +458,9 @@ $color-primary: #ABA194;
   color: black;/*文字色*/
   font-weight: bold;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  width: 166px;
+  text-align: center;
+  margin: 30px 65px;
 }
 .btn-group:active {
   box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);

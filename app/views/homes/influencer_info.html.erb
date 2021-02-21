@@ -1,32 +1,5 @@
-<header class="header-info">
-  <% if influencer_signed_in? %>
-  <ul>
-    <li>
-      <%= link_to "JOIN HANDS", root_path, class: "header-logo" %>
-    </li>
-    <li>
-      <%= link_to "ログアウト", destroy_influencer_session_path, method: :delete, data: {confirm: "ログアウトしますか？"},class: "header-btn" %>
-    </li>
-    <li>
-      <%= link_to 'マイページ', influencer_path(current_influencer.id),class: "header-btn" %>
-    </li>
-    <li>
-      <%= link_to '仮ボタン', influencer_project_path(current_influencer.id) ,class: "header-btn" %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to "新規登録 for influencer", new_influencer_registration_path,class: "header-btn" %>
-    </li>
-    <li>
-      <%= link_to "ログイン for influencer", new_influencer_session_path ,class: "header-btn"%>
-    </li>
-  </ul>
-  <% end %>
-</header>
-
 <div class="cp_bgpattern20">
   <div class="container">
-
     <div class="info-title">
       <p class="marker-info">あなたの影響力を活用して企業様の商品やサービスをPRしよう！</p>
     </div>
@@ -39,7 +12,6 @@
         <p>移動中やちょっとした時間を活用できます！</p>
       </div>
     </div>
-
     <div class="box">
       <div class="img">
         <%= image_tag 'Mobile.png', class:'info_img' ,:size => '200x200'%>

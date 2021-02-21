@@ -1,12 +1,35 @@
 <h2 class="subject">通知一覧</h2>
 <div class="row">
-  <% @influencer_projects.each do |influencer_project| %>
-    <div class="card">
-      <%= link_to influencer_project_path(influencer_project.id),class: 'btn-project' do %>
-        <p><%= influencer_project.message %></p>
+  <% if influencer_signed_in? %>
+    <% @influencer_projects.each do |influencer_project| %>
+      <% if influencer_project.status == "request" %>
+        <div class="card">
+          <%= link_to influencer_project_path(influencer_project.id),class: 'btn-project' do %>
+            <p><%= influencer_project.message %></p>
+          <% end %>
+          <!--<%#= link_to influencer_project_path(influencer_project.project.id),class: 'btn-project' do %>-->
+          <!--  <p>案件詳細</p>-->
+          <!--<%# end %>-->
+            <p><%= influencer_project.status %></p>
+            <p><%= influencer_project.project.company.company_name %></p>
+        </div>
       <% end %>
-        <p><%= influencer_project.status %></p>
-        <p><%= influencer_project.project.company.company_name %></p>
-    </div>
+      <% if influencer_project.status == "completion" %>
+        <div class="card">
+            <p><%= influencer_project.message %></p>
+            <p><%= influencer_project.status %></p>
+            <p><%= influencer_project.project.company.company_name %></p>
+        </div>
+      <% end %>
+      
+      <!--<%# if influencer_project.status == "rebyu-" %>-->
+      <!--  <div class="card">-->
+      <!--      <p><%#= influencer_project.message %></p>-->
+      <!--      <p><%#= influencer_project.status %></p>-->
+      <!--      <p><%#= influencer_project.project.company.company_name %></p>-->
+      <!--  </div>-->
+      <!--<%# end %>-->
+      
+    <% end %>
   <% end %>
 </div>

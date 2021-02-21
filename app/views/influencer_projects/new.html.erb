@@ -14,6 +14,6 @@
       <td><%= f.hidden_field :influencer_id , value: @influencer.id%></td>
     </tr>
   </table>
-    <div class="table-btn"><%= f.submit '送信',class:"btn btn-primary" %></div>
+    <div class="table-btn"><%= f.submit '送信', data: { confirm: "【確認】この依頼を申請しますか？"},class:"btn btn-primary" %></div>
   <% end %>
 </div>

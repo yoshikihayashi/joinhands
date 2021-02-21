@@ -4,12 +4,9 @@
       <div class="col-lg-4">
         <%= attachment_image_tag @project, :image, format: 'jpeg', size: "300x300" %>
         <% if company_signed_in? %>
-          <%= link_to "戻る", projects_path,class: 'btn-group' %>
           <% if @project.company == current_company %>
-            <%= link_to "削除", project_path(@project), method: :delete,class: 'btn-group' %>
+            <%= link_to "削除", project_path(@project), method: :delete, data: { confirm: "【確認】この案件を削除しますか？"},class: 'btn-group' %>
           <% end %>
-        <% elsif influencer_signed_in? %>
-          <%= link_to "戻る", influencers_path,class: 'btn-group' %>
         <% end %>
       </div>
       <div class="col-lg-8">
@@ -28,24 +25,29 @@
           <%= render partial: 'favorites/favorite', locals: { project: @project} %>
         </div>
         <div class="col-lg-7">
-          <p>申請中</p>
-          <% @influencers.each do |influencer| %>
-          <div>
-            <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
-              <p>【 <%= influencer.name %> 】</p>
-
+          <% if company_signed_in? %>
+            <% @influencers.each do |influencer| %>
+            <div>
+              <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
+                <p>【 <%= influencer.nickname %>さんから返答が来ました】</p>
+              <% end %>
+              <% @influencer_projects.each do |influencer_project| %>
+                  <p><%= influencer_project.influencer_message %></p>
+              <% end %>
+              　　　　　　　<!--レビュー画面にする-->
+              <%= link_to "この依頼完了させる" , completion_project_path(@project,influencer) ,method: :patch, data: { confirm: "【確認】この依頼を完了しますか？"} %>
+            </div>
             <% end %>
-            <%= link_to "この依頼完了させる" , completion_project_path(@project,influencer) ,method: :patch %>
-          </div>
-          <% end %>
-          <p>完了済み</p>
-          <% @rejection_influencers.each do |influencer| %>
-          <div>
-            <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
-              <p>【 <%= influencer.name %> 】</p>
+            <p>完了済み</p>
+            <% @completion_influencers.each do |influencer| %>
+            <div>
+              <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
+                <p>【 <%= influencer.nickname %> 】</p>
+              <% end %>
+            </div>
             <% end %>
-          </div>
           <% end %>
+        </div>
     </div>
       </div>
     </div>
