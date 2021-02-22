@@ -1,35 +1,60 @@
 <h2 class="subject">通知一覧</h2>
-<div class="row">
-  <% if influencer_signed_in? %>
-    <% @influencer_projects.each do |influencer_project| %>
-      <% if influencer_project.status == "request" %>
-        <div class="card">
-          <%= link_to influencer_project_path(influencer_project.id),class: 'btn-project' do %>
-            <p><%= influencer_project.message %></p>
+<div class="container">
+    <% if influencer_signed_in? %>
+      <div class="row">
+        <h5 class="">新着通知</h5>
+        <% @influencer_projects.each do |influencer_project| %>
+          <% if influencer_project.status == "request" %>
+            <div class="card" style="width: 17rem;">
+              <div class="request">新規の申請が届きました！</div>
+              <%= link_to influencer_project_path(influencer_project.id),class: 'btn-project' do %>
+                <p><%= truncate influencer_project.message ,length: 10 %></p>
+              <% end %>
+                <p><%= influencer_project.status %></p>
+                <p><%= influencer_project.project.company.company_name %></p>
+            </div>
           <% end %>
-          <!--<%#= link_to influencer_project_path(influencer_project.project.id),class: 'btn-project' do %>-->
-          <!--  <p>案件詳細</p>-->
-          <!--<%# end %>-->
-            <p><%= influencer_project.status %></p>
-            <p><%= influencer_project.project.company.company_name %></p>
-        </div>
-      <% end %>
-      <% if influencer_project.status == "completion" %>
-        <div class="card">
-            <p><%= influencer_project.message %></p>
-            <p><%= influencer_project.status %></p>
-            <p><%= influencer_project.project.company.company_name %></p>
-        </div>
-      <% end %>
-      
-      <!--<%# if influencer_project.status == "rebyu-" %>-->
-      <!--  <div class="card">-->
-      <!--      <p><%#= influencer_project.message %></p>-->
-      <!--      <p><%#= influencer_project.status %></p>-->
-      <!--      <p><%#= influencer_project.project.company.company_name %></p>-->
-      <!--  </div>-->
-      <!--<%# end %>-->
-      
+        <% end %>
+      </div>
+      <div class="row">
+         <h5 class="">レビュー待ち</h5>
+         <% @influencer_projects.each do |influencer_project| %>
+          <% if influencer_project.status == "evaluation" %>
+            <h6 class="request">レビューをお願い致します。</br>※レビューが済まないと決済がされません。</h6>
+            <div class="card" style="width: 15rem;">
+              <p><%= truncate influencer_project.message ,length: 10 %></p>
+              <p><%= influencer_project.status %></p>
+              <p><%= influencer_project.project.company.company_name %></p>
+              <div class="form-group row" id="star">
+                <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+                <%= f.hidden_field :rate, id: :review_star %>
+              </div>
+              <!-- 評価javascript -->
+              <script>
+                $('#star').raty({
+                  size     : 36,
+                  starOff:  '<%= asset_path('star-off.png') %>',
+                  starOn : '<%= asset_path('star-on.png') %>',
+                  starHalf: '<%= asset_path('star-half.png') %>',
+                  scoreName: 'post[rate]',
+                  half: true,
+                });
+              </script>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row">
+        <h5 class="">完了済み案件</h5>
+        <% @influencer_projects.each do |influencer_project| %>
+          <% if influencer_project.status == "completion" %>
+            <div class="card" style="text-align:center;">
+              <p><%= truncate influencer_project.message ,length: 10 %></p>
+              <p><%= influencer_project.status %></p>
+              <p><%= influencer_project.project.company.company_name %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
 </div>

@@ -5,7 +5,7 @@
       <%= attachment_image_tag @influencer_project.project, :image, format: 'jpeg', size: "250x250" %>
     </div>
      <div class="col-lg-8">
-      <%= link_to influencers_path(@influencer_project.project.id),class: 'btn-project' do %>
+      <%= link_to project_path(@influencer_project.project.id),class: 'btn-project' do %>
         <p>【 <%= @influencer_project.project.title %> 】</p>
       <% end %>
       <p>【 案件内容 】<%= @influencer_project.project.details %></p>
@@ -13,7 +13,7 @@
       <p>【 企業名 】<%= @influencer_project.project.company.company_name %></p>
       <%= form_with model: @influencer_project do |form| %>
         <%= form.select :status, InfluencerProject.statuses.map{|key,value| [I18n.t("enums.influencer_project.status.#{key}"),value]}, {} %>
-        <%= form.text_area :influencer_message , cols: 40,:placeholder=>"ご連絡先の入力をお願い致します。" %>
+        <%= form.text_area :influencer_message , cols: 40,:placeholder=>"承諾の場合はご連絡先の入力をお願い致します。" %>
         <%= form.submit "送信する" %>
       <% end %>
      </div>

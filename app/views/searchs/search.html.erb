@@ -1,17 +1,16 @@
 
 
   <% if @model == 'tag' %>
-    <h2 class="subject">検索ワード：インフルエンサー : <%= @content %></h2>
+    <h2 class="subject">タグ検索ワード: <%= @content %></h2>
     <% @records.each do |tag| %>
       <div class="card">
-        <%#= attachment_image_tag influencer, :image, format: 'jpeg',size: "250x250" %>
-        <%#= link_to project_path(@project.id) do %>
-          <%= tag.name %><br>
-        <%# end %>
+        <div class="tags">
+          <%= tag.name %>
+        </div>
       </div>
     <% end %>
   <% else @model == 'projects' %>
-    <h2 class="subject">検索ワード：案件 : <%= @content %></h2>
+    <h2 class="subject">案件検索ワード：案件 : <%= @content %></h2>
       <% @records.each do |project| %>
       <div class="card">
       <%= attachment_image_tag project, :image, format: 'jpeg', size: "250x250" %>

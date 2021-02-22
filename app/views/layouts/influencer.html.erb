@@ -14,8 +14,11 @@
     <header class="header-info">
       <% if influencer_signed_in? %>
       <ul>
-        <li>
+        <li class="header-logo">
           <%= link_to "JOIN HANDS", root_path, class: "header-logo" %>
+        </li>
+        <li class="search">
+          <%= render 'searchs/form' %>
         </li>
         <li>
           <%= link_to '案件一覧', influencers_path ,class: "header-btn" %>

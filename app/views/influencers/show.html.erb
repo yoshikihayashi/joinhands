@@ -20,6 +20,25 @@
          <%#= tag.name %>
       <!--</div>-->
     <%# end %>
+    <div class="">
+     <div id="star-rate-<%#= influencer.id %>"></div>
+     <script>
+     $('#star-rate-<%#= influencer.id %>').raty({
+       size: 36,
+       starOff:  '<%= asset_path('star-off.png') %>',
+       starOn : '<%= asset_path('star-on.png') %>',
+       starHalf: '<%= asset_path('star-half.png') %>',
+       scoreName: 'influencer[rate]',
+       scoreName: 'company[rate]',
+       half: true,
+       readOnly: true,
+       score: <%#= influencer.rate %>,
+     });
+     </script>
+    </div>
+    <div class="">
+      <%#= influencer.rate %>
+    </div>
     </div>
   </div>
 </div>

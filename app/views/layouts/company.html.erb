@@ -15,10 +15,10 @@
     <header class="header-info">
         <% if company_signed_in? %>
         <ul>
-          <li>
+          <li class="header-logo">
             <%= link_to "JOIN HANDS", root_path, class: "header-logo" %>
           </li>
-          <li>
+          <li class="search">
             <%= render 'searchs/form' %>
           </li>
           <li>

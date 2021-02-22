@@ -1,10 +1,14 @@
 class SearchsController < ApplicationController
-  layout 'company'
 
   def search
     @model = params["model"]
     @content = params["content"]
     @records = search_for(@model, @content)
+    if company_signed_in?
+      render :layout => 'company'
+    else
+      render :layout => 'influencer'
+    end
   end
 
 

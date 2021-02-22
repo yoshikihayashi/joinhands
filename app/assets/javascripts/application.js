@@ -40,3 +40,6 @@ $(function(){
         return false;
     });
 });
+
+window.$ = window.jQuery = require('jquery'); 
+require('javascripts/jquery.raty')

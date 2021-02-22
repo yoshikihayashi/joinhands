@@ -5,7 +5,7 @@
   <%= form_with url:  influencer_projects_path, local:true do |f| %>
   <table>
     <tr>
-      <td><%= f.text_area :message ,:placeholder=>"メッセージ" %></td>
+      <td><%= f.text_area :message ,:placeholder=>"インフルエンサーにお仕事の依頼のメッセージ", rows: 10, cols: 40 %></td>
     </tr>
     <tr>
       <td><%= f.collection_select(:project_id, current_company.projects, :id, :title) %></td>

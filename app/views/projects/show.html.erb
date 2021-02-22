@@ -27,24 +27,24 @@
         <div class="col-lg-7">
           <% if company_signed_in? %>
             <% @influencers.each do |influencer| %>
-            <div>
-              <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
-                <p>【 <%= influencer.nickname %>さんから返答が来ました】</p>
-              <% end %>
-              <% @influencer_projects.each do |influencer_project| %>
+              <div>
+                <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
+                  <p>【 <%= influencer.nickname %>さんから返答が来ました】</p>
+                <% end %>
+                <% @influencer_projects.each do |influencer_project| %>
                   <p><%= influencer_project.influencer_message %></p>
-              <% end %>
-              　　　　　　　<!--レビュー画面にする-->
-              <%= link_to "この依頼完了させる" , completion_project_path(@project,influencer) ,method: :patch, data: { confirm: "【確認】この依頼を完了しますか？"} %>
-            </div>
+                <% end %>
+                　　　　　　　<!--レビュー画面にする-->
+                <%= link_to "この依頼完了させる" , completion_project_path(@project,influencer) ,method: :patch, data: { confirm: "【確認】この依頼を完了しますか？"} %>
+              </div>
             <% end %>
             <p>完了済み</p>
             <% @completion_influencers.each do |influencer| %>
-            <div>
-              <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
-                <p>【 <%= influencer.nickname %> 】</p>
-              <% end %>
-            </div>
+              <div>
+                <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
+                  <p>【 <%= influencer.nickname %> 】</p>
+                <% end %>
+              </div>
             <% end %>
           <% end %>
         </div>

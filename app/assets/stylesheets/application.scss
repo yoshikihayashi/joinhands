@@ -22,14 +22,15 @@
   color: black;
   font-family: 'Didot';
   font-size: 32px;
-  margin-right: auto;
+  margin: 0 50px;
 }
 .header-btn{
   color: black;
 }
 .header-info{
+  display: flex;
   list-style: none;
-  text-align: right;
+  width: 100%;
   height: 70px;
 }
 li{
@@ -39,11 +40,14 @@ li{
 	transform: scale(1);
 	margin: 12px 5px;
 }
-li:hover{
-  transform: scale(1.05);
-  background: lightgray;
-  border-radius : 10%;
+.search{
+  margin-left: 70px;
 }
+// li:hover{
+//   transform: scale(1.05);
+//   background: lightgray;
+//   border-radius : 10%;
+// }
 // インフォメーション
 .info-company{
   p{
@@ -468,4 +472,22 @@ $color-primary: #ABA194;
 }
 .btn-project{
   color: gray;
+}
+// 通知一覧ページ
+.request{
+  animation: flash 1s linear infinite;
+  margin: 20px;
+  font-size: 15px;
+}
+
+@keyframes flash {
+   0% {
+      border:  solid black;
+   color: black;
+  }
+  100% {
+     border: medium solid gray;
+    color: gray;
+  }
+
 }
