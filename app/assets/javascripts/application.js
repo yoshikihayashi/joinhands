@@ -41,5 +41,9 @@ $(function(){
     });
 });
 
-window.$ = window.jQuery = require('jquery'); 
+window.$ = window.jQuery = require('jquery');
 require('javascripts/jquery.raty')
+
+$(function(){
+  setTimeout("$('.flash, success').fadeOut('slow')", 800);
+});

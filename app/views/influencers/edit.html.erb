@@ -9,6 +9,9 @@
       <td><%= f.text_field :nickname, autofocus: true, id:"inputName", placeholder:"活動名"%></td>
     </tr>
     <tr>
+      <td><%= f.text_field :follower_count, autofocus: true, id:"inputName", placeholder:"総フォロワー数"%></td>
+    </tr>
+    <tr>
       <td><%= f.text_area :details , autofocus: true, id:"inputName",  rows: 10, cols: 60, placeholder:"自己紹介文"%></td>
     </tr>
     <tr>
@@ -26,9 +29,9 @@
     <tr>
       <td><%= f.text_field :phone_number, autofocus: true, id:"inputName", placeholder:"電話番号"%></td>
     </tr>
-    <tr>
-      <td><%= f.text_field :tag_ids, class: "form-control", id:'project-tags',placeholder: "タグ 複数可" %></td>
-    </tr>
+    <!--<tr>-->
+    <!--  <td><%#= f.text_field :tag_ids, class: "form-control", id:'project-tags',placeholder: "タグ 複数可" %></td>-->
+    <!--</tr>-->
   </table>
     <div class="table-btn"><%= f.submit "変更を保存",class:"btn btn-primary" %></div>
   <% end %>

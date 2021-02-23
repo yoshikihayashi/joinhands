@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :projects, only: [:new, :create, :index, :show, :destroy] do
     member do
       patch "influencers/:influencer_id"=> 'influencer_projects#completion',as: :completion
+      # patch "influencers/:influencer_id"=> 'influencer_projects#evaluation',as: :evaluation
     end
     resources :influencer_projects, only: [:destroy]
      member do

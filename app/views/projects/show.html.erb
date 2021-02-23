@@ -35,11 +35,19 @@
                   <p><%= influencer_project.influencer_message %></p>
                 <% end %>
                 　　　　　　　<!--レビュー画面にする-->
-                <%= link_to "この依頼完了させる" , completion_project_path(@project,influencer) ,method: :patch, data: { confirm: "【確認】この依頼を完了しますか？"} %>
+                <%= link_to "依頼を終了にする" , completion_project_path(@project,influencer) ,method: :patch, data: { confirm: "【確認】依頼を終了しますか？"} %>
               </div>
             <% end %>
-            <p>完了済み</p>
+            <!--<%# @evaluation_influencers.each do |influencer| %>-->
+            <!--  <p>レビュー待ち</p>-->
+            <!--  <div>-->
+            <!--    <%#= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>-->
+            <!--      <p>【 <%#= influencer.nickname %> 】</p>-->
+            <!--    <# end %>-->
+            <!--  </div>-->
+            <!--<%# end %>-->
             <% @completion_influencers.each do |influencer| %>
+              <p>完了済み</p>
               <div>
                 <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
                   <p>【 <%= influencer.nickname %> 】</p>

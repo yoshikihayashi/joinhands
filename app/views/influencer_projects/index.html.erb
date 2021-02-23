@@ -1,8 +1,8 @@
 <h2 class="subject">通知一覧</h2>
 <div class="container">
     <% if influencer_signed_in? %>
+      <h5 class="">新着通知</h5>
       <div class="row">
-        <h5 class="">新着通知</h5>
         <% @influencer_projects.each do |influencer_project| %>
           <% if influencer_project.status == "request" %>
             <div class="card" style="width: 17rem;">
@@ -16,8 +16,8 @@
           <% end %>
         <% end %>
       </div>
+      <h5 class="">レビュー待ち</h5>
       <div class="row">
-         <h5 class="">レビュー待ち</h5>
          <% @influencer_projects.each do |influencer_project| %>
           <% if influencer_project.status == "evaluation" %>
             <h6 class="request">レビューをお願い致します。</br>※レビューが済まないと決済がされません。</h6>
@@ -44,8 +44,8 @@
           <% end %>
         <% end %>
       </div>
+      <h5 class="">完了済み案件</h5>
       <div class="row">
-        <h5 class="">完了済み案件</h5>
         <% @influencer_projects.each do |influencer_project| %>
           <% if influencer_project.status == "completion" %>
             <div class="card" style="text-align:center;">

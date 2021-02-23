@@ -46,6 +46,11 @@
         </ul>
         <% end %>
     </header>
+        <% if flash[:success] %>
+        <div class="flash">
+          <%= flash[:success] %>
+        </div>
+        <% end %>
     <!--for company page-->
     <%= yield %>
 

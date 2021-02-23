@@ -27,7 +27,7 @@
           <%= link_to 'マイページ', influencer_path(current_influencer.id) ,class: "header-btn" %>
         </li>
         <li>
-          <%= link_to '仮ボタン', influencer_projects_path(current_influencer.id) ,class: "header-btn" %>
+          <%= link_to '通知', influencer_projects_path(current_influencer.id) ,class: "header-btn" %>
         </li>
         <li>
           <%= link_to "ログアウト", destroy_influencer_session_path, method: :delete , data: {confirm: "ログアウトしますか？"} ,class: "header-btn"%>

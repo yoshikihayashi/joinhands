@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
-      <%= attachment_image_tag(@influencer, :image, :fill, 300, 300, format: 'jpeg', fallback: "sample-author1.jpg") %>
+      <%= attachment_image_tag(@influencer, :image, :fill, 300, 300, format: 'jpeg', fallback: "noimage1.jpg") %>
       <% if influencer_signed_in? %>
         <% if @influencer.id == current_influencer.id %>
           <p><%= link_to "プロフィール編集", edit_influencer_path(@influencer),class: 'btn-group' %></p>
@@ -14,6 +14,7 @@
     <div class="col-lg-8">
     <p>【 名前 】<%= @influencer.nickname%></p>
     <p>【 プロフィール 】<%= @influencer.details %></p>
+    <p>【 総フォロワー数 】<%= @influencer.follower_count %></p>
     <p>【 登録日】<%= @influencer.created_at.strftime('%Y/%m/%d') %></p>
     <%# @projects.tags.each do |tag| %>
       <!--<div class="tags">-->

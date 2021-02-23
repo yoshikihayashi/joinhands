@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
     @project = current_company.projects.build(project_params_hash)
     if @project.save
       @project.save_tags(tag_list)
-       flash[:success] = '投稿しました!'
+       flash[:notice] = '投稿しました!'
        redirect_to projects_path
     else
        render 'new'
@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
      @influencers = Influencer.joins(:influencer_projects).merge(InfluencerProject.where(status: 2, project_id: @project))
      @influencer_projects = InfluencerProject.where(project_id: params[:id])
      @completion_influencers = Influencer.joins(:influencer_projects).merge(InfluencerProject.where(status: 3, project_id: @project))
-    # @completion_influencers = Influencer.joins(:influencer_projects).merge(InfluencerProject.where(status: 4, project_id: @project))
+    @evaluation_influencers = Influencer.joins(:influencer_projects).merge(InfluencerProject.where(status: 4, project_id: @project))
     if company_signed_in?
       render :layout => 'company'
     else
@@ -41,6 +41,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
+    flash[:success] = '投稿を削除しました!'
     redirect_to projects_path
   end
 

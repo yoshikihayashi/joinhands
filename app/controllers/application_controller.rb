@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
     when Company
-      companies_path
+      company_path(current_company.id)
     when Influencer
       influencers_path
     end

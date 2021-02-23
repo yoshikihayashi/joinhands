@@ -1,6 +1,6 @@
 <% projects.each do |project| %>
   <div class="card">
-    <%= attachment_image_tag(project, :image, :fill, 250, 250, format: 'jpeg', fallback: "no-image.jpg") %>
+    <%= attachment_image_tag(project, :image, :fill, 250, 250, format: 'jpeg', fallback: "noimage1.jpg") %>
     <%= link_to project_path(project.id),class: 'btn-project' do %>
       <p><%= project.title %></p>
     <% end %>
