@@ -17,7 +17,9 @@ class Influencer < ApplicationRecord
   # has_many  :tags, through: :tag_relationships
   # def save_tags(saveinfluencer_tags)
   #   saveinfluencer_tags.each do |new_name|
-  #   influencer_tag = Tag.find_or_update_by(name: new_name)
+  #   influencer_tag = Tag.find_or_create_by(name: new_name)
+  #   influencer_tag
+  #   pp influencer_tag
   #   self.tags << influencer_tag
   # end
   # end

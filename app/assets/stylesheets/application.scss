@@ -38,7 +38,7 @@ li{
 	padding: 0.5em;
 	transition: .3s;
 	transform: scale(1);
-	margin: 12px 5px;
+	margin: 12px 3px;
 }
 .search{
   margin-left: 70px;
@@ -496,4 +496,56 @@ $color-primary: #ABA194;
   text-align: center;
   background: lightgray;
   font-size: 20px;
+}
+
+.review{
+  text-align: center;
+  // margin: 100px 412px;
+  padding: 0.5em 1em;
+  margin: 5em 24em;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.star{
+  padding: 20px;
+}
+// ボタン
+.submit-button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 12pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #999999;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 17px #666666;  /* 影の設定 */
+  border        : 2px solid #999999;    /* 枠の指定 */
+}
+.submit-button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #999999;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+.search-btn{
+  display       : inline-block;
+  border-radius : 15%;          /* 角丸       */
+  font-size     : 5pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #cccccc;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #cccccc;    /* 枠の指定 */
+}
+.search-btn:hover {
+  color         : #cccccc;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
 }

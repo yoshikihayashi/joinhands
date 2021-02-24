@@ -16,7 +16,12 @@ class InfluencerProjectsController < ApplicationController
   end
 
   def show
-    # @project = Project.find(params[:id])
+    @statuses = InfluencerProject.statuses.map do  |key,value|
+      if key == "rejection" || key == "approval"
+        [I18n.t("enums.influencer_project.status.#{key}"),value]
+      end
+    end.compact!
+
     @influencer_project = InfluencerProject.find(params[:id])
     if current_influencer && current_influencer.id == @influencer_project.influencer_id
       @influencer_project.checked = true

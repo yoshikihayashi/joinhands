@@ -1,5 +1,5 @@
 <%= form_with url: searchs_search_path,  method: :get, data: {remote: false} do %>
   <%= text_field_tag 'content' %>
   <%= select_tag 'model', options_for_select({ "タグ" => "tag", "案件" => "project" }) %>
-  <%= submit_tag '検索' %>
+  <%= submit_tag '検索',class: "search-btn" %>
 <% end %>

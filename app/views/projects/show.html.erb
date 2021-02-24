@@ -16,11 +16,7 @@
         <p>【 お気に入り数 】<%= @project.favorited_influencers.count %></p>
         <p>【 会社名 】<%= @project.company.company_name %></p>
         <p>【 掲載名 】<%= @project.created_at.strftime('%Y/%m/%d') %></p>
-        <% @project.tags.each do |tag| %>
-          <div class="tags">
-            <%= tag.name %>
-          </div>
-        <% end %>
+        <%= render 'projects/tag', project: @project %>
         <div id="favorites_buttons_<%= @project.id %>">
           <%= render partial: 'favorites/favorite', locals: { project: @project} %>
         </div>
@@ -35,10 +31,10 @@
                   <p><%= influencer_project.influencer_message %></p>
                 <% end %>
                 　　　　　　　<!--レビュー画面にする-->
-                <%= link_to "依頼を終了にする" , completion_project_path(@project,influencer) ,method: :patch, data: { confirm: "【確認】依頼を終了しますか？"} %>
+                <%= link_to "レビューする" , review_new_project_path(@project,influencer), data: { confirm: "【確認】レビュー画面に進みますか？"},class: 'btn-project' %>
               </div>
             <% end %>
-            <!--<%# @evaluation_influencers.each do |influencer| %>-->
+            <!--<%# @evaluation_influencers.each do |influencer| -->
             <!--  <p>レビュー待ち</p>-->
             <!--  <div>-->
             <!--    <%#= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>-->

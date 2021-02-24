@@ -12,7 +12,7 @@
       <p>【 企業からのメッセージ 】<%= @influencer_project.message %></p>
       <p>【 企業名 】<%= @influencer_project.project.company.company_name %></p>
       <%= form_with model: @influencer_project do |form| %>
-        <%= form.select :status, InfluencerProject.statuses.map{|key,value| [I18n.t("enums.influencer_project.status.#{key}"),value]}, {} %>
+        <%= form.select :status, @statuses, {} %>
         <%= form.text_area :influencer_message , cols: 40,:placeholder=>"承諾の場合はご連絡先の入力をお願い致します。" %>
         <%= form.submit "送信する" %>
       <% end %>

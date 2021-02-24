@@ -40,13 +40,4 @@ class InfluencersController < ApplicationController
     params.require(:influencer).permit(:nickname, :image, :details,:name_kana,:address, :tag_ids,:follower_count)
   end
 
-  # private
-  # def influencer_params
-  #   params.require(:influencer).permit(
-  #     :nickname,
-  #     :image,
-  #     :details,
-  #   )
-  # end
-
 end

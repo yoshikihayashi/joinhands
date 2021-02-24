@@ -4,8 +4,11 @@ class InfluencerProject < ApplicationRecord
   belongs_to :project
 
 
-  enum status: { request: 0, rejection: 1, approval: 2, completion: 3 ,evaluation: 4}
-              # 0 = 申請中, 　1 = 却下, 　　2 = 承認, 　　3 = 完了        4 = レビュー待ち
+  enum status: { request: 0, rejection: 1, approval: 2, completion: 3 }
+              # 0 = 申請中, 　1 = 却下, 　　2 = 承認, 　　3 = 完了
+
+
+  validates_uniqueness_of :influencer_id, scope: :project_id
 
 
 
