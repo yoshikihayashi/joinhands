@@ -4,7 +4,7 @@ ja:
       status:
         request: '申請中'
         rejection: '却下'
-        approval: '承認'
+        approval: '承諾'
         completion: '完了'
         evaluation: 'レビュー待ち'
 

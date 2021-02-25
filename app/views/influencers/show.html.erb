@@ -21,10 +21,11 @@
          <%#= tag.name %>
       <!--</div>-->
     <%# end %>
+    <% @influencer.reviews.each do |review| %>
     <div class="">
-     <div id="star-rate-<%#= influencer.id %>"></div>
+     <div id="star-rate-<%= review.id %>"></div>
      <script>
-     $('#star-rate-<%#= influencer.id %>').raty({
+     $('#star-rate-<%= review.id %>').raty({
        size: 36,
        starOff:  '<%= asset_path('star-off.png') %>',
        starOn : '<%= asset_path('star-on.png') %>',
@@ -33,13 +34,26 @@
        scoreName: 'company[rate]',
        half: true,
        readOnly: true,
-       score: <%#= influencer.rate %>,
+       score: <%= review.rate %>,
      });
      </script>
     </div>
     <div class="">
       <%#= influencer.rate %>
     </div>
+    <% end %>
+    <div class="average-review-rating" data-score=<%#= @influencer.reviews.average_rate %>></div>
+    <script>
+      $('.average-review-rating').raty({
+        readOnly: true,
+        starOn: "<%= asset_path('star-on.png') %>",
+        starOff: "<%= asset_path('star-off.png') %>",
+        starHalf: "<%= asset_path('star-half.png') %>",
+        score: function() {
+          return $(this).attr('data-score')
+        }
+      });
+    </script>
     </div>
   </div>
 </div>

@@ -200,6 +200,9 @@ li{
 .new-project{
   margin: 0 400px;
 }
+.project-show{
+  display: inline;
+}
 table{
   width: 100%;
   border-collapse: collapse;
@@ -548,4 +551,8 @@ $color-primary: #ABA194;
 .search-btn:hover {
   color         : #cccccc;     /* 背景色     */
   background    : #ffffff;     /* 文字色     */
+}
+.fallback{
+  height: 250px;
+  width: 250px;
 }

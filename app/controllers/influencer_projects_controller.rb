@@ -21,7 +21,6 @@ class InfluencerProjectsController < ApplicationController
         [I18n.t("enums.influencer_project.status.#{key}"),value]
       end
     end.compact!
-
     @influencer_project = InfluencerProject.find(params[:id])
     if current_influencer && current_influencer.id == @influencer_project.influencer_id
       @influencer_project.checked = true

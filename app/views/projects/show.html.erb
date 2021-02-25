@@ -12,7 +12,7 @@
       <div class="col-lg-8">
         <p>【 報酬 】<%= @project.price %></p>
         <p>【 タイトル 】<%= @project.title %></p>
-        <p>【 概要 】<%= @project.details %></p>
+        <p style="word-wrap: break-word;">【 概要 】<%= @project.details %></p>
         <p>【 お気に入り数 】<%= @project.favorited_influencers.count %></p>
         <p>【 会社名 】<%= @project.company.company_name %></p>
         <p>【 掲載名 】<%= @project.created_at.strftime('%Y/%m/%d') %></p>
@@ -23,14 +23,13 @@
         <div class="col-lg-7">
           <% if company_signed_in? %>
             <% @influencers.each do |influencer| %>
-              <div>
+              <div class="project-show">
                 <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
                   <p>【 <%= influencer.nickname %>さんから返答が来ました】</p>
                 <% end %>
                 <% @influencer_projects.each do |influencer_project| %>
                   <p><%= influencer_project.influencer_message %></p>
                 <% end %>
-                　　　　　　　<!--レビュー画面にする-->
                 <%= link_to "レビューする" , review_new_project_path(@project,influencer), data: { confirm: "【確認】レビュー画面に進みますか？"},class: 'btn-project' %>
               </div>
             <% end %>

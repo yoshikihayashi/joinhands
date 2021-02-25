@@ -12,9 +12,10 @@ class ProjectsController < ApplicationController
     @project = current_company.projects.build(project_params_hash)
     if @project.save
       @project.save_tags(tag_list)
-       flash[:notice] = '投稿しました!'
+       flash[:success] = '投稿しました!'
        redirect_to projects_path
     else
+       flash[:success] = '投稿に失敗しました。。'
        render 'new'
     end
   end

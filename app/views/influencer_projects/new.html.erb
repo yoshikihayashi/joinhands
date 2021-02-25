@@ -2,7 +2,7 @@
 
 <h2 class="subject">申請ページ</h2>
 <div class="new-project">
-  <%= form_with url:  influencer_projects_path, local:true do |f| %>
+  <%= form_with url: influencer_projects_path, local:true do |f| %>
   <table>
     <tr>
       <td><%= f.text_area :message ,:placeholder=>"インフルエンサーにお仕事の依頼のメッセージ", rows: 10, cols: 40 %></td>
@@ -11,7 +11,7 @@
       <td><%= f.collection_select(:project_id, current_company.projects, :id, :title) %></td>
     </tr>
     <tr>
-      <td><%= f.hidden_field :influencer_id , value: @influencer.id%></td>
+      <td><%= f.hidden_field :influencer_id , value: @influencer.id %></td>
     </tr>
   </table>
     <div class="table-btn"><%= f.submit '送信', data: { confirm: "【確認】この依頼を申請しますか？"},class:"btn btn-primary" %></div>

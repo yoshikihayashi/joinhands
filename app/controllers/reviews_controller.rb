@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
     project = Project.find(params[:id])
     influencer = Influencer.find(params[:influencer_id])
     review = Review.new(review_params)
+    review.rate = params[:review][:rate].to_i
     review.influencer_id = influencer.id
     review.project_id = project.id
     review.save!
