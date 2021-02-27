@@ -20,7 +20,6 @@ Rails.application.routes.draw do
       patch "influencers/:influencer_id"=> 'influencer_projects#completion',as: :completion
       get "influencers/:influencer_id/reviews/new"=> 'reviews#new',as: :review_new
       post "influencers/:influencer_id/reviews"=> 'reviews#create',as: :review_post
-      # patch "influencers/:influencer_id"=> 'influencer_projects#evaluation',as: :evaluation
     end
     resources :influencer_projects, only: [:destroy]
      member do
@@ -28,9 +27,7 @@ Rails.application.routes.draw do
       delete 'favorites' => 'favorites#destroy'
     end
   end
-  # get 'influencer_projects/new' => 'influencer_projects#new'
-  # post 'influencer_projects/' => 'influencer_projects#create'
-  # get 'influencer_projects/show' => 'influencer_projects#show'
+
   resources :influencer_projects, only: [:new,:create,:show,:update,:index]
 
   resources :notifications, only: [:index]

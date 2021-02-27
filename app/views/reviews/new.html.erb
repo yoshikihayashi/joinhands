@@ -8,6 +8,7 @@
                 <label>評価：</label>
                 <%# scoreNameの値をhidden_fieldでカラムに送っている %>
                 <%= f.hidden_field :rate, :value => 'score' %>
+                <%#= f.hidden_field :from_to_type, :value => 1 %>
             </div>
             <%= f.submit "送信する", class: "submit-button" %>
           </div>

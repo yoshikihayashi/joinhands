@@ -12,8 +12,21 @@ class Influencer < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
 
-  # has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitorinfluencer_id', dependent: :destroy
-  # has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visitedinflencer_id', dependent: :destroy
+  def avg_rate
+    unless self.reviews.empty?
+      reviews.average(:rate).round(1).to_f
+    else
+      0.0
+    end
+  end
+
+  def avg_rate_percentage
+    unless self.reviews.empty?
+     reviews.average(:rate).round(1).to_f*100/5
+    else
+     0.0
+    end
+  end
 
   # has_many  :tag_relationships, dependent: :destroy
   # has_many  :tags, through: :tag_relationships
@@ -30,14 +43,14 @@ class Influencer < ApplicationRecord
     self.favorites.exists?(project_id: project.id)
   end
 
-  def create_notification(current_influencer)
-    temp = Notification.where(["visitercompany_id = ? and visitedinflencer_id = ? and action = ? ",current_influencer.id, id])
-    if temp.blank?
-      notification = current_influencer.active_notifications.new(
-        visitedinflencer_id: id,
-        action: ''
-      )
-      notification.save if notification.valid?
-    end
-  end
+  # def create_notification(current_influencer)
+  #   temp = Notification.where(["visitercompany_id = ? and visitedinflencer_id = ? and action = ? ",current_influencer.id, id])
+  #   if temp.blank?
+  #     notification = current_influencer.active_notifications.new(
+  #       visitedinflencer_id: id,
+  #       action: ''
+  #     )
+  #     notification.save if notification.valid?
+  #   end
+  # end
 end

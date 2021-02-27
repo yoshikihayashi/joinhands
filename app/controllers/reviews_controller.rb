@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  
+
   def new
     @project = Project.find(params[:id])
     @influencer = Influencer.find(params[:influencer_id])
@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
    private
 
   def review_params
-    params.permit(:rate)
+    params.permit(:rate,:comment,:from_to_type)
   end
 
 

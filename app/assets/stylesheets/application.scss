@@ -421,6 +421,10 @@ $color-primary: #ABA194;
 }
 
 // 検索フォーム
+.search-message{
+  margin: 90px auto;
+  font-size: 40px;
+}
 .form2 {
   position: relative;
 }
@@ -513,6 +517,14 @@ $color-primary: #ABA194;
 }
 .star{
   padding: 20px;
+}
+// レビュー表示
+.review-star{
+
+}
+.review-box{
+  float: left;
+  padding: 2px;
 }
 // ボタン
 .submit-button {

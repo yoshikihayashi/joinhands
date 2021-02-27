@@ -11,7 +11,7 @@ class InfluencersController < ApplicationController
     if influencer_signed_in?
       render :layout => 'influencer'
     else
-    render :layout => 'company'
+      render :layout => 'company'
     end
   end
 

@@ -6,5 +6,9 @@ class Review < ApplicationRecord
   }, presence: true
 
  belongs_to :influencer
+ 
+# belongs_to :company 
 
+ 
+  
 end
