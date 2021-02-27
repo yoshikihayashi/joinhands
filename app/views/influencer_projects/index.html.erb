@@ -20,9 +20,11 @@
           <% if influencer_project.status == "completion" %>
             <div class="card" style="text-align:center;">
               <div class="request">レビューをお願い致します！</div>
-              <p><%= truncate influencer_project.message ,length: 10 %></p>
-              <p><%= influencer_project.status %></p>
-              <p><%#= influencer_project.project.company.company_name %></p>
+              <%#= link_to influencer_project_company_review_new_path(influencer_project),class: 'btn-project' do %>
+                <p><%= truncate influencer_project.message ,length: 10 %></p>
+              <%# end %>
+                <p><%= influencer_project.status %></p>
+                <p><%#= influencer_project.project.company.company_name %></p>
             </div>
           <% end %>
         <% end %>

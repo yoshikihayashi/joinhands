@@ -28,7 +28,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :influencer_projects, only: [:new,:create,:show,:update,:index]
+  resources :influencer_projects, only: [:new,:create,:show,:update,:index]do
+    get "companies/:company_id/company_reviews/new"=> 'company_reviews#new',as: :company_review_new
+    post "companies/:company_id/company_reviews"=> 'company_reviews#create',as: :company_review_post
+  end
 
   resources :notifications, only: [:index]
 

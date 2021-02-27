@@ -9,9 +9,10 @@
       <p>【 総フォロワー数 】<%= influencer.follower_count %></p>
       <p>【 自己紹介文 】<%= truncate influencer.details, length: 10 %></p>
       <p>【 登録日 】<%= influencer.created_at.strftime('%Y/%m/%d') %></p>
-      <div id="star-rate-<%= influencer.id %>"></div>
+      <div id="star-rate-<%= influencer.id %>">(<%= influencer.reviews.count %>)</div>
     </div>
     <script>
+    $(document).ready(function() {
      $('#star-rate-<%= influencer.id %>').raty({
        size: 36,
        starOff:  '<%= asset_path('star-off.png') %>',
@@ -22,7 +23,9 @@
        half: true,
        readOnly: true,
        score: <%= influencer.avg_rate %>,
+       number: 5
      });
+    })
      </script>
   <% end %>
 </div>

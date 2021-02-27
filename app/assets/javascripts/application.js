@@ -14,14 +14,12 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require jquery
-//= require jquery.raty.js
 // require jquery_ujs
 //= require jquery-ui
 //= require tag-it
-//= require turbolinks
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+// require turbolinks
 //= require_tree .
 // var button = document.querySelector('.btn')
 // var form   = document.querySelector('.form')
@@ -41,9 +39,8 @@ $(function(){
     });
 });
 
-window.$ = window.jQuery = require('jquery');
-require('javascripts/jquery.raty')
 
 $(function(){
   setTimeout("$('.flash, success').fadeOut('slow')", 800);
 });
+

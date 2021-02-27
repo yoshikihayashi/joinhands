@@ -5,7 +5,8 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects, dependent: :destroy
-  # has_many :reviews, dependent: :destroy
+  
+  has_many :company_reviews, dependent: :destroy
 
 
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitorcompany_id', dependent: :destroy

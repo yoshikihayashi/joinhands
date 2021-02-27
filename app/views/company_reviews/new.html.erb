@@ -1,0 +1,50 @@
+<h2 class="subject"><%= @company.name %>様へのレビュー</h2>
+  <div class="container">
+    <div class="row">
+        <%= form_with url:review_post_project_path(@project, @company) ,local:true do |f| %>
+          <div class="review">
+            <%= f.text_area :comment, size: "20x5", placeholder: "企業様への感想", class: "form-control form-control-sm" %>
+            <div class="star" id="rating-form">
+                <label>評価：</label>
+                <%# scoreNameの値をhidden_fieldでカラムに送っている %>
+                <%= f.hidden_field :rate, :value => 'score' %>
+            </div>
+            <%= f.submit "送信する", class: "submit-button" %>
+          </div>
+        <% end %>
+        <script>
+            $('#rating-form').raty({
+                starOn: "<%= asset_path('star-on.png') %>",
+                starOff: "<%= asset_path('star-off.png') %>",
+                starHalf: '<%= asset_path('star-half.png') %>',
+                scoreName: 'company_review[rate]',
+                half: true,
+            });
+        </script>
+    </div>
+  </div>
+
+<!--<%#= form_with url:review_post_project_path(@project, @influencer) ,local:true do |f| %>-->
+  <%#= f.select :rate, {'微妙': 1, 'よかった': 2}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+<!--  <%#= f.hidden_field :rate, id: :review_star %>-->
+<!--  <div class="">-->
+<!--     <div id="star-rate-<%#= @influencer.id %>"></div>-->
+<!--     <script>-->
+<!--       $('#star-rate-<%#= @influencer.id %>').raty({-->
+<!--         size: 36,-->
+<!--         starOff:  '<%#= asset_path('star-off.png') %>',-->
+<!--         starOn : '<%#= asset_path('star-on.png') %>',-->
+<!--         starHalf: '<%#= asset_path('star-half.png') %>',-->
+<!--         scoreName: 'influencer[rate]',-->
+<!--         scoreName: 'company[rate]',-->
+<!--         half: true,-->
+<!--         readOnly: true,-->
+
+
+<!--       });-->
+<!--     </script>-->
+<!--  </div>-->
+<!--  <div class="">-->
+    <%#= @influencer.rate %>
+<!--  </div>-->
+<!--  <%#= f.submit "送信" %>-->
