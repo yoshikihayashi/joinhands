@@ -27,7 +27,7 @@
                 <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
                   <p>【 <%= influencer.nickname %>さんから返答が来ました】</p>
                 <% end %>
-                <% @influencer_projects.each do |influencer_project| %>
+                <% @influencer_projects.where(influencer_id: influencer.id).each do |influencer_project| %>
                   <p><%= influencer_project.influencer_message %></p>
                 <% end %>
                 <%= link_to "レビューする" , review_new_project_path(@project,influencer), data: { confirm: "【確認】レビュー画面に進みますか？"},class: 'btn-project' %>

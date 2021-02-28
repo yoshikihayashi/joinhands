@@ -5,7 +5,7 @@
       <%= attachment_image_tag @influencer_project.project, :image, format: 'jpeg', size: "300x300" %>
     </div>
      <div class="col-lg-8">
-        <%= form_with model: @influencer_project do |form| %>
+        <%= form_with model: @influencer_project , local:true do |form|  %>
             <table>
                  <tr>
                     <td><%= link_to @influencer_project.project.title, project_path(@influencer_project.project.id),class: 'btn-project'  %></td>
