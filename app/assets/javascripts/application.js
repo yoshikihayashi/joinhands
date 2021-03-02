@@ -44,3 +44,11 @@ $(function(){
   setTimeout("$('.flash, success').fadeOut('slow')", 800);
 });
 
+
+
+$(document).on("keyup", '.tagit', function() {
+  let tag_count = 10 - $(".tagit-choice").length    // ↑ と同じなので、まとめた方がいい。
+  $(".ui-widget-content.ui-autocomplete-input").attr(
+  'placeholder','あと' + tag_count + '個登録できます');
+});
+ 

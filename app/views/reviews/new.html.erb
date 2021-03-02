@@ -8,7 +8,6 @@
                 <label>評価：</label>
                 <%# scoreNameの値をhidden_fieldでカラムに送っている %>
                 <%= f.hidden_field :rate, :value => 'score' %>
-                <%#= f.hidden_field :from_to_type, :value => 1 %>
             </div>
             <%= f.submit "送信する", class: "submit-button" %>
           </div>
@@ -24,29 +23,3 @@
         </script>
     </div>
   </div>
-
-<!--<%#= form_with url:review_post_project_path(@project, @influencer) ,local:true do |f| %>-->
-  <%#= f.select :rate, {'微妙': 1, 'よかった': 2}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
-<!--  <%#= f.hidden_field :rate, id: :review_star %>-->
-<!--  <div class="">-->
-<!--     <div id="star-rate-<%#= @influencer.id %>"></div>-->
-<!--     <script>-->
-<!--       $('#star-rate-<%#= @influencer.id %>').raty({-->
-<!--         size: 36,-->
-<!--         starOff:  '<%#= asset_path('star-off.png') %>',-->
-<!--         starOn : '<%#= asset_path('star-on.png') %>',-->
-<!--         starHalf: '<%#= asset_path('star-half.png') %>',-->
-<!--         scoreName: 'influencer[rate]',-->
-<!--         scoreName: 'company[rate]',-->
-<!--         half: true,-->
-<!--         readOnly: true,-->
-
-
-<!--       });-->
-<!--     </script>-->
-<!--  </div>-->
-<!--  <div class="">-->
-    <%#= @influencer.rate %>
-<!--  </div>-->
-<!--  <%#= f.submit "送信" %>-->
-<!--<%# end %>-->

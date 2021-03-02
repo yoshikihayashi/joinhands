@@ -11,8 +11,28 @@
       <% if @company.id == current_company.id %>
         <p><%= link_to "プロフィール編集", edit_company_path(@company),class: 'btn-group' %></p>
       <% end %>
+      <div class="review-star">
+        <% @company_reviews.each do |company_review| %>
+         <div class="review-box" id="star-rate-<%= company_review.id %>"></div>
+         <script>
+         $('#star-rate-<%= company_review.id %>').raty({
+           size: 36,
+           starOff:  '<%= asset_path('star-off.png') %>',
+           starOn : '<%= asset_path('star-on.png') %>',
+           starHalf: '<%= asset_path('star-half.png') %>',
+           scoreName: 'influencer[rate]',
+           scoreName: 'company[rate]',
+           half: true,
+           readOnly: true,
+           score: <%= company_review.rate %>,
+         });
+         </script>
+        <div class="review-box"><%= company_review.rate %></div>
+        <div class="review-box"><%= company_review.comment %></div>
+        <% end %>
+         <div class="review-box">（平均値<%= @company.avg_rate %>点）</div>
+      </div>
     </div>
-
     <div class="col-lg-7">
       <% @projects.each do |project| %>
       <div>

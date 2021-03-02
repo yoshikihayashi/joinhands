@@ -28,10 +28,6 @@ class ProjectsController < ApplicationController
 
   def show
      @project = Project.find(params[:id])
-    # @my_message_count = InfluencerProject.where(influencer_projects: projects).where(status: 2).count
-    # if @my_message_count > 0
-    #   flash[:notice] = 'sssssssssssssssssssssssssss'
-    # end
     @influencers = Influencer.includes(:influencer_projects).where(influencer_projects: {status: 2, project_id: @project})
      @influencer_projects = InfluencerProject.where(project_id: params[:id])
      @completion_influencers =  Influencer.includes(:influencer_projects).where(influencer_projects: {status: 3, project_id: @project})

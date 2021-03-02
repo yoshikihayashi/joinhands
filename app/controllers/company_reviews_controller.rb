@@ -1,32 +1,33 @@
 class CompanyReviewsController < ApplicationController
-
+   layout 'influencer'
   def new
-    @project = Project.find(params[:id])
-    @company = Company.find(params[:company_id])
     @company_review = CompanyReview.new
-    if company_signed_in?
-      render :layout => 'company'
-    else
+    if influencer_signed_in?
       render :layout => 'influencer'
+    else
+      render :layout => 'company'
     end
   end
 
   def create
-    project = Project.find(params[:id])
-    company = Company.find(params[:company_id])
-    company_review = CompanyReview.new(company_review_params)
-    company_review.rate = params[:company_review][:rate].to_i
-    company_review.company_id = company.id
-    company_review.project_id = project.id
-    company_review.save!
-    InfluencerProject.find_by(project_id: project.id, company_id: company.id).update!(status: 4)
-    redirect_to influencer_projects
+    project_id = InfluencerProject.find(params[:id]).project_id
+    company_id = Project.find(project_id).company_id
+    @company_review = CompanyReview.new(company_review_params)
+    @company_review.company_id = company_id
+    if @company_review.save
+      # InfluencerProject.find_by(project_id: project.id, company_id: company.id).update!(status: 4)
+      flash[:success] = '送信しました！'
+      redirect_to influencer_projects_path(current_influencer.id)
+    else
+      flash[:success] = '送信失敗しました。。。'
+      render 'new'
+    end
+
   end
 
-   private
+  private
 
   def company_review_params
-    params.permit(:rate,:comment)
+    params.require(:company_review).permit(:rate,:comment, :company_id)
   end
-
 end

@@ -10,6 +10,8 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @projects = Project.where(company_id: current_company.id)
+
+    @company_reviews = CompanyReview.where(company_id: @company.id)
   end
 
   def edit

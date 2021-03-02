@@ -5,7 +5,7 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects, dependent: :destroy
-  
+
   has_many :company_reviews, dependent: :destroy
 
 
@@ -21,6 +21,22 @@ class Company < ApplicationRecord
         action: ''
       )
       notification.save if notification.valid?
+    end
+  end
+
+  def avg_rate
+    unless self.company_reviews.empty?
+      company_reviews.average(:rate).round(1).to_f
+    else
+      0.0
+    end
+  end
+
+  def avg_rate_percentage
+    unless self.company_reviews.empty?
+     company_reviews.average(:rate).round(1).to_f*100/5
+    else
+     0.0
     end
   end
 

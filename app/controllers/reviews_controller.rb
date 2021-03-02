@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
    private
 
   def review_params
-    params.permit(:rate,:comment,:from_to_type)
+    params.permit(:rate,:comment)
   end
 
 
