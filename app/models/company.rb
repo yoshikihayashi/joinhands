@@ -11,6 +11,12 @@ class Company < ApplicationRecord
 
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitorcompany_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visitedcompany_id', dependent: :destroy
+  
+  def self.guest
+    find_or_create_by!(email: 'guest1@example.com') do |company|
+      company.password = SecureRandom.urlsafe_base64
+    end
+  end
 
 
   def create_notification(current_company)

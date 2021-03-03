@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   devise_scope :influencer do
     post 'influencers/guest_sign_in', to: 'influencers/sessions#new_guest'
   end
+  devise_scope :company do
+    post 'companies/guest_sign_in', to: 'companies/sessions#new_guest'
+  end
 
   devise_for :influencers, controllers: {
     sessions:      'influencers/sessions',

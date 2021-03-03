@@ -4,6 +4,13 @@ class Companies::SessionsController < Devise::SessionsController
   layout 'company'
   # before_action :configure_sign_in_params, only: [:create]
 
+  def new_guest
+    company = Company.guest
+    sign_in company
+    flash[:success] = 'ゲストユーザーとしてログインしました！'
+    redirect_to company_path(current_company.id)
+  end
+
   # GET /resource/sign_in
   # def new
   #   super
