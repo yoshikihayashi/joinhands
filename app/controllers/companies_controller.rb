@@ -21,6 +21,7 @@ class CompaniesController < ApplicationController
   def update
     @company = Company.find(params[:id])
     @company.update(company_params)
+    flash[:success] = 'プロフィールを更新しました！'
     redirect_to company_path(@company.id)
   end
 

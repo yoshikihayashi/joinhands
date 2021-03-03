@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/company_info' => 'company_info'
   get 'homes/influencer_info' => 'influencer_info'
+  
+  devise_scope :influencer do
+    post 'influencers/guest_sign_in', to: 'influencers/sessions#new_guest'
+  end
 
   devise_for :influencers, controllers: {
     sessions:      'influencers/sessions',

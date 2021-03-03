@@ -41,13 +41,13 @@ $(function(){
 
 
 $(function(){
-  setTimeout("$('.flash, success').fadeOut('slow')", 800);
+  setTimeout("$('.flash, success').fadeOut('slow')", 2000);
 });
 
 
 
-// $(document).on("keyup", '.tagit', function() {
-//   let tag_count = 10 - $(".tagit-choice").length
-//   $(".ui-widget-content.ui-autocomplete-input").attr(
-//   'placeholder','あと' + tag_count + '個登録できます');
-// });
+$(document).on("keyup", '.tagit', function() {
+  let tag_count = 10 - $(".tagit-choice").length
+  $(".ui-widget-content.ui-autocomplete-input").attr(
+  'placeholder','あと' + tag_count + '個登録できます');
+});

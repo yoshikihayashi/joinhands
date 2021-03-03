@@ -28,6 +28,14 @@ class Influencer < ApplicationRecord
     end
   end
 
+  def self.guest
+    find_or_create_by!(email: 'guest1@example.com') do |influencer|
+      influencer.password = SecureRandom.urlsafe_base64
+      influencer.nickname = 'ゲスト1'
+      # influencer.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
+  end
+
   # has_many  :tag_relationships, dependent: :destroy
   # has_many  :tags, through: :tag_relationships
   # def save_tags(saveinfluencer_tags)

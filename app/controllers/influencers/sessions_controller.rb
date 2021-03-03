@@ -3,6 +3,12 @@
 class Influencers::SessionsController < Devise::SessionsController
   layout 'influencer'
   # before_action :configure_sign_in_params, only: [:create]
+  
+  def new_guest
+    influencer = Influencer.guest
+    sign_in influencer
+    redirect_to root_path, success: 'ゲストユーザーとしてログインしました。'
+  end
 
   # GET /resource/sign_in
   # def new

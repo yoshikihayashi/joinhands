@@ -11,6 +11,7 @@
       <% if @company.id == current_company.id %>
         <p><%= link_to "プロフィール編集", edit_company_path(@company),class: 'btn-group' %></p>
       <% end %>
+      <%= render 'companies/modal' %> 
       <div class="review-star">
         <% @company_reviews.each do |company_review| %>
          <div class="review-box" id="star-rate-<%= company_review.id %>"></div>

@@ -52,6 +52,7 @@ class InfluencerProjectsController < ApplicationController
    influencer_project =  InfluencerProject.new(influencer_project_params)
    influencer_project.status = 0
    if influencer_project.save
+      flash[:success] = '送信完了です！'
      redirect_to  companies_path
    else
      render "new"

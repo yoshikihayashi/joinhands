@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.integer "influencer_id"
       t.integer "company_id"
       t.float "rate", null: false, default: 0
-      
+
       t.timestamps
     end
   end
