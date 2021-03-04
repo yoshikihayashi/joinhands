@@ -4,19 +4,21 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
     when Company
+      flash[:success] = 'ログインしました！'
       company_path(current_company.id)
     when Influencer
+      flash[:success] = 'ログインしました！'
       influencers_path
     end
   end
 
   def after_sign_out_path_for(resource)
-      root_path
+    root_path
   end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name , :company_name , :representative_name  , :phone_number, :business_detail, :employee_number])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :company_name, :representative_name, :phone_number, :business_detail, :employee_number])
   end
 end

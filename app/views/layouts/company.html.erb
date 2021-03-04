@@ -4,9 +4,6 @@
     <title>JOIN HANDS</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <!--<link rel="stylesheet" href="modaal.min.css">-->
-    <!--<script src='//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>-->
-    <!--<script src="modaal.min.js"></script>-->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,7 +13,7 @@
         <% if company_signed_in? %>
         <ul>
           <li class="header-logo">
-            <%= link_to "JOIN HANDS", root_path, class: "header-logo" %>
+              <%= link_to "JOIN HANDS", companies_path, class: "header-logo" %>
           </li>
           <li class="search">
             <%= render 'searchs/form' %>
@@ -54,7 +51,7 @@
             <%= flash[:success] %>
           </div>
         <% end %>
-    <!--for company page-->
+
     <%= yield %>
 
   </body>

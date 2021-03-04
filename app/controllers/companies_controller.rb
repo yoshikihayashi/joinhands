@@ -6,7 +6,6 @@ class CompaniesController < ApplicationController
     @influencers = Influencer.all
   end
 
-
   def show
     @company = Company.find(params[:id])
     @projects = Project.where(company_id: current_company.id)
@@ -30,7 +29,4 @@ class CompaniesController < ApplicationController
   def company_params
     params.require(:company).permit(:company_name, :business_detail, :employee_number, :representative_name)
   end
-
-
-
 end

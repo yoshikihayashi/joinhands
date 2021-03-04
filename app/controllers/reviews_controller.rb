@@ -1,9 +1,8 @@
 class ReviewsController < ApplicationController
-
   def new
     @project = Project.find(params[:id])
     @influencer = Influencer.find(params[:influencer_id])
-    @review =Review.new
+    @review = Review.new
     if company_signed_in?
       render :layout => 'company'
     else
@@ -23,16 +22,9 @@ class ReviewsController < ApplicationController
     redirect_to project
   end
 
-   private
+  private
 
   def review_params
-    params.permit(:rate,:comment)
+    params.permit(:rate, :comment)
   end
-
-
-
-
-
-
-
 end

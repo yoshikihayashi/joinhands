@@ -1,5 +1,5 @@
 class InfluencersController < ApplicationController
-  #before_action :authenticate_influencer!
+  # before_action :authenticate_influencer!
   layout 'influencer'
 
   def index
@@ -34,10 +34,9 @@ class InfluencersController < ApplicationController
     end
   end
 
-   private
+  private
 
   def influencer_params
-    params.require(:influencer).permit(:nickname, :image, :details,:name_kana,:address, :tag_ids,:follower_count)
+    params.require(:influencer).permit(:nickname, :image, :details, :name_kana, :address, :tag_ids, :follower_count)
   end
-
 end

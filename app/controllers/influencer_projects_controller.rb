@@ -16,9 +16,9 @@ class InfluencerProjectsController < ApplicationController
   end
 
   def show
-    @statuses = InfluencerProject.statuses.map do  |key,value|
+    @statuses = InfluencerProject.statuses.map do |key, value|
       if key == "rejection" || key == "approval"
-        [I18n.t("enums.influencer_project.status.#{key}"),value]
+        [I18n.t("enums.influencer_project.status.#{key}"), value]
       end
     end.compact!
     @influencer_project = InfluencerProject.find(params[:id])
@@ -43,28 +43,25 @@ class InfluencerProjectsController < ApplicationController
   end
 
   def completion
-     @influencer_project = InfluencerProject.find_by(influencer_id: params[:influencer_id], project_id: params[:id])
-     @influencer_project.update(status: 3)
-    redirect_to  @influencer_project.project
+    @influencer_project = InfluencerProject.find_by(influencer_id: params[:influencer_id], project_id: params[:id])
+    @influencer_project.update(status: 3)
+    redirect_to @influencer_project.project
   end
 
   def create
-   influencer_project =  InfluencerProject.new(influencer_project_params)
-   influencer_project.status = 0
-   if influencer_project.save
+    influencer_project = InfluencerProject.new(influencer_project_params)
+    influencer_project.status = 0
+    if influencer_project.save
       flash[:success] = '送信完了です！'
-     redirect_to  companies_path
-   else
-     render "new"
-   end
-
+      redirect_to companies_path
+    else
+      render "new"
+    end
   end
 
   private
 
   def influencer_project_params
-    params.permit(:message, :influencer_id, :project_id,:influencer_message)
+    params.permit(:message, :influencer_id, :project_id, :influencer_message)
   end
-
-
 end

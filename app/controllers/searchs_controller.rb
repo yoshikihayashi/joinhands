@@ -1,5 +1,4 @@
 class SearchsController < ApplicationController
-
   def search
     @model = params["model"]
     @content = params["content"]
@@ -12,8 +11,8 @@ class SearchsController < ApplicationController
     end
   end
 
-
   private
+
   def search_for(model, content)
     if params[:model] == 'project'
       @records = Project.ransack(title_cont: params[:content]).result

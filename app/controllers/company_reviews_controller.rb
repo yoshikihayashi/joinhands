@@ -1,5 +1,5 @@
 class CompanyReviewsController < ApplicationController
-   layout 'influencer'
+  layout 'influencer'
   def new
     @company_review = CompanyReview.new
     if influencer_signed_in?
@@ -22,12 +22,11 @@ class CompanyReviewsController < ApplicationController
       flash[:success] = '送信失敗しました。。。'
       render 'new'
     end
-
   end
 
   private
 
   def company_review_params
-    params.require(:company_review).permit(:rate,:comment, :company_id)
+    params.require(:company_review).permit(:rate, :comment, :company_id)
   end
 end

@@ -5,5 +5,4 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
     get companies_show_url
     assert_response :success
   end
-
 end

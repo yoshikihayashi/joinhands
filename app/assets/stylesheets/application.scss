@@ -31,30 +31,22 @@
   display: flex;
   list-style: none;
   width: 100%;
-  height: 70px;
-}
-li{
-  display: inline-block;
-	padding: 0.5em;
-	transition: .3s;
-	transform: scale(1);
-	margin: 12px 3px;
+  // height: 70px;
+  li{
+    display: inline-block;
+    padding: 10px;
+  }
 }
 .search{
   margin-left: 70px;
 }
-// li:hover{
-//   transform: scale(1.05);
-//   background: lightgray;
-//   border-radius : 10%;
-// }
 // インフォメーション
 .info-company{
   p{
     background: #FFF0F5;
     display: inline-block;
     padding: 30px;
-    margin-inline-start: 268px;
+    margin-inline-start: 155px;
     text-align: center;
   }
 }
@@ -63,7 +55,7 @@ li{
     background: #FFF0F5;
     display: inline-block;
     padding: 30px;
-    margin-inline-start: 124px;
+    margin-inline-start: 30px;
     text-align: center;
   }
 }
@@ -571,7 +563,11 @@ $color-primary: #ABA194;
 // company側のモーダルウィンドウ
 .modal-text{
   text-align: center;
-  line-height: 2.5;
+  line-height: 2;
+  a{
+    font-family: 'Impact';
+    font-size: 30px;
+  }
 }
 .button-10 {
   padding: 0.4em 1.6em;

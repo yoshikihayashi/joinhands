@@ -9,5 +9,4 @@ class HomesController < ApplicationController
   def influencer_info
     render :layout => 'influencer'
   end
-
 end

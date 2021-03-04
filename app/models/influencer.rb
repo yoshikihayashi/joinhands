@@ -13,18 +13,18 @@ class Influencer < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   def avg_rate
-    unless self.reviews.empty?
-      reviews.average(:rate).round(1).to_f
-    else
+    if reviews.empty?
       0.0
+    else
+      reviews.average(:rate).round(1).to_f
     end
   end
 
   def avg_rate_percentage
-    unless self.reviews.empty?
-     reviews.average(:rate).round(1).to_f*100/5
+    if reviews.empty?
+      0.0
     else
-     0.0
+      reviews.average(:rate).round(1).to_f * 100 / 5
     end
   end
 
@@ -48,7 +48,7 @@ class Influencer < ApplicationRecord
   # end
 
   def already_favorited?(project)
-    self.favorites.exists?(project_id: project.id)
+    favorites.exists?(project_id: project.id)
   end
 
   # def create_notification(current_influencer)
