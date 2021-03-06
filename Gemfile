@@ -74,3 +74,8 @@ group :production do
   gem 'mysql2'
 end
 gem 'ransack'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'
+gem 'omniauth', '1.9.1'

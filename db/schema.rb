@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_27_125112) do
+ActiveRecord::Schema.define(version: 2021_03_05_104816) do
 
   create_table "companies", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 2021_02_27_125112) do
     t.text "details"
     t.string "password"
     t.string "follower_count"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_influencers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_influencers_on_reset_password_token", unique: true
   end

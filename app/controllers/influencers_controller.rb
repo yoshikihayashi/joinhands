@@ -37,6 +37,6 @@ class InfluencersController < ApplicationController
   private
 
   def influencer_params
-    params.require(:influencer).permit(:nickname, :image, :details, :name_kana, :address, :tag_ids, :follower_count)
+    params.require(:influencer).permit(:nickname, :image, :details, :name_kana, :address, :tag_ids, :follower_count, :phone_number, :name)
   end
 end

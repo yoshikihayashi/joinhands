@@ -1,0 +1,2 @@
+module Influencers::OmniauthCallbacksHelper
+end

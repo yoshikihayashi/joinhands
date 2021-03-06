@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     sessions: 'influencers/sessions',
     passwords: 'influencers/passwords',
     registrations: 'influencers/registrations',
+    omniauth_callbacks: 'influencers/omniauth_callbacks',
   }
   devise_for :companies, controllers: {
     sessions: 'companies/sessions',
