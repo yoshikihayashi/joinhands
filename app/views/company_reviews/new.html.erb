@@ -1,7 +1,7 @@
 <h2 class="subject">企業へのレビュー</h2>
   <div class="container">
     <div class="row">
-      <%= form_with model: @company_review , url:company_reviews_path ,local:true do |f| %>
+      <%= form_with model: @company_review , url: company_reviews_path(influencer_id: @influencer.id) ,local:true do |f| %>
         <div class="review">
           <%= f.text_area :comment, size: "20x5", placeholder: "企業への感想", class: "form-control form-control-sm" %>
           <div class="star" id="rating-form">
@@ -9,6 +9,7 @@
               <%# scoreNameの値をhidden_fieldでカラムに送っている %>
               <%= f.hidden_field :rate, :value => 'score' %>
               <%= f.hidden_field :company_id %>
+              <%#= f.hidden_field :influencer_id, :value => @influencer.id %>
           </div>
           <%= f.submit "送信する", class: "submit-button" %>
         </div>

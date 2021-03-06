@@ -29,5 +29,15 @@
           <% end %>
         <% end %>
       </div>
+      <h5 class="">完了済み案件</h5>
+      <div class="row">
+        <% @influencer_projects.each do |influencer_project| %>
+          <% if influencer_project.status == "perfect" %>
+            <div class="card" style="text-align:center;">
+              <%= render 'influencer_projects/message', influencer_project: influencer_project %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
 </div>
