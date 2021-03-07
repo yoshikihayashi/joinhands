@@ -5,7 +5,7 @@
       <div class="row">
         <% @influencer_projects.each do |influencer_project| %>
           <% if influencer_project.status == "request" %>
-            <div class="card" style="width: 17rem;">
+            <div class="card notice">
               <div class="request">新規の申請が届きました！</div>
               <%= link_to influencer_project_path(influencer_project.id),class: 'btn-project' do %>
                 <%= render 'influencer_projects/message', influencer_project: influencer_project %>
@@ -18,7 +18,7 @@
       <div class="row">
         <% @influencer_projects.each do |influencer_project| %>
           <% if influencer_project.status == "completion" %>
-            <div class="card" style="text-align:center;">
+            <div class="card notice">
               <div class="request">レビューをお願い致します！</div>
               <%= link_to new_company_review_path(influencer_project),class: 'btn-project' do %>
                 <p><%= truncate influencer_project.message ,length: 10 %></p>
@@ -33,8 +33,10 @@
       <div class="row">
         <% @influencer_projects.each do |influencer_project| %>
           <% if influencer_project.status == "perfect" %>
-            <div class="card" style="text-align:center;">
-              <%= render 'influencer_projects/message', influencer_project: influencer_project %>
+            <div class="card notice">
+              <div class="">
+                <%= render 'influencer_projects/message', influencer_project: influencer_project %>
+              </div>
             </div>
           <% end %>
         <% end %>
