@@ -21,10 +21,8 @@
             <div class="card notice">
               <div class="request">レビューをお願い致します！</div>
               <%= link_to new_company_review_path(influencer_project),class: 'btn-project' do %>
-                <p><%= truncate influencer_project.message ,length: 10 %></p>
+                <%= render 'influencer_projects/message', influencer_project: influencer_project %>
               <% end %>
-                <p><%#= influencer_project.status %></p>
-                <p><%#= influencer_project.project.company.company_name %></p>
             </div>
           <% end %>
         <% end %>

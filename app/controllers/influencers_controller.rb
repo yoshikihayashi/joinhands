@@ -1,5 +1,6 @@
 class InfluencersController < ApplicationController
   # before_action :authenticate_influencer!
+  before_action :set_influencer, only: [:show, :edit, :update]
   layout 'influencer'
 
   def index
@@ -7,7 +8,6 @@ class InfluencersController < ApplicationController
   end
 
   def show
-    @influencer = Influencer.find(params[:id])
     if influencer_signed_in?
       render :layout => 'influencer'
     else
@@ -16,11 +16,9 @@ class InfluencersController < ApplicationController
   end
 
   def edit
-    @influencer = Influencer.find(params[:id])
   end
 
   def update
-    @influencer = Influencer.find(params[:id])
     # tag_list = influencer_params[:tag_ids]
     # influencer_params_hash = influencer_params.to_h
     # influencer_params_hash.delete(:tag_ids)
@@ -35,6 +33,10 @@ class InfluencersController < ApplicationController
   end
 
   private
+
+  def set_influencer
+    @influencer = Influencer.find(params[:id])
+  end
 
   def influencer_params
     params.require(:influencer).permit(:nickname, :image, :details, :name_kana, :address, :tag_ids, :follower_count, :phone_number, :name)

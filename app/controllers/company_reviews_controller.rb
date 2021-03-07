@@ -3,7 +3,6 @@ class CompanyReviewsController < ApplicationController
   def new
     @company_review = CompanyReview.new
     @influencer = InfluencerProject.find(params[:id])
-    # byebug
     if influencer_signed_in?
       render :layout => 'influencer'
     else

@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   attachment :image
   validates :price, :title, length: { in: 1..75 }
   validates :details, length: { in: 1..350 }
-  has_many :influencer_projects
+  has_many :influencer_projects, dependent: :destroy
   has_many :influencers, through: :influencer_projects, source: :influencer
   has_many :favorites, dependent: :destroy
   has_many :favorited_influencers, through: :favorites, source: :influencer
