@@ -12,7 +12,7 @@
         <p><%= link_to "プロフィール編集", edit_company_path(@company),class: 'btn-group' %></p>
         <%= render 'companies/modal' %>
       <% end %>
-      <div class="review-star">
+      <div class="company-review-star">
         <% @company_reviews.each do |company_review| %>
          <div class="review-box" id="star-rate-<%= company_review.id %>"></div>
          <script>
@@ -28,10 +28,10 @@
            score: <%= company_review.rate %>,
          });
          </script>
-        <div class="review-box"><%= company_review.rate %></div>
-        <div class="review-box"><%= company_review.comment %></div>
+        <div class="company-review-box"><%= company_review.rate %></div>
+        <div class="company-review-box"><%= company_review.comment %></div>
         <% end %>
-         <div class="review-box">（平均値<%= @company.avg_rate %>点）</div>
+         <div class="company-review-box">（平均値<%= @company.avg_rate %>点）</div>
       </div>
     </div>
     <div class="col-lg-7">
