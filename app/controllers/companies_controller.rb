@@ -1,7 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update]
   layout 'company'
-  # before_action :authenticate_user!
 
   def index
     @influencers = Influencer.all
@@ -22,7 +21,7 @@ class CompaniesController < ApplicationController
   end
 
   private
-  
+
   def set_company
     @company = Company.find(params[:id])
   end

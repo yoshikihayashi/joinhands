@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     review.influencer_id = influencer.id
     review.project_id = project.id
     review.save!
-    InfluencerProject.find_by(project_id: project.id, influencer_id: influencer.id).update!(status: 3)
+    InfluencerProject.find_by(project_id: project.id, influencer_id: influencer.id).completion!
     redirect_to project
   end
 

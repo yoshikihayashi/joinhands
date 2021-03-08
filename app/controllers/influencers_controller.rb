@@ -1,5 +1,4 @@
 class InfluencersController < ApplicationController
-  # before_action :authenticate_influencer!
   before_action :set_influencer, only: [:show, :edit, :update]
   layout 'influencer'
 

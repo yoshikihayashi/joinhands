@@ -16,7 +16,7 @@ class CompanyReviewsController < ApplicationController
     @company_review = CompanyReview.new(company_review_params)
     @company_review.company_id = company_id
     if @company_review.save
-      influencer_project.update(status: 4)
+      influencer_project.perfect!
       flash[:success] = '送信しました！'
       redirect_to influencer_projects_path(current_influencer.id)
     else

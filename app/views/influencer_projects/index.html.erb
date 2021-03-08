@@ -1,7 +1,7 @@
 <h2 class="subject">通知一覧</h2>
 <div class="container">
     <% if influencer_signed_in? %>
-      <h5 class="">新着通知</h5>
+      <h5 class="influencer-project-title">新着通知</h5>
       <div class="row">
         <% @influencer_projects.each do |influencer_project| %>
           <% if influencer_project.status == "request" %>
@@ -14,7 +14,7 @@
           <% end %>
         <% end %>
       </div>
-      <h5 class="">レビュー待ち</h5>
+      <h5 class="influencer-project-title">レビュー待ち</h5>
       <div class="row">
         <% @influencer_projects.each do |influencer_project| %>
           <% if influencer_project.status == "completion" %>
@@ -27,7 +27,7 @@
           <% end %>
         <% end %>
       </div>
-      <h5 class="">完了済み案件</h5>
+      <h5 class="influencer-project-title">完了済み案件</h5>
       <div class="row">
         <% @influencer_projects.each do |influencer_project| %>
           <% if influencer_project.status == "perfect" %>

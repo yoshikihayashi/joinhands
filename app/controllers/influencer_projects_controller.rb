@@ -44,7 +44,7 @@ class InfluencerProjectsController < ApplicationController
 
   def completion
     @influencer_project = InfluencerProject.find_by(influencer_id: params[:influencer_id], project_id: params[:id])
-    @influencer_project.update(status: 3)
+    @influencer_project.completion!
     redirect_to @influencer_project.project
   end
 
