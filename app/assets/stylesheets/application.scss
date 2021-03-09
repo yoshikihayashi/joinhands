@@ -19,8 +19,11 @@
 
 // ヘッダー
 @media screen and (min-width: 481px){
-  ul{
-    margin-bottom: 0;
+  // ul{
+  //   margin-bottom: 10px;
+  // }
+  .sticky-top{
+    background: #fff;
   }
   .header-logo{
     color: black;
@@ -30,6 +33,8 @@
   }
   .header-btn{
     color: black;
+    padding: 10px;
+    margin: 20px 0;
   }
   .header-info{
     display: flex;
@@ -42,7 +47,7 @@
     }
   }
   .search{
-    margin-left: 70px;
+    padding: 13px 0 0 0;
   }
   // インフォメーション
   .info-company{
@@ -505,7 +510,6 @@
 
   .review{
     text-align: center;
-    // margin: 100px 412px;
     padding: 0.5em 1em;
     margin: 5em 24em;
     color: #5d627b;
@@ -517,8 +521,6 @@
     padding: 20px;
   }
   // レビュー表示
-  .review-star{
-  }
   .review-box{
     padding: 2px;
     display: inline-block;
@@ -592,14 +594,17 @@
     margin: 0.4em;
   }
 }
-// レスポンシブ対応
+// レスポンシブ対応---------------------------------------------------------------------------------------------------------------------------------------
 @media screen and (max-width: 480px){
-  .card{
-    margin: 0 2%;
-  }
   // ヘッダー
+  .sticky-top{
+    background: #fff;
+  }
   ul{
     margin-bottom: 0;
+  }
+  .navbar-nav{
+    text-align: center;
   }
   .header-logo{
     color: black;
@@ -618,10 +623,6 @@
       display: inline-block;
     }
   }
-  .search{
-    margin-left: 70px;
-  }
-
 
   .subject{
     padding: 1rem 1rem;
@@ -630,4 +631,183 @@
     border-bottom: solid 3px #d7d7d7;
     font-size: 15px;
   }
+   .search-message{
+    margin: 90px auto;
+    font-size: 25px;
+  }
+
+// カード
+  .card{
+    padding: 15px;
+    margin: 5px auto;
+    width: 350px;
+  }
+  .btn-project{
+      color: gray;
+    }
+  .tags{
+    position: relative;
+  	display: inline-block;
+  	margin: 0 .6em .6em .6em;
+  	padding: .6em .6em .6em 1.2em;
+  	line-height: 1;
+  	text-decoration: none;
+  	background-color: lightgray;
+  	width: fit-content;
+  	font-size: 13px;
+  }
+  .tags:before{
+    position: absolute;
+  	top: 0;
+  	left: -1em;
+  	content: '';
+  	border-width: 1.1em 1em 1.1em 0;
+  	border-style: solid;
+  	border-color: transparent lightgray transparent transparent;
+  }
+  .tags:after{
+    position: absolute;
+  	top: center;
+  	left: 0;
+  	content: '#';
+  }
+  .ui-helper-hidden-accessible {
+    display: none;
+  }
+// マイページ インフルエンサー側
+  .attachment{
+    width: 100%;
+  }
+  .btn-group {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #f7f7f7;
+    border-left: solid 6px black;/*左線*/
+    color: black;/*文字色*/
+    font-weight: bold;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+    width: 166px;
+    text-align: center;
+    margin: 0 90px;
+  }
+  .btn-group:active {
+    box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+    transform: translateY(2px);
+  }
+   .flash{
+    text-align: center;
+    background: lightgray;
+    font-size: 15px;
+  }
+// マイページ編集
+  table{
+    width: auto;
+    height: auto;
+    border-collapse: collapse;
+    margin: 20px;
+  }
+  table tr{
+    border-bottom: solid 2px white;
+  }
+  table tr:last-child{
+    border-bottom: none;
+  }
+
+  table th{
+    position: relative;
+    text-align: left;
+    width: 30%;
+    background-color: #52c2d0;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  table th:after{
+    display: block;
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top:calc(50% - 10px);
+    right:-10px;
+    border-left: 10px solid #52c2d0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+
+  table td{
+    width: 70%;
+    text-align: center;
+    background-color: #eee;
+    padding: 10px 0;
+  }
+  .table-btn{
+    text-align: center;
+    margin: 50px;
+  }
+  .btn {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      outline: 0;
+      border: 0;
+      color: white;
+      transition: 0.3s;
+  }
+// 通知欄
+  .influencer-project-title{
+    font-size: 12px;
+  }
+  .request{
+    font-size: 15px;
+    text-align: center;
+    position: relative;
+    background-color: #fef;
+    padding: 10px;
+    color: #333;
+    border-radius: 10px;
+  }
+  .request::before {
+    content: "";
+    position: absolute;
+    border: 12px solid transparent;
+    border-top: 12px solid #fef;
+    top: 100%;
+    left: 5%;
+  }
+  .request p {
+    margin: 0;
+    padding: 0;
+  }
+  .review{
+    text-align: center;
+    padding: 0.5em 1em;
+    margin: 80px 75px;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    height: 260px;
+  }
+  .submit-button {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 12pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    padding       : 7px 30px;   /* 余白       */
+    background    : #999999;     /* 背景色     */
+    color         : #ffffff;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    border        : 2px solid #999999;    /* 枠の指定 */
+    margin-top: 20px;
+  }
+   .star{
+    margin-top: 20px;
+  }
+
+
+
 }

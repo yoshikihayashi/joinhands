@@ -9,55 +9,57 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <% if company_signed_in? %>
-        <a class="navbar-brand"><%= link_to "JOIN HANDS", companies_path, class: "header-logo" %></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link"><%= link_to 'インフルエンサー一覧', companies_path,class: "header-btn" %></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"><%= link_to '案件一覧', projects_path ,class: "header-btn" %></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"><%= link_to '投稿フォーム', new_project_path ,class: "header-btn" %></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"><%= link_to 'マイページ', company_path(current_company.id) ,class: "header-btn" %></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">
-                <%= link_to "ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} ,class: "header-btn" %>
-              </a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <%= render 'searchs/form' %>
-          </form>
-        </div>
-      <% else %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link"><%= link_to "新規登録 for company", new_company_registration_path ,class: "header-btn" %></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"><%= link_to "ログイン for company", new_company_session_path ,class: "header-btn" %></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"><%= link_to 'ゲストログイン for company', companies_guest_sign_in_path, method: :post ,class: "header-btn"%></a>
-            </li>
-          </ul>
-        </div>
-      <% end %>
-    </nav>
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <% if company_signed_in? %>
+          <a class="navbar-brand"><%= link_to "JOIN HANDS", companies_path, class: "header-logo" %></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="search">
+                <%= render 'searchs/form' %>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to 'インフルエンサー一覧', companies_path,class: "header-btn" %></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to '案件一覧', projects_path ,class: "header-btn" %></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to '投稿フォーム', new_project_path ,class: "header-btn" %></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to 'マイページ', company_path(current_company.id) ,class: "header-btn" %></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">
+                  <%= link_to "ログアウト", destroy_company_session_path, method: :delete, data: {confirm: "ログアウトしますか？"} ,class: "header-btn" %>
+                </a>
+              </li>
+            </ul>
+          </div>
+        <% else %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to "新規登録 for company", new_company_registration_path ,class: "header-btn" %></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to "ログイン for company", new_company_session_path ,class: "header-btn" %></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"><%= link_to 'ゲストログイン for company', companies_guest_sign_in_path, method: :post ,class: "header-btn"%></a>
+              </li>
+            </ul>
+          </div>
+        <% end %>
+      </nav>
+    </header>
     <% if flash[:success] %>
       <div class="flash">
         <%= flash[:success] %>
