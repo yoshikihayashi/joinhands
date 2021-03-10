@@ -751,10 +751,12 @@
       display: block;
       width: 100%;
       padding: 20px;
+      -webkit-appearance: none;
       outline: 0;
       border: 0;
       color: white;
       transition: 0.3s;
+      background: lightgray;
   }
 // 通知欄
   .influencer-project-title{
@@ -807,6 +809,23 @@
    .star{
     margin-top: 20px;
   }
+// 会社側マイページ
+  .text {
+    margin: 0 100px;
+  }
+  .modal-text{
+    text-align: center;
+    line-height: 2;
+    font-size: 13px;
+    a{
+      font-family: 'Impact';
+      font-size: 30px;
+    }
+  }
+  .button-10 {
+    color: #D600D6;
+  }
+// 投稿フォーム
 
 
 

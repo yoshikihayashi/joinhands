@@ -21,7 +21,7 @@
           <%= render partial: 'favorites/favorite', locals: { project: @project} %>
         </div>
         <div class="col-lg-7">
-          <% if company_signed_in? %>
+          <%# if company_signed_in? && influencer.id == current_company.id %>
             <% @influencers.each do |influencer| %>
               <div class="project-show">
                 <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
@@ -33,14 +33,6 @@
                 <%= link_to "レビューする" , review_new_project_path(@project,influencer), data: { confirm: "【確認】レビュー画面に進みますか？"},class: 'btn-project' %>
               </div>
             <% end %>
-            <!--<%# @evaluation_influencers.each do |influencer| -->
-            <!--  <p>レビュー待ち</p>-->
-            <!--  <div>-->
-            <!--    <%#= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>-->
-            <!--      <p>【 <%#= influencer.nickname %> 】</p>-->
-            <!--    <# end %>-->
-            <!--  </div>-->
-            <!--<%# end %>-->
             <% @completion_influencers.each do |influencer| %>
               <p>完了済み</p>
               <div>
@@ -49,7 +41,7 @@
                 <% end %>
               </div>
             <% end %>
-          <% end %>
+          <%# end %>
         </div>
     </div>
       </div>
