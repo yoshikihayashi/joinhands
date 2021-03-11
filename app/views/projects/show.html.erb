@@ -21,7 +21,7 @@
           <%= render partial: 'favorites/favorite', locals: { project: @project} %>
         </div>
         <div class="col-lg-7">
-          <%# if company_signed_in? && influencer.id == current_company.id %>
+          <% if company_signed_in? && @project.company.id == current_company.id %>
             <% @influencers.each do |influencer| %>
               <div class="project-show">
                 <%= link_to influencer_path(influencer.id) ,class: 'btn-project' do %>
@@ -41,7 +41,7 @@
                 <% end %>
               </div>
             <% end %>
-          <%# end %>
+          <% end %>
         </div>
     </div>
       </div>

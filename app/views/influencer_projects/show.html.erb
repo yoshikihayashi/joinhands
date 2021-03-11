@@ -23,7 +23,7 @@
                     <td><%= form.select :status , @statuses, {} %></td>
                   </tr>
                   <tr>
-                    <td><%= form.text_area :influencer_message , cols: 50,:placeholder=>"承諾の場合はご連絡先の入力をお願い致します。" %></td>
+                    <td><%= form.text_area :influencer_message ,:placeholder=>"承諾の場合はご連絡先の入力をお願い致します。" %></td>
                   </tr>
             </table>
             <div class="table-btn"><%= form.submit "送信する" ,class:"btn btn-primary", data: { confirm: "【確認】送信しますか？"} %></div>

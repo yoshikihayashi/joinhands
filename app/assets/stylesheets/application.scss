@@ -50,6 +50,14 @@
     padding: 13px 0 0 0;
   }
   // インフォメーション
+  .info_img{
+    width: 220px;
+    height: 220px;
+  }
+  .info_img_hands{
+    width: 80px;
+    height: 80px;
+  }
   .info-company{
     p{
       background: #FFF0F5;
@@ -593,9 +601,99 @@
     display: block;
     margin: 0.4em;
   }
+  input[type="text"][name="project[title]"]{
+        width: 400px;
+        height: 40px;
+    }
+  input[type="text"][name="project[price]"]{
+        width: 400px;
+        height: 40px;
+    }
+  input[type="text"][name="content"]{
+        width: 200px;
+    }
+  input[type="text"][name="company[company_name]"],[name="company[representative_name]"],[name="company[business_detail]"],
+    [name="company[employee_number]"],[name="company[email]"],[name="company[phone_number]"],[name="influencer_project[influencer_message]"]{
+        width: 300px;
+    }
+  textarea[name="project[details]"],[name="influencer[details]"]{
+    width: 400px;
+    height: 200px;
+  }
 }
 // レスポンシブ対応---------------------------------------------------------------------------------------------------------------------------------------
 @media screen and (max-width: 480px){
+  // インフルエンサーインフォ
+  .box {
+    display: flex;
+    padding:20px;
+  }
+  .box .img {
+    margin: 0 20px 0 0;
+  }
+  .box:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  .box:nth-child(even) .img {
+    margin: 0 0 0 20px;
+  }
+
+  .text-box{
+    // width:calc(100% - 320px);
+    background: white;
+    padding: 30px;
+    text-align: center;
+    h2{
+      font-size: 18px;
+      font-weight: bold;
+    }
+    p{
+      font-size: 12px;
+    }
+  }
+  // company-info
+  .cp_bgpattern20 {
+    background: #eec;
+  	height: 755px;
+  }
+  .info-title{
+    text-align: center;
+    padding-top: 105px;
+    font-size: 11px;
+  }
+  .marker-info{
+    background:linear-gradient(transparent 75%, #ff7f7f 75%);
+    font-weight:bold;
+  }
+  .info_img{
+    width: 110px;
+    height: 150px;
+  }
+  .info_img_hands{
+    width: 60px;
+    height: 45px;
+  }
+  .info-company{
+    p{
+      background: #fee;
+      border-radius: 50%;
+      display: inline-block;
+      text-align: center;
+      font-size: 12px;
+      width: 132px;
+      margin: 0 18px;
+      padding: 10px;
+    }
+  }
+  .info2-company{
+    p{
+      background:linear-gradient(transparent 95%, #ff7f7f);
+      text-align: center;
+      font-size: 10px;
+      padding: 10px;
+      margin: 3px 10px;
+    }
+  }
   // ヘッダー
   .sticky-top{
     background: #fff;
@@ -826,7 +924,15 @@
     color: #D600D6;
   }
 // 投稿フォーム
-
-
-
+  input[type="text"] {
+        width: 300px;
+        height: 40px;
+    }
+  textarea[name="project[details]"],[name="influencer[details]"]{
+    width: 300px;
+    height: 250px;
+  }
+  textarea[name="influencer_project[influencer_message]"]{
+    width: 300px;
+  }
 }
