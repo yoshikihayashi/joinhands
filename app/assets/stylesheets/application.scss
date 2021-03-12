@@ -623,6 +623,72 @@
 }
 // レスポンシブ対応---------------------------------------------------------------------------------------------------------------------------------------
 @media screen and (max-width: 480px){
+  // トップページ
+  .top_img{
+    width: 43%;
+    height: auto;
+  }
+  .top-body{
+    background: black;
+    height: 100px;
+    width: 1000px;
+  }
+  .top_page{
+    margin: 0 auto;
+    position: relative;
+    background: black;
+    height: 400px;
+    width: 375px;
+  }
+  .top_page{
+    .top-title{
+    position: absolute;
+    width: 580px;
+    background: -moz-linear-gradient(65deg, #F13F79, #FFC778);
+    background: -webkit-linear-gradient(65deg, #F13F79, #FFC778);
+    background: linear-gradient(25deg, #F13F79, #FFC778);
+    top: 0;
+    left: -5%;
+    font-size: 10px;
+    text-align: center;
+    }
+  }
+  .top-logo{
+  position: absolute;
+  font-size: 79px;
+  color: white;
+  background: black;
+  font-family: 'Didot';
+  }
+  .top_footer{
+    display: flex;
+  }
+  .button-gradation{
+    position: relative;
+    display: inline-block;
+    padding: 0.4em 1.6em;
+    font-size: 1.8em;
+    color: #00b5ad;
+    text-decoration: none;
+    user-select: none;
+    background: #fff;
+    transition: 0.3s;
+  }
+  .button-gradation:hover {
+    color: #fff;
+    background: -webkit-linear-gradient(top left, #00b5ad, #50e684);
+  }
+
+  .button-gradation::before {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    content: "";
+    background: -webkit-linear-gradient(top left, #00b5ad, #50e684);
+  }
   // インフルエンサーインフォ
   .box {
     display: flex;
