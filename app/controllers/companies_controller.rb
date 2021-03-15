@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  skip_before_action :authenticate_influencer!
   before_action :set_company, only: [:show, :edit, :update]
   layout 'company'
 
@@ -27,6 +28,6 @@ class CompaniesController < ApplicationController
   end
 
   def company_params
-    params.require(:company).permit(:company_name, :business_detail, :employee_number, :representative_name)
+    params.require(:company).permit(:company_name, :business_detail, :employee_number, :representative_name, :phone_number)
   end
 end

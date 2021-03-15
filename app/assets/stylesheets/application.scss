@@ -317,13 +317,13 @@
       animation: move 10s ease infinite;
       transform: translate3d(0, 0, 0);
       background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
-      height: 100vh;
+      height: 108vh;
   }
 
   .user {
       width: 90%;
       max-width: 340px;
-      margin: 10vh auto;
+      margin: 10px auto;
   }
 
   .user__header {
@@ -337,6 +337,9 @@
       font-size: $font-size;
       font-weight: 500;
       color: white;
+  }
+  .links a{
+    color: black;
   }
 
   .form {
@@ -614,7 +617,7 @@
     }
   input[type="text"][name="company[company_name]"],[name="company[representative_name]"],[name="company[business_detail]"],
     [name="company[employee_number]"],[name="company[email]"],[name="company[phone_number]"],[name="influencer_project[influencer_message]"]{
-        width: 300px;
+        width: 340px;
     }
   textarea[name="project[details]"],[name="influencer[details]"]{
     width: 400px;
@@ -623,6 +626,31 @@
 }
 // レスポンシブ対応---------------------------------------------------------------------------------------------------------------------------------------
 @media screen and (max-width: 480px){
+  // 新規登録/ログイン
+  .body_group {
+      animation: move 10s ease infinite;
+      transform: translate3d(0, 0, 0);
+      background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
+      height: 108vh;
+  }
+  .user {
+      width: 90%;
+      max-width: 340px;
+      margin: 10px auto;
+  }
+
+  .user__header {
+      text-align: center;
+  }
+  .user__title {
+      font-weight: bold;
+      color: white;
+      font-size: 23px;
+      font-family: "游ゴシック体";
+  }
+  .links a{
+    color: black;
+  }
   // トップページ
   .top_img{
     width: 77%;
@@ -985,8 +1013,8 @@
     color: #D600D6;
   }
 // 投稿フォーム
-  input[type="text"] {
-        width: 300px;
+  input[type="text"],[type="email"],[type="password"] {
+        width: 336px;
         height: 40px;
     }
   textarea[name="project[details]"],[name="influencer[details]"]{
