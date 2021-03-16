@@ -10,6 +10,7 @@ class Influencer < ApplicationRecord
       influencer.password = Devise.friendly_token[0, 20]
     end
   end
+  validates :name, :phone_number, :email, presence: true
   attachment :image
 
   has_many :favorites, dependent: :destroy
