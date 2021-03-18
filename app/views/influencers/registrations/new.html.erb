@@ -6,7 +6,7 @@
     </header>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "influencers/shared/error_messages", resource: resource %>
-      <form class="form">
+      <div class="form">
         <div class="form__group">
           <%= f.text_field :name, :placeholder=>"お名前",autofocus: true, :class => 'form__input'  %>
         </div>
@@ -40,7 +40,7 @@
         <button class="btn" type="button">
           <%= f.submit '登録する',class:"btn btn-primary" %>
         </button>
-      </form>
+      </div>
     <% end %>
     <div class="links">
       <%= render "devise/shared/links" %>

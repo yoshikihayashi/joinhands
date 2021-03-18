@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  skip_before_action :authenticate_influencer!
+  #skip_before_action :authenticate_influencer!
   before_action :set_company, only: [:show, :edit, :update]
   layout 'company'
 
