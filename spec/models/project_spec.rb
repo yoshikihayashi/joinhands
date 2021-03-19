@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Project, type: :model do
   subject { project.valid? }
+
   let(:project) { create(:project) }
-   describe 'バリデーション' do
+
+  describe 'バリデーション' do
     it 'priceが定義していればOK' do
       expect(project.valid?).to eq(true)
     end

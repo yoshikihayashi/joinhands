@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe CompanyReview, type: :model do
   let(:company_review) { create(:company_review) }
-   describe 'バリデーション' do
+
+  describe 'バリデーション' do
     it 'rateが定義していればOK' do
       expect(company_review.valid?).to eq(true)
     end

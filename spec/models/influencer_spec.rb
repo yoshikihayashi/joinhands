@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Influencer, type: :model do
   let(:influencer) { create(:influencer) }
-   describe 'バリデーション' do
+
+  describe 'バリデーション' do
     it 'nameが定義していればOK' do
       expect(influencer.valid?).to eq(true)
     end

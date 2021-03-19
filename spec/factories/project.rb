@@ -5,5 +5,4 @@ FactoryBot.define do
     title { "testtest" }
     details { "testproject" }
   end
-
 end

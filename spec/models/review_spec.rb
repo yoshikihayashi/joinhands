@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Review, type: :model do
   let(:review) { create(:review) }
-   describe 'バリデーション' do
+
+  describe 'バリデーション' do
     it 'rateが定義していればOK' do
       expect(review.valid?).to eq(true)
     end

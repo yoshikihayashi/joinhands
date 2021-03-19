@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Company, type: :model do
   let(:company) { create(:company) }
-   describe 'バリデーション' do
+
+  describe 'バリデーション' do
     it 'nameが定義していればOK' do
       expect(company.valid?).to eq(true)
     end

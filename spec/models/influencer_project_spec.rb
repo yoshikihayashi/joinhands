@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe InfluencerProject, type: :model do
   subject { influencer_project.valid? }
+
   let(:influencer_project) { create(:influencer_project) }
-   describe 'バリデーション' do
+
+  describe 'バリデーション' do
     it 'messageが定義していればOK' do
       expect(influencer_project.valid?).to eq(true)
     end

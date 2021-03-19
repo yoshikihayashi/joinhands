@@ -5,36 +5,43 @@ describe '[STEP1] ログイン前のテスト' do
     before do
       visit '/'
     end
+
     context '表示内容の確認' do
-      it 'コンテンツが正しい' do
+      it '表示コンテンツが正しい' do
         expect(page.body).to have_text'影響力のあるインフルエンサーと、商品やサービスをPRしたい企業のマッチングプラットフォーム'
       end
     end
   end
+
   describe 'influencer_info画面のテスト' do
     before do
       visit '/homes/influencer_info'
     end
+
     context '表示内容の確認' do
-      it 'コンテンツが正しい' do
+      it '表示コンテンツが正しい' do
         expect(page.body).to have_text'空いた時間にSNSで仕事ができる！'
       end
     end
   end
+
   describe 'company_info画面のテスト' do
     before do
       visit '/homes/company_info'
     end
+
     context '表示内容の確認' do
-      it 'コンテンツが正しい' do
+      it '表示コンテンツが正しい' do
         expect(page.body).to have_text'効率よくインフルエンサーに仕事の依頼をしませんか？'
       end
     end
   end
+
   describe 'influencer側新規登録のテスト' do
     before do
       visit new_influencer_registration_path
     end
+
     context '表示内容の確認' do
       it '「新規登録」と表示される' do
         expect(page).to have_content '新規登録'
@@ -70,6 +77,7 @@ describe '[STEP1] ログイン前のテスト' do
         expect(page).to have_button '登録する'
       end
     end
+
     context '新規登録成功のテスト' do
       before do
         fill_in 'influencer[name]', with: Faker::Lorem.characters(number: 10)
@@ -82,6 +90,7 @@ describe '[STEP1] ログイン前のテスト' do
         fill_in 'influencer[password]', with: 'password'
         fill_in 'influencer[password_confirmation]', with: 'password'
       end
+
       it '正しく新規登録される' do
         expect { click_button '登録する' }.to change(Influencer.all, :count).by(1)
       end
@@ -90,10 +99,11 @@ describe '[STEP1] ログイン前のテスト' do
         expect(current_path).to eq influencers_path
       end
     end
-
   end
+
   describe 'influencerログイン' do
     let(:influencer) { create(:influencer) }
+
     before do
       visit new_influencer_session_path
     end
@@ -136,45 +146,47 @@ describe '[STEP1] ログイン前のテスト' do
         fill_in 'influencer[password]', with: ''
         click_button 'ログイン'
       end
+
       it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
         expect(current_path).to eq '/influencers/sign_in'
       end
     end
 
-    describe 'ユーザログアウトのテスト' do
-    let(:influencer) { create(:influencer) }
+    describe 'influencerログアウトのテスト' do
+      let(:influencer) { create(:influencer) }
 
-    before do
-      visit new_influencer_session_path
-      fill_in 'influencer[email]', with: influencer.email
-      fill_in 'influencer[password]', with: influencer.password
-      click_button 'ログイン'
-      logout_link = find_all('a')[3].native.inner_text
-      logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
-      click_link logout_link
+      before do
+        visit new_influencer_session_path
+        fill_in 'influencer[email]', with: influencer.email
+        fill_in 'influencer[password]', with: influencer.password
+        click_button 'ログイン'
+        logout_link = find_all('a')[3].native.inner_text
+        logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link logout_link
+      end
+
+      # context 'ログアウト機能のテスト' do
+      #   it 'コンテンツが正しい' do
+      #     expect(page).to have_content '影響力のあるインフルエンサーと、商品やサービスをPRしたい企業のマッチングプラットフォーム'
+      #   end
+      #   it '「for company」と表示される' do
+      #     expect(page).to have_content 'for company'
+      #   end
+      #   it '「for influencer」と表示される' do
+      #     expect(page).to have_content 'for influencer'
+      #   end
+      #   it 'ログアウト後のリダイレクト先が、トップになっている' do
+      #     expect(current_path).to eq '/'
+      #   end
+      # end
     end
-
-    # context 'ログアウト機能のテスト' do
-    #   it 'コンテンツが正しい' do
-    #     expect(page).to have_content '影響力のあるインフルエンサーと、商品やサービスをPRしたい企業のマッチングプラットフォーム'
-    #   end
-    #   it '「for company」と表示される' do
-    #     expect(page).to have_content 'for company'
-    #   end
-    #   it '「for influencer」と表示される' do
-    #     expect(page).to have_content 'for influencer'
-    #   end
-    #   it 'ログアウト後のリダイレクト先が、トップになっている' do
-    #     expect(current_path).to eq '/'
-    #   end
-    # end
   end
 
-  end
   describe 'company側新規登録のテスト' do
     before do
       visit new_company_registration_path
     end
+
     context '表示内容の確認' do
       it '「新規登録」と表示される' do
         expect(page).to have_content '新規登録'
@@ -207,6 +219,7 @@ describe '[STEP1] ログイン前のテスト' do
         expect(page).to have_button '登録する'
       end
     end
+
     context '新規登録成功のテスト' do
       before do
         fill_in 'company[company_name]', with: Faker::Lorem.characters(number: 10)
@@ -218,6 +231,7 @@ describe '[STEP1] ログイン前のテスト' do
         fill_in 'company[password]', with: 'password'
         fill_in 'company[password_confirmation]', with: 'password'
       end
+
       it '正しく新規登録される' do
         expect { click_button '登録する' }.to change(Company.all, :count).by(1)
       end
@@ -228,69 +242,78 @@ describe '[STEP1] ログイン前のテスト' do
     end
 
     describe 'companyログイン' do
-    let(:company) { create(:company) }
-    before do
-      visit new_company_session_path
-    end
+      let(:company) { create(:company) }
 
-    context '表示内容の確認' do
-      it 'URLが正しい' do
-        expect(current_path).to eq '/companies/sign_in'
-      end
-      it '「ログイン」と表示される' do
-        expect(page).to have_content 'ログイン'
-      end
-      it 'emailフォームが表示される' do
-        expect(page).to have_field 'company[email]'
-      end
-      it 'passwordフォームが表示される' do
-        expect(page).to have_field 'company[password]'
-      end
-      it 'ログインボタンが表示される' do
-        expect(page).to have_button 'ログイン'
-      end
-      it 'nameフォームは表示されない' do
-        expect(page).not_to have_field 'company[name]'
-      end
-    end
-
-    # context 'ログイン成功のテスト' do
-    #   before do
-    #     fill_in 'company[email]', with: company.email
-    #     fill_in 'company[password]', with: company.password
-    #     click_button 'ログイン'
-    #   end
-    #   it 'ログイン後のリダイレクト先が、ログインしたユーザーの詳細画面になっている' do
-    #     expect(current_path).to eq '/companies/' + company.id.to_s
-    #   end
-    # end
-
-    context 'ログイン失敗のテスト' do
       before do
-        fill_in 'company[email]', with: ''
-        fill_in 'company[password]', with: ''
-        click_button 'ログイン'
+        visit new_company_session_path
       end
-      it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
-        expect(current_path).to eq '/companies/sign_in'
+
+      context '表示内容の確認' do
+        it 'URLが正しい' do
+          expect(current_path).to eq '/companies/sign_in'
+        end
+        it '「ログイン」と表示される' do
+          expect(page).to have_content 'ログイン'
+        end
+        it 'emailフォームが表示される' do
+          expect(page).to have_field 'company[email]'
+        end
+        it 'passwordフォームが表示される' do
+          expect(page).to have_field 'company[password]'
+        end
+        it 'ログインボタンが表示される' do
+          expect(page).to have_button 'ログイン'
+        end
+        it 'nameフォームは表示されない' do
+          expect(page).not_to have_field 'company[name]'
+        end
+      end
+
+      # context 'ログイン成功のテスト' do
+      #   before do
+      #     fill_in 'company[email]', with: company.email
+      #     fill_in 'company[password]', with: company.password
+      #     click_button 'ログイン'
+      #   end
+      #   it 'ログイン後のリダイレクト先が、ログインしたユーザーの詳細画面になっている' do
+      #     expect(current_path).to eq '/companies/' + company.id.to_s
+      #   end
+      # end
+
+      context 'ログイン失敗のテスト' do
+        before do
+          fill_in 'company[email]', with: ''
+          fill_in 'company[password]', with: ''
+          click_button 'ログイン'
+        end
+
+        it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
+          expect(current_path).to eq '/companies/sign_in'
+        end
+      end
+
+      describe 'ログアウトのテスト' do
+        let(:company) { create(:company) }
+
+        before do
+          visit new_company_session_path
+          fill_in 'company[email]', with: company.email
+          fill_in 'company[password]', with: company.password
+          click_button 'ログイン'
+          logout_link = find_all('a')[4].native.inner_text
+          logout_link = logout_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+          click_button 'ログアウト'
+        end
+
+        context 'ログアウト機能のテスト' do
+          # it '正しくログアウトできている: ログアウト後のリダイレクト先においてAbout画面へのリンクが存在する' do
+          #   expect(page).to have_link '', href: '/home/about'
+          # end
+          it 'ログアウト後のリダイレクト先が、トップになっている' do
+            expect(current_path).to eq '/'
+          end
+        end
       end
     end
-
-    # context 'ログアウト機能のテスト' do
-    #   it 'コンテンツが正しい' do
-    #     expect(page).to have_content '影響力のあるインフルエンサーと、商品やサービスをPRしたい企業のマッチングプラットフォーム'
-    #   end
-    #   it '「for company」と表示される' do
-    #     expect(page).to have_content 'for company'
-    #   end
-    #   it '「for influencer」と表示される' do
-    #     expect(page).to have_content 'for influencer'
-    #   end
-    #   it 'ログアウト後のリダイレクト先が、トップになっている' do
-    #     expect(current_path).to eq '/'
-    #   end
-    # end
-  end
-  
   end
 end
