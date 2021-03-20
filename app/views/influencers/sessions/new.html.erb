@@ -5,7 +5,7 @@
       <h1 class="user__title">ログイン</h1>
     </header>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <form class="form">
+      <div class="form">
         <div class="form__group">
           <%= f.email_field :email, :placeholder=>"Email",autofocus: true,:class => 'form__input'  %>
         </div>
@@ -15,7 +15,7 @@
         <button class="btn" type="button">
           <%= f.submit 'ログイン',class:"btn btn-primary" %>
         </button>
-      </form>
+      </div>
     <% end %>
   </div>
 </div>

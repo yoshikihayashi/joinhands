@@ -1,11 +1,12 @@
 FactoryBot.define do
   factory :influencer do
-    name { "testinfluencer" }
-    email { "test@gmail.com" }
-    phone_number { 11100001111 }
-    address { "testtesttest" }
-    nickname { "testinfluencer" }
-    follower_count { "testinfluencer1" }
-    password { "testinfluencer1" }
+    name { Faker::Lorem.characters(number: 10) }
+    email { Faker::Internet.email }
+    phone_number { Faker::Lorem.characters(number: 10) }
+    address { Faker::Lorem.characters(number: 10) }
+    nickname { Faker::Lorem.characters(number: 10) }
+    follower_count { Faker::Lorem.characters(number: 5) }
+    password { 'password' }
+    password_confirmation { 'password' }
   end
 end

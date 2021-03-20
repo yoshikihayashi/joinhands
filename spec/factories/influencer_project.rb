@@ -3,7 +3,7 @@ FactoryBot.define do
     association :influencer
     association :project
     status { 0 }
-    message { "testmessage" }
-    influencer_message { "testinfluencer_message" }
+    message { Faker::Lorem.characters(number: 10) }
+    influencer_message { Faker::Lorem.characters(number: 10) }
   end
 end
