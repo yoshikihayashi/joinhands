@@ -44,4 +44,23 @@ RSpec.describe Project, type: :model do
       is_expected.to eq false
     end
   end
+
+  describe 'search_by_tag' do
+    let(:influencer) { create(:influencer) }
+    it 'タグでの検索ができること' do
+      Tag.create!(name: 'test')
+      tag = Tag.first
+      project.tag_relationships.create!(tag_id: tag.id, influencer_id: influencer.id)
+      projects = Project.search_by_tag('test').result
+      expect(projects.first.tags.first.name).to eq('test')
+    end
+  end
+  
+  describe 'アソシエーションのテスト' do
+    context 'Companyrモデルとの関係' do
+      it 'N:1となっている' do
+        expect(Project.reflect_on_association(:company).macro).to eq :belongs_to
+      end
+    end
+  end
 end

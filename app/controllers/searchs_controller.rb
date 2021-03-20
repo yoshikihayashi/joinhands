@@ -3,7 +3,7 @@ class SearchsController < ApplicationController
     @model = params["model"]
     @content = params["content"]
     @records = search_for(@model, @content)
-    @projects = Project.ransack(tags_name_cont: params[:content])
+    @projects = Project.search_by_tag(params[:content])
     if company_signed_in?
       render :layout => 'company'
     else
