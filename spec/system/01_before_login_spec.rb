@@ -83,8 +83,8 @@ describe '[STEP1] ログイン前のテスト' do
         fill_in 'influencer[name]', with: Faker::Lorem.characters(number: 10)
         fill_in 'influencer[name_kana]', with: Faker::Lorem.characters(number: 10)
         fill_in 'influencer[nickname]', with: Faker::Lorem.characters(number: 10)
-        fill_in 'influencer[follower_count]', with: Faker::Lorem.characters(number: 10)
-        fill_in 'influencer[phone_number]', with: Faker::Lorem.characters(number: 10)
+        fill_in 'influencer[follower_count]', with: Faker::Lorem.characters(number: 5)
+        fill_in 'influencer[phone_number]', with: Faker::Lorem.characters(number: 11)
         fill_in 'influencer[address]', with: Faker::Lorem.characters(number: 10)
         fill_in 'influencer[email]', with: Faker::Internet.email
         fill_in 'influencer[password]', with: 'password'
@@ -178,6 +178,16 @@ describe '[STEP1] ログイン前のテスト' do
           expect(current_path).to eq '/'
         end
       end
+    end
+  end
+
+  describe 'influencerゲストログイン' do
+    before do
+      visit homes_influencer_info_path
+      click_link 'ゲストログイン for influencer'
+    end
+    it 'ゲストログインが成功するか' do
+       expect(current_path).to eq influencers_path
     end
   end
 
@@ -315,4 +325,15 @@ describe '[STEP1] ログイン前のテスト' do
       end
     end
   end
+
+  describe 'companyゲストログイン' do
+    before do
+      visit homes_company_info_path
+      click_link 'ゲストログイン for company'
+    end
+    it 'ゲストログインが成功するか' do
+      expect(current_path).to eq '/companies/' + company.id.to_s
+    end
+  end
+
 end

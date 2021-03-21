@@ -14,6 +14,8 @@ class Company < ApplicationRecord
   def self.guest
     find_or_create_by!(email: 'guest1@example.com') do |company|
       company.password = SecureRandom.urlsafe_base64
+      company.company_name = 'ゲスト1'
+      company.phone_number = '00011112222'
     end
   end
 

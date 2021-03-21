@@ -10,7 +10,7 @@ class Influencer < ApplicationRecord
       influencer.password = Devise.friendly_token[0, 20]
     end
   end
-  validates :name, :phone_number, :email, presence: true
+  validates :nickname, :name, :phone_number, :email, presence: true
   attachment :image
 
   has_many :favorites, dependent: :destroy
@@ -39,8 +39,9 @@ class Influencer < ApplicationRecord
   def self.guest
     find_or_create_by!(email: 'guest1@example.com') do |influencer|
       influencer.password = SecureRandom.urlsafe_base64
+      influencer.name = 'ゲスト1'
       influencer.nickname = 'ゲスト1'
-      # influencer.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+      influencer.phone_number = '00011112222'
     end
   end
 

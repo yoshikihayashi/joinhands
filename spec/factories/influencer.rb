@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :influencer do
     name { Faker::Lorem.characters(number: 10) }
+    name_kana { Faker::Lorem.characters(number: 10) }
     email { Faker::Internet.email }
-    phone_number { Faker::Lorem.characters(number: 10) }
+    phone_number { Faker::Lorem.characters(number: 11) }
     address { Faker::Lorem.characters(number: 10) }
     nickname { Faker::Lorem.characters(number: 10) }
     follower_count { Faker::Lorem.characters(number: 5) }

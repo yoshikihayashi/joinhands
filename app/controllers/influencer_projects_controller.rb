@@ -38,7 +38,7 @@ class InfluencerProjectsController < ApplicationController
 
   def update
     @influencer_project = InfluencerProject.find(params[:id])
-    @influencer_project.update(status: params[:influencer_project][:status].to_i, influencer_message: params[:influencer_project][:influencer_message])
+    @influencer_project.update(influencer_project_update_params)
     redirect_to influencers_path
   end
 
@@ -63,5 +63,9 @@ class InfluencerProjectsController < ApplicationController
 
   def influencer_project_params
     params.permit(:message, :influencer_id, :project_id, :influencer_message)
+  end
+
+  def influencer_project_update_params
+    params.require(:influencer_project).permit(:status, :influencer_message)
   end
 end
