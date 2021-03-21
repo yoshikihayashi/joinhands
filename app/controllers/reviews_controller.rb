@@ -19,6 +19,7 @@ class ReviewsController < ApplicationController
     review.project_id = project.id
     review.save!
     InfluencerProject.find_by(project_id: project.id, influencer_id: influencer.id).completion!
+    flash[:success] = '送信完了です！'
     redirect_to project
   end
 

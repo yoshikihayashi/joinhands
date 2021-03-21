@@ -331,7 +331,7 @@ describe '[STEP1] ログイン前のテスト' do
       visit homes_company_info_path
       click_link 'ゲストログイン for company'
     end
-    it 'ゲストログインが成功するか' do
+    it 'ゲストログイン成功' do
       expect(current_path).to eq '/companies/' + company.id.to_s
     end
   end

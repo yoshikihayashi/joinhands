@@ -113,17 +113,6 @@ describe '[STEP2] (会社側)ログイン後のテスト' do
       it 'URLが正しい' do
         expect(current_path).to eq '/companies'
       end
-      # it '自分と他人の画像が表示される: fallbackの画像がサイドバーの1つ＋一覧(2人)の2つの計3つ存在する' do
-      #   expect(all('img').size).to eq(3)
-      # end
-      # it '自分と他人の名前がそれぞれ表示される' do
-      #   expect(page).to have_content influencer.name
-      #   expect(page).to have_content other_influencer.name
-      # end
-      # it '自分と他人のshowリンクがそれぞれ表示される' do
-      #   expect(page).to have_link 'Show', href: user_path(user)
-      #   expect(page).to have_link 'Show', href: user_path(other_user)
-      # end
     end
   end
 
@@ -310,24 +299,16 @@ describe '[STEP2] (インフルエンサー側)ログイン後のテスト' do
     end
   end
 
-  # describe '案件一覧画面のテスト' do
-  #   before do
-  #     visit influencers_path
-  #   end
+  describe '案件一覧画面のテスト' do
+    before do
+      visit influencers_path
+    end
 
-  #   context '表示内容の確認' do
-  #     it 'URLが正しい' do
-  #       expect(current_path).to eq '/influencers'
-  #     end
-  #     it '自分の投稿と他人の投稿のタイトルのリンク先がそれぞれ正しい' do
-  #       expect(page).to have_link project.title, href: project_path(project)
-  #       expect(page).to have_link other_project.title, href: project_path(other_project)
-  #     end
-  #     it '自分の投稿と他人の投稿の報酬が表示される' do
-  #       expect(page).to have_content project.price
-  #       expect(page).to have_content other_project.price
-  #     end
-  #   end
-  # end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/influencers'
+      end
+    end
+  end
 
 end

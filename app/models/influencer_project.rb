@@ -6,5 +6,4 @@ class InfluencerProject < ApplicationRecord
   # 0 = 申請中, 　1 = 却下, 　　2 = 承認, 　　3 = 完了      4 = 終了
 
   validates_uniqueness_of :influencer_id, scope: :project_id
-  validates :message, :influencer_message, presence: true, length: { maximum: 300 }
 end
