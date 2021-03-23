@@ -55,7 +55,7 @@ RSpec.describe Project, type: :model do
       expect(projects.first.tags.first.name).to eq('test')
     end
   end
-  
+
   describe 'アソシエーションのテスト' do
     context 'Companyrモデルとの関係' do
       it 'N:1となっている' do

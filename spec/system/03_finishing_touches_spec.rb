@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'selenium-webdriver'
 
 describe '[STEP3] (Company側)仕上げのテスト', type: :system do
   let(:company) { create(:company) }
@@ -74,7 +75,7 @@ describe '[STEP3] (influencer側)仕上げのテスト', type: :system do
       fill_in 'influencer[password]', with: influencer.password
       click_button 'ログイン'
       visit influencer_projects_path
-      byebug
+      # byebug
       find(:xpath,"/html/body/div/div[2]/div/a").click
       fill_in 'company_review[comment]', with: Faker::Lorem.characters(number: 5)
       fill_in 'company_review[rate]', with: '3'
@@ -87,8 +88,8 @@ end
 describe '[STEP3] influencer_project', type: :system do
   let!(:influencer) { create(:influencer) }
   let!(:company) { create(:company) }
-  let!(:project) { create(:project, company: company) }
   let!(:influencer_project) { create(:influencer_project) }
+  let!(:project) { create(:project, company: company, influencer_projects: [influencer_project]) }
 
   describe '[company側]influencer_project' do
 
@@ -105,17 +106,21 @@ describe '[STEP3] influencer_project', type: :system do
       click_link '申請'
       fill_in 'message', with: Faker::Lorem.characters(number: 5)
       click_button '送信'
-      expect(current_path).to eq companies_path
+      expect(page).to have_content '送信完了です'
     end
-    it 'company→influencer完了' do
-      click_link "#{project.title}"
-      # 2のinfluencer_project
+
+    it 'company→influencer完了', js: true do
+      influencer_project.status = 2
+      influencer_project.save
+      click_link "#{project.reload.title}"
       click_link 'レビューする'
+      page.driver.browser.switch_to.alert.accept
       fill_in 'comment', with: Faker::Lorem.characters(number: 5)
-      fill_in 'review[rate]', with: '3'
+      find('#rating-form').find("img[alt='3']").click
       click_button '送信する'
-      is_expected.to have_content '送信しました！'
+      expect(page).to have_content '送信完了です'
     end
+    
   end
 
   describe '[influencer側]influencer_project' do
@@ -130,7 +135,7 @@ describe '[STEP3] influencer_project', type: :system do
 
     it 'influencer→company承諾' do
       visit influencer_projects_path
-      # 0のinfluencer_project
+      save_and_open_page
       find(:xpath,"/html/body/div[2]/div[1]/div/a").click
       find("#influencer_project_id").find("option[value='2']").select_option
       fill_in 'influencer_project[influencer_message]', with: Faker::Lorem.characters(number: 5)
@@ -140,7 +145,10 @@ describe '[STEP3] influencer_project', type: :system do
 
     it 'influencer→company終了' do
       visit influencer_projects_path
-      # 3のinfluencer_project
+      influencer_project.status = 3
+      influencer_project.save
+      save_and_open_page
+      byebug
       find(:xpath,"/html/body/div/div[2]/div/a").click
       fill_in 'company_review[comment]', with: Faker::Lorem.characters(number: 5)
       fill_in 'company_review[rate]', with: '3'
