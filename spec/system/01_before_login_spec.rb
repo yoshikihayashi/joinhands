@@ -332,7 +332,7 @@ describe '[STEP1] ログイン前のテスト' do
       click_link 'ゲストログイン for company'
     end
     it 'ゲストログイン成功' do
-      expect(current_path).to eq '/companies/' + company.id.to_s
+      expect(page).to have_content 'ログインしました！'
     end
   end
 
