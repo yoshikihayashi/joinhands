@@ -77,35 +77,32 @@ describe '[STEP3] (Company側)仕上げのテスト', type: :system do
       click_link '削除'
       expect(page).to have_content '投稿を削除しました!'
     end
-
   end
 
   describe '他人の案件詳細画面のテスト' do
-      before do
-        visit project_path(other_project)
-      end
+    before do
+      visit project_path(other_project)
+    end
 
-      context '表示内容の確認' do
-        it 'URLが正しい' do
-          expect(current_path).to eq '/projects/' + other_project.id.to_s
-        end
-        it '案件のtitleが表示される' do
-          expect(page).to have_content other_project.title
-        end
-        it '案件のpriceが表示される' do
-          expect(page).to have_content other_project.price
-        end
-        it '案件のdetailsが表示される' do
-          expect(page).to have_content other_project.details
-        end
-        it '案件の削除リンクが表示されない' do
-          expect(page).not_to have_link '削除'
-        end
+    context '表示内容の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/projects/' + other_project.id.to_s
       end
+      it '案件のtitleが表示される' do
+        expect(page).to have_content other_project.title
+      end
+      it '案件のpriceが表示される' do
+        expect(page).to have_content other_project.price
+      end
+      it '案件のdetailsが表示される' do
+        expect(page).to have_content other_project.details
+      end
+      it '案件の削除リンクが表示されない' do
+        expect(page).not_to have_link '削除'
+      end
+    end
   end
-
 end
-
 
 describe '[STEP3] (influencer側)仕上げのテスト', type: :system do
   let(:influencer) { create(:influencer) }
@@ -146,7 +143,6 @@ describe '[STEP3] (influencer側)仕上げのテスト', type: :system do
       click_button '変更を保存'
       is_expected.to have_content 'プロフィールを更新しました！'
     end
-
   end
 end
 
@@ -157,7 +153,6 @@ describe '[STEP3] influencer_project', type: :system do
   let!(:project) { create(:project, company: company, influencer_projects: [influencer_project]) }
 
   describe '[company側]influencer_project' do
-
     before do
       visit new_company_session_path
       fill_in 'company[email]', with: company.email
@@ -185,11 +180,9 @@ describe '[STEP3] influencer_project', type: :system do
       click_button '送信する'
       expect(page).to have_content '送信完了です'
     end
-
   end
 
   describe '[influencer側]influencer_project' do
-
     before do
       visit new_influencer_session_path
       fill_in 'influencer[email]', with: influencer_project.influencer.email
@@ -197,10 +190,9 @@ describe '[STEP3] influencer_project', type: :system do
       click_button 'ログイン'
     end
 
-
     it 'influencer→company承諾' do
       visit influencer_projects_path
-      find(:xpath,"/html/body/div/div[1]/div/a").click
+      find(:xpath, "/html/body/div/div[1]/div/a").click
       find("#influencer_project_status").find("option[value='2']").select_option
       fill_in 'influencer_project[influencer_message]', with: Faker::Lorem.characters(number: 5)
       click_button '送信する'
@@ -211,13 +203,11 @@ describe '[STEP3] influencer_project', type: :system do
       influencer_project.status = 3
       influencer_project.save
       visit influencer_projects_path
-      find(:xpath,"/html/body/div/div[2]/div/a").click
+      find(:xpath, "/html/body/div/div[2]/div/a").click
       fill_in 'company_review[comment]', with: Faker::Lorem.characters(number: 5)
       find('#rating-form').find("img[alt='3']").click
       click_button '送信する'
       expect(page).to have_content '送信しました'
     end
-
   end
-
 end

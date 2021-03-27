@@ -128,12 +128,14 @@ describe '[STEP1] ログイン前のテスト' do
         expect(page).not_to have_field 'influencer[name]'
       end
     end
+
     context 'ログイン成功のテスト' do
       before do
         fill_in 'influencer[email]', with: influencer.email
         fill_in 'influencer[password]', with: influencer.password
         click_button 'ログイン'
       end
+
       it 'ログイン後のリダイレクト先が、案件一覧画面になっている' do
         expect(current_path).to eq influencers_path
       end
@@ -169,10 +171,10 @@ describe '[STEP1] ログイン前のテスト' do
           expect(page).to have_text '影響力のあるインフルエンサーと、商品やサービスをPRしたい企業のマッチングプラットフォーム'
         end
         it 'company_infoのlinkが表示される' do
-           expect(page).to have_link '', href: '/homes/company_info'
+          expect(page).to have_link '', href: '/homes/company_info'
         end
         it 'influencer_infoのlinkが表示される' do
-           expect(page).to have_link '', href: '/homes/influencer_info'
+          expect(page).to have_link '', href: '/homes/influencer_info'
         end
         it 'ログアウト後のリダイレクト先が、トップになっている' do
           expect(current_path).to eq '/'
@@ -186,8 +188,9 @@ describe '[STEP1] ログイン前のテスト' do
       visit homes_influencer_info_path
       click_link 'ゲストログイン for influencer'
     end
+
     it 'ゲストログインが成功するか' do
-       expect(current_path).to eq influencers_path
+      expect(current_path).to eq influencers_path
     end
   end
 
@@ -284,6 +287,7 @@ describe '[STEP1] ログイン前のテスト' do
           fill_in 'company[password]', with: company.password
           click_button 'ログイン'
         end
+
         it 'ログイン後のリダイレクト先が、ログインしたユーザーの詳細画面になっている' do
           expect(current_path).to eq '/companies/' + company.id.to_s
         end
@@ -331,9 +335,9 @@ describe '[STEP1] ログイン前のテスト' do
       visit homes_company_info_path
       click_link 'ゲストログイン for company'
     end
+
     it 'ゲストログイン成功' do
       expect(page).to have_content 'ログインしました！'
     end
   end
-
 end

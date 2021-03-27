@@ -47,6 +47,7 @@ RSpec.describe Project, type: :model do
 
   describe 'search_by_tag' do
     let(:influencer) { create(:influencer) }
+
     it 'タグでの検索ができること' do
       Tag.create!(name: 'test')
       tag = Tag.first

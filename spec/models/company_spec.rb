@@ -7,7 +7,6 @@ RSpec.describe Company, type: :model do
     let!(:other_company) { create(:company) }
     let(:company) { build(:company) }
 
-
     it 'company_nameが定義していればOK' do
       expect(company.valid?).to eq(true)
     end

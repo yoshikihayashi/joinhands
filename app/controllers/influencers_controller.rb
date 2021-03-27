@@ -18,12 +18,7 @@ class InfluencersController < ApplicationController
   end
 
   def update
-    # tag_list = influencer_params[:tag_ids]
-    # influencer_params_hash = influencer_params.to_h
-    # influencer_params_hash.delete(:tag_ids)
-    # @influencer = current_influencer.build(influencer_params_hash)
     if @influencer.update(influencer_params)
-      # @influencer.save_tags(tag_list)
       flash[:success] = 'プロフィールを更新しました！'
       redirect_to influencer_path(@influencer.id)
     else

@@ -5,7 +5,8 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects, dependent: :destroy
-  validates :company_name, :phone_number, :email, presence: true, length: { in: 2..50 }
+  validates :phone_number, :email, presence: true
+  validates :company_name, length: { in: 2..50 }
   has_many :company_reviews, dependent: :destroy
 
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitorcompany_id', dependent: :destroy
@@ -16,17 +17,6 @@ class Company < ApplicationRecord
       company.password = SecureRandom.urlsafe_base64
       company.company_name = 'ゲスト1'
       company.phone_number = '00011112222'
-    end
-  end
-
-  def create_notification(current_company)
-    temp = Notification.where(["visiterinfluencer_id = ? and visitedcompany_id = ? and action = ? ", current_company.id, id])
-    if temp.blank?
-      notification = current_company.active_notifications.new(
-        visitedcompany_id: id,
-        action: ''
-      )
-      notification.save if notification.valid?
     end
   end
 

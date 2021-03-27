@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe '[STEP2] (会社側)ログイン後のテスト' do
-    let(:company) { create(:company) }
-    let!(:other_company) { create(:company) }
-    let!(:project) { create(:project, company: company) }
-    let!(:other_project) { create(:project, company: other_company) }
+  let(:company) { create(:company) }
+  let!(:other_company) { create(:company) }
+  let!(:project) { create(:project, company: company) }
+  let!(:other_project) { create(:project, company: other_company) }
 
   before do
     visit new_company_session_path
@@ -25,8 +25,9 @@ describe '[STEP2] (会社側)ログイン後のテスト' do
       end
     end
   end
+
   describe '案件一覧画面のテスト' do
-     before do
+    before do
       visit projects_path
     end
 
@@ -201,9 +202,10 @@ describe '[STEP2] (会社側)ログイン後のテスト' do
     end
   end
 end
+
 describe '[STEP2] (インフルエンサー側)ログイン後のテスト' do
-    let(:influencer) { create(:influencer) }
-    # let!(:project) { create(:project, company: company) }
+  let(:influencer) { create(:influencer) }
+  # let!(:project) { create(:project, company: company) }
 
   before do
     visit new_influencer_session_path
@@ -248,7 +250,7 @@ describe '[STEP2] (インフルエンサー側)ログイン後のテスト' do
       end
     end
   end
-  
+
   describe 'マイページ編集画面のテスト' do
     before do
       visit edit_influencer_path(influencer)
@@ -310,5 +312,4 @@ describe '[STEP2] (インフルエンサー側)ログイン後のテスト' do
       end
     end
   end
-
 end

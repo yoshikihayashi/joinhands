@@ -14,7 +14,7 @@ class Project < ApplicationRecord
   has_many  :tags, through: :tag_relationships
 
   scope :search_by_tag, -> (name) { ransack(tags_name_cont: name) }
-  
+
   def save_tags(saveproject_tags)
     saveproject_tags.each do |new_name|
       project_tag = Tag.find_or_create_by(name: new_name)
