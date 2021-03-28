@@ -89,6 +89,9 @@ describe '[STEP2] (会社側)ログイン後のテスト' do
       it '案件の削除リンクが表示される' do
         expect(page).to have_link '削除', href: project_path(project)
       end
+      it '案件の編集リンクが表示される' do
+        expect(page).to have_link '編集', href: edit_project_path(project)
+      end
     end
 
     context '削除リンクのテスト' do
@@ -101,6 +104,63 @@ describe '[STEP2] (会社側)ログイン後のテスト' do
       end
       it 'リダイレクト先が、投稿一覧画面になっている' do
         expect(current_path).to eq '/projects'
+      end
+    end
+
+    context '編集リンクのテスト' do
+      it '編集画面に遷移する' do
+        click_link '編集'
+        expect(current_path).to eq '/projects/' + project.id.to_s + '/edit'
+      end
+    end
+  end
+
+  describe '自分の案件編集画面のテスト' do
+    before do
+      visit edit_project_path(project)
+    end
+
+    context '表示の確認' do
+      it 'URLが正しい' do
+        expect(current_path).to eq '/projects/' + project.id.to_s + '/edit'
+      end
+      it 'price編集フォームが表示される' do
+        expect(page).to have_field 'project[price]', with: project.price
+      end
+      it 'title編集フォームが表示される' do
+        expect(page).to have_field 'project[title]', with: project.title
+      end
+      it 'details編集フォームが表示される' do
+        expect(page).to have_field 'project[details]', with: project.details
+      end
+      it '投稿ボタンが表示される' do
+        expect(page).to have_button '投稿'
+      end
+    end
+
+    context '編集成功のテスト' do
+      before do
+        @project_old_price = project.price
+        @project_old_title = project.title
+        @project_old_details = project.details
+        fill_in 'project[price]', with: Faker::Lorem.characters(number: 4)
+        fill_in 'project[title]', with: Faker::Lorem.characters(number: 4)
+        fill_in 'project[details]', with: Faker::Lorem.characters(number: 19)
+        click_button '投稿'
+      end
+
+      it 'priceが正しく更新される' do
+        expect(project.reload.price).not_to eq @project_old_price
+      end
+      it 'titleが正しく更新される' do
+        expect(project.reload.title).not_to eq @project_old_title
+      end
+      it 'detailsが正しく更新される' do
+        expect(project.reload.details).not_to eq @project_old_details
+      end
+      it 'リダイレクト先が、更新した案件の詳細画面になっている' do
+        expect(current_path).to eq '/projects/' + project.id.to_s
+        expect(page).to have_content '編集完了です'
       end
     end
   end

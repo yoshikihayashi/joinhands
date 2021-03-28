@@ -8,19 +8,10 @@ class Project < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorited_influencers, through: :favorites, source: :influencer
 
-  # has_many :notifications, dependent: :destroy
-
   has_many  :tag_relationships, dependent: :destroy
   has_many  :tags, through: :tag_relationships
 
   scope :search_by_tag, -> (name) { ransack(tags_name_cont: name) }
-
-  # def save_tags(saveproject_tags)
-  #   saveproject_tags.each do |new_name|
-  #     project_tag = Tag.find_or_create_by(name: new_name)
-  #     self.tags << project_tag
-  #   end
-  # end
 
   def save_tags(saveproject_tags)
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
@@ -36,10 +27,6 @@ class Project < ApplicationRecord
       self.tags << project_tag
     end
   end
-
-
-
-
 
   def favorite?(influencer)
     favorites.where(influencer_id: influencer.id).exists?

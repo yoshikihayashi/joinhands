@@ -77,6 +77,16 @@ describe '[STEP3] (Company側)仕上げのテスト', type: :system do
       click_link '削除'
       expect(page).to have_content '投稿を削除しました!'
     end
+    
+    it '案件の編集成功時' do
+      visit new_company_session_path
+      fill_in 'company[email]', with: company.email
+      fill_in 'company[password]', with: company.password
+      click_button 'ログイン'
+      visit edit_project_path(project)
+      click_button '投稿'
+      is_expected.to have_content '編集完了です'
+    end
   end
 
   describe '他人の案件詳細画面のテスト' do
@@ -99,6 +109,9 @@ describe '[STEP3] (Company側)仕上げのテスト', type: :system do
       end
       it '案件の削除リンクが表示されない' do
         expect(page).not_to have_link '削除'
+      end
+      it '案件の編集リンクが表示されない' do
+        expect(page).not_to have_link '編集'
       end
     end
   end
