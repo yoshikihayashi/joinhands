@@ -5,13 +5,17 @@
       <h1 class="user__title">ログイン</h1>
     </header>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= render "influencers/shared/error_messages", resource: resource %>
+       <h5 class="errors-message">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+        <% end %>
+      </h5>
       <div class="form">
         <div class="form__group">
-          <%= f.email_field :email, :placeholder=>"Email",autofocus: true,:class => 'form__input'  %>
+          <%= f.email_field :email, :placeholder=>"Email", autofocus: true, :class => 'form__input'  %>
         </div>
         <div class="form__group">
-          <%= f.password_field :password, :placeholder=>"Password",:class => 'form__input'  %>
+          <%= f.password_field :password, :placeholder=>"Password", :class => 'form__input'  %>
         </div>
         <button class="btn" type="button">
           <%= f.submit 'ログイン',class:"btn btn-primary" %>
