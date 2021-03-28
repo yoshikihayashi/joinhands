@@ -5,6 +5,7 @@
         <%= attachment_image_tag @project, :image, format: 'jpeg', size: "300x300" %>
         <% if company_signed_in? %>
           <% if @project.company == current_company %>
+            <%= link_to "編集", edit_project_path(@project), class: 'btn-group' %>
             <%= link_to "削除", project_path(@project), method: :delete, data: { confirm: "【確認】この案件を削除しますか？"},class: 'btn-group' %>
           <% end %>
         <% end %>

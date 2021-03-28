@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  # skip_before_action :authenticate_influencer!
+  before_action :authenticate_company!, only: [:new, :create, :destroy]
   layout 'company'
 
   def new
@@ -7,10 +7,10 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    tag_list = project_params[:tag_ids].split(",")
+    @project = current_company.projects.build(project_params)
+    tag_list = params[:project][:tag_ids].split(",")
     project_params_hash = project_params.to_h
     project_params_hash.delete(:tag_ids)
-    @project = current_company.projects.build(project_params_hash)
     if @project.save
       @project.save_tags(tag_list)
       flash[:success] = '投稿しました!'
@@ -45,9 +45,27 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  def edit
+    @project = Project.find(params[:id])
+    @tag_list =@project.tags.pluck(:name).join(",")
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    tag_list = params[:project][:tag_ids].split(',')
+    if @project.update_attributes(project_params)
+      @project.save_tags(tag_list)
+      flash[:success] = '編集完了です！'
+      redirect_to project_path(@project.id)
+    else
+      flash[:success] = '編集失敗です。。'
+      render 'edit'
+    end
+  end
+
   private
 
   def project_params
-    params.require(:project).permit(:image, :title, :details, :price, :tag_ids)
+    params.require(:project).permit(:image, :title, :details, :price)
   end
 end

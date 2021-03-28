@@ -1,4 +1,6 @@
 class InfluencerProjectsController < ApplicationController
+  before_action :authenticate_company!, only: [:new, :create, :completion]
+  before_action :authenticate_influencer!, only: [:index, :show, :update]
   layout 'company'
 
   def index

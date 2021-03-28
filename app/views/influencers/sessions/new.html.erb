@@ -5,6 +5,7 @@
       <h1 class="user__title">ログイン</h1>
     </header>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "influencers/shared/error_messages", resource: resource %>
       <div class="form">
         <div class="form__group">
           <%= f.email_field :email, :placeholder=>"Email",autofocus: true,:class => 'form__input'  %>

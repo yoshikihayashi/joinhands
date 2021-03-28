@@ -1,6 +1,4 @@
 class HomesController < ApplicationController
-  # skip_before_action :authenticate_influencer!
-  # skip_before_action :authenticate_company!
 
   def top
   end

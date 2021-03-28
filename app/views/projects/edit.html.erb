@@ -1,5 +1,5 @@
-<h2 class="subject">新規案件投稿</h2>
-  <div class="new-project">
+<h2 class="subject"><%= @project.title %>編集</h2>
+<div class="new-project">
     <%= form_with model: @project, local:true do |f| %>
       <table>
         <tr>
@@ -15,7 +15,7 @@
           <td><%= f.text_area :details , placeholder: "説明文" %></td>
         </tr>
         <tr>
-          <td><%= f.text_field :tag_ids, id:'tag_ids',placeholder: "複数可" %></td>
+          <td><%= f.text_field :tag_ids, value: @tag_list, class: "form-control", id:'tag_ids',placeholder: "複数可" %></td>
         </tr>
       </table>
       <div class="table-btn"><%= f.submit '投稿',class:"btn btn-primary" %></div>

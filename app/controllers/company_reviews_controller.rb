@@ -1,4 +1,5 @@
 class CompanyReviewsController < ApplicationController
+  before_action :authenticate_influencer!
   layout 'influencer'
   def new
     @company_review = CompanyReview.new

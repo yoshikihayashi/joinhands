@@ -15,12 +15,31 @@ class Project < ApplicationRecord
 
   scope :search_by_tag, -> (name) { ransack(tags_name_cont: name) }
 
+  # def save_tags(saveproject_tags)
+  #   saveproject_tags.each do |new_name|
+  #     project_tag = Tag.find_or_create_by(name: new_name)
+  #     self.tags << project_tag
+  #   end
+  # end
+
   def save_tags(saveproject_tags)
-    saveproject_tags.each do |new_name|
+    current_tags = self.tags.pluck(:name) unless self.tags.nil?
+    old_tags = current_tags - saveproject_tags
+    new_tags = saveproject_tags - current_tags
+
+    old_tags.each do |old_name|
+      self.tags.delete Tag.find_by(name: old_name)
+    end
+
+    new_tags.each do |new_name|
       project_tag = Tag.find_or_create_by(name: new_name)
-      tags << project_tag
+      self.tags << project_tag
     end
   end
+
+
+
+
 
   def favorite?(influencer)
     favorites.where(influencer_id: influencer.id).exists?

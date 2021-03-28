@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_company!
   def new
     @project = Project.find(params[:id])
     @influencer = Influencer.find(params[:influencer_id])

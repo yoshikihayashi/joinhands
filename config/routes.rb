@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :projects, only: [:new, :create, :index, :show, :destroy] do
+  resources :projects do
     member do
       patch "influencers/:influencer_id" => 'influencer_projects#completion', as: :completion
       get "influencers/:influencer_id/reviews/new" => 'reviews#new', as: :review_new
