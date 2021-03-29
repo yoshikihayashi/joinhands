@@ -21,9 +21,10 @@ class Influencers::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    render influencer_path(resources.id) if resources.email == "guest1@example.com"
+    super
+  end
 
   # DELETE /resource
   # def destroy

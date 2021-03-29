@@ -4,7 +4,7 @@
     <div class="col-lg-4">
       <%= attachment_image_tag(@influencer, :image, :fill, 300, 300, format: 'jpeg', fallback: "noimage1.jpg") %>
       <% if influencer_signed_in? %>
-        <% if @influencer.id == current_influencer.id %>
+        <% if (@influencer.id == current_influencer.id) && (current_influencer.email != "guest1@example.com") %>
           <p><%= link_to "プロフィール編集", edit_influencer_path(@influencer),class: 'btn-group' %></p>
         <% end %>
       <% elsif company_signed_in? %>
@@ -16,11 +16,6 @@
       <p>【 プロフィール 】<%= @influencer.details %></p>
       <p>【 総フォロワー数 】<%= @influencer.follower_count %></p>
       <p>【 登録日】<%= @influencer.created_at.strftime('%Y/%m/%d') %></p>
-      <%# @projects.tags.each do |tag| %>
-        <!--<div class="tags">-->
-           <%#= tag.name %>
-        <!--</div>-->
-      <%# end %>
       <div class="review-star">
         <% @influencer.reviews.each do |review| %>
          <div class="review-box" id="star-rate-<%= review.id %>"></div>

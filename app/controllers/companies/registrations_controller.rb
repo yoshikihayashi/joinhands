@@ -20,10 +20,11 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # PUT /resource
-  # def update
-  #   super
-  # end
+  #PUT /resource
+  def update
+    render company_path(resources.id) if resources.email == "guest1@example.com"
+    super
+  end
 
   # DELETE /resource
   # def destroy
