@@ -1,10 +1,10 @@
 <% if @model == 'tag' %>
-<h2 class="subject">タグ検索ワード: <%= @content %></h2>
+  <h2 class="subject">タグ検索ワード: <%= @content %></h2>
   <div class="row">
     <% if @records.count > 0 %>
       <% @records.each do |project| %>
         <div class="card">
-          <%= attachment_image_tag project, :image, format: 'jpeg', size: "250x250" %>
+          <%= attachment_image_tag project, :image, format: 'jpeg', size: "250x250", fallback: "noimage.jpg" %>
           <%= link_to project_path(project.id),class: 'btn-project' do %>
             <p><%= truncate project.title , length: 15 %></p>
           <% end %>
@@ -19,18 +19,32 @@
       <div class="search-message">検索結果がありません。</div>
     <% end %>
   </div>
+<% elsif @model == 'influencer' %>
+  <h2 class="subject">インフルエンサー検索ワード: <%= @content %> </h2>
+  <div class="row">
+    <% if @records.count > 0 %>
+      <% @records.each do |influencer| %>
+        <div class="card">
+          <%= attachment_image_tag influencer, :image, format: 'jpeg', size: "250x250", fallback: "noimage.jpg" %>
+          <%= link_to influencer_path(influencer.id), class: 'btn-project' do %>
+            <%= influencer.nickname %>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="search-message">検索結果がありません。</div>
+    <% end %>
+  </div>
 <% else @model == 'projects' %>
   <h2 class="subject">案件検索ワード: <%= @content %></h2>
   <div class="row">
     <% if @records.count > 0 %>
       <% @records.each do |project| %>
         <div class="card">
-          <%= attachment_image_tag project, :image, format: 'jpeg', size: "250x250" %>
-          <tr>
+          <%= attachment_image_tag project, :image, format: 'jpeg', size: "250x250", fallback: "noimage.jpg" %>
             <%= link_to project_path(project.id),class: 'btn-project' do %>
-              <td><%= project.title %></td>
+              <%= project.title %>
             <% end %>
-          </tr>
         </div>
       <% end %>
     <% else %>

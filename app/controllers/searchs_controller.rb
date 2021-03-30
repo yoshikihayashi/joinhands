@@ -18,6 +18,8 @@ class SearchsController < ApplicationController
       @records = Project.ransack(title_cont: params[:content]).result
     elsif params[:model] == 'tag'
       @records = Project.ransack(tags_name_cont: params[:content]).result
+    elsif params[:model] == 'influencer'
+      @records = Influencer.ransack(nickname_cont: params[:content]).result
     end
   end
 end

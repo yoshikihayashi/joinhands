@@ -10,8 +10,8 @@
       <p>【 登録日 】<%= @company.created_at.strftime('%Y/%m/%d') %></p>
       <% if (@company.id == current_company.id) && (current_company.email != "guest1@example.com") %>
         <p><%= link_to "プロフィール編集", edit_company_path(@company),class: 'btn-group' %></p>
-        <%= render 'companies/modal' %>
       <% end %>
+        <%= render 'companies/modal' %>
       <div class="company-review-star">
         <% @company_reviews.each do |company_review| %>
          <div class="review-box" id="star-rate-<%= company_review.id %>"></div>
