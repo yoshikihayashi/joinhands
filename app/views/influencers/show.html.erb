@@ -17,26 +17,26 @@
       <p>【 総フォロワー数 】<%= @influencer.follower_count %></p>
       <p>【 登録日】<%= @influencer.created_at.strftime('%Y/%m/%d') %></p>
       <div class="review-star">
-        <% @influencer.reviews.each do |review| %>
-         <div class="review-box" id="star-rate-<%= review.id %>"></div>
-         <script>
-         $('#star-rate-<%= review.id %>').raty({
-           size: 36,
-           starOff:  '<%= asset_path('star-off.png') %>',
-           starOn : '<%= asset_path('star-on.png') %>',
-           starHalf: '<%= asset_path('star-half.png') %>',
-           scoreName: 'influencer[rate]',
-           scoreName: 'company[rate]',
-           half: true,
-           readOnly: true,
-           score: <%= review.rate %>,
-         });
-         </script>
-        <div class="review-box"><%= review.rate %></div>
-        <div class="review-box"><%= review.comment %></div>
-        <% end %>
-         <div class="review-box">（平均値<%= @influencer.avg_rate %>点）</div>
+        <div id="star-rate-<%= @influencer.id %>">(<%= @influencer.reviews.count %>)</div>
+        <div class="review-box">（星5つ中の<%= @influencer.avg_rate %>）</div>
+        <%= render 'influencers/review_modal' %>
       </div>
+      <script>
+      $(document).ready(function() {
+       $('#star-rate-<%= @influencer.id %>').raty({
+         size: 36,
+         starOff:  '<%= asset_path('star-off.png') %>',
+         starOn : '<%= asset_path('star-on.png') %>',
+         starHalf: '<%= asset_path('star-half.png') %>',
+         scoreName: 'influencer[rate]',
+         scoreName: 'company[rate]',
+         half: true,
+         readOnly: true,
+         score: <%= @influencer.avg_rate %>,
+         number: 5
+       });
+      })
+     </script>
     </div>
   </div>
 </div>

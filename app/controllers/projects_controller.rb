@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_company!, only: [:new, :create, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
   layout 'company'
 
   def new
@@ -27,7 +28,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
     @influencers = Influencer.includes(:influencer_projects).where(influencer_projects: { status: 2, project_id: @project })
     @influencer_projects = InfluencerProject.where(project_id: params[:id])
     @completion_influencers = Influencer.includes(:influencer_projects).where(influencer_projects: { status: 3, project_id: @project })
@@ -39,19 +39,16 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
     @project.destroy
     flash[:success] = '投稿を削除しました!'
     redirect_to projects_path
   end
 
   def edit
-    @project = Project.find(params[:id])
-    @tag_list =@project.tags.pluck(:name).join(",")
+    @tag_list = @project.tags.pluck(:name).join(",")
   end
 
   def update
-    @project = Project.find(params[:id])
     tag_list = params[:project][:tag_ids].split(',')
     if @project.update_attributes(project_params)
       @project.save_tags(tag_list)
@@ -64,6 +61,10 @@ class ProjectsController < ApplicationController
   end
 
   private
+
+  def set_project
+    @project = Project.find(params[:id])
+  end
 
   def project_params
     params.require(:project).permit(:image, :title, :details, :price)

@@ -539,10 +539,15 @@
     padding: 20px;
   }
   // レビュー表示
+  .review-star{
+    display: flex;
+  }
   .review-box{
     padding: 2px;
-    display: inline-block;
-    margin: 0 44px;
+  }
+  .review-modal-star{
+    display: flex;
+    padding: 10px;
   }
   // ボタン
   .submit-button {
@@ -867,6 +872,14 @@
   }
   .ui-helper-hidden-accessible {
     display: none;
+  }
+
+  // レビュー表示
+  .review-star{
+    display: flex;
+  }
+  .review-box{
+    padding: 2px;
   }
 // マイページ インフルエンサー側
   .attachment{
