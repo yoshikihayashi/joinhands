@@ -5,9 +5,9 @@ class CompaniesController < ApplicationController
   def index
     @influencers = Influencer.all
     if company_signed_in?
-      render :layout => 'influencer'
-    else
       render :layout => 'company'
+    else
+      render :layout => 'influencer'
     end
   end
 
