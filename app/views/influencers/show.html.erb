@@ -17,13 +17,13 @@
       <p>【 総フォロワー数 】<%= @influencer.follower_count %></p>
       <p>【 登録日】<%= @influencer.created_at.strftime('%Y/%m/%d') %></p>
       <div class="review-star">
-        <div id="star-rate-<%= @influencer.id %>">(<%= @influencer.reviews.count %>)</div>
+        <div id="star-<%= @influencer.id %>">(<%= @influencer.reviews.count %>)</div>
         <div class="review-box">（星5つ中の<%= @influencer.avg_rate %>）</div>
         <%= render 'influencers/review_modal' %>
       </div>
       <script>
       $(document).ready(function() {
-       $('#star-rate-<%= @influencer.id %>').raty({
+       $('#star-<%= @influencer.id %>').raty({
          size: 36,
          starOff:  '<%= asset_path('star-off.png') %>',
          starOn : '<%= asset_path('star-on.png') %>',
