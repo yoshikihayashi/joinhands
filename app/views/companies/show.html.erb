@@ -12,27 +12,29 @@
         <p><%= link_to "プロフィール編集", edit_company_path(@company),class: 'btn-group' %></p>
       <% end %>
         <%= render 'companies/modal' %>
-      <div class="company-review-star">
-        <% @company_reviews.each do |company_review| %>
-         <div class="review-box" id="star-rate-<%= company_review.id %>"></div>
-         <script>
-         $('#star-rate-<%= company_review.id %>').raty({
-           size: 36,
-           starOff:  '<%= asset_path('star-off.png') %>',
-           starOn : '<%= asset_path('star-on.png') %>',
-           starHalf: '<%= asset_path('star-half.png') %>',
-           scoreName: 'influencer[rate]',
-           scoreName: 'company[rate]',
-           half: true,
-           readOnly: true,
-           score: <%= company_review.rate %>,
-         });
+        <div class="review-star">
+          <div id="star-rate-<%= @company.id %>">(<%= @company.company_reviews.count %>)</div>
+          <div class="review-star">
+            <div class="review-box">（星5つ中の<%= @company.avg_rate %>）</div>
+            <%= render 'companies/company_review_modal' %>
+          </div>
+          <script>
+          $(document).ready(function() {
+           $('#star-rate-<%= @company.id %>').raty({
+             size: 36,
+             starOff:  '<%= asset_path('star-off.png') %>',
+             starOn : '<%= asset_path('star-on.png') %>',
+             starHalf: '<%= asset_path('star-half.png') %>',
+             scoreName: 'influencer[rate]',
+             scoreName: 'company[rate]',
+             half: true,
+             readOnly: true,
+             score: <%= @company.avg_rate %>,
+             number: 5
+           });
+          })
          </script>
-        <div class="company-review-box"><%= company_review.rate %></div>
-        <div class="company-review-box"><%= company_review.comment %></div>
-        <% end %>
-         <div class="company-review-box">（平均値<%= @company.avg_rate %>点）</div>
-      </div>
+        </div>
     </div>
     <div class="col-lg-7">
       <% @projects.each do |project| %>
