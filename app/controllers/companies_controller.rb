@@ -4,6 +4,11 @@ class CompaniesController < ApplicationController
 
   def index
     @influencers = Influencer.all
+    if company_signed_in?
+      render :layout => 'influencer'
+    else
+      render :layout => 'company'
+    end
   end
 
   def show
