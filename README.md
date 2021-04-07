@@ -3,7 +3,7 @@
 ![image](https://user-images.githubusercontent.com/73930495/112181679-fd928b80-8c3f-11eb-9558-66d362ecc14a.png)
 
 ## 概要
-「影響力のあるインフルエンサーと、商品やサービスをPRしたい企業のマッチングプラットフォーム」
+影響力のあるインフルエンサーと、商品やサービスをPRしたい企業のマッチングプラットフォーム
 
 ##  URL
 http://joinhands.site/
