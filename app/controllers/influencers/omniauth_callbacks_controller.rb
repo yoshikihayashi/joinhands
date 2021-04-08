@@ -1,11 +1,11 @@
 class Influencers::OmniauthCallbacksController < ApplicationController
-  def facebook
-    callback_for(:facebook)
-  end
+  # def facebook
+  #   callback_for(:facebook)
+  # end
 
-  def twitter
-    callback_for(:twitter)
-  end
+  # def twitter
+  #   callback_for(:twitter)
+  # end
 
   def google_oauth2
     callback_for(:google)
