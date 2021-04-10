@@ -44,7 +44,7 @@ PRしてもらうことで売上向上をはかります。
 
 ・ Bootstrap 4.5.0
 
-・ SCSS (BEM)
+・ SCSS 
 
 ・ JavaScript、jQuery、Ajax
 
