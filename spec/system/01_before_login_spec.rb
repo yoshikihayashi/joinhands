@@ -34,6 +34,9 @@ describe '[STEP1] ログイン前のテスト' do
       it '表示コンテンツが正しい' do
         expect(page.body).to have_text'効率よくインフルエンサーに仕事の依頼をしませんか？'
       end
+      it '表示コンテンツが正しい' do
+        expect(page.body).to have_text'JOIN HANDS'
+      end
     end
   end
 
